@@ -1,0 +1,23 @@
+.btnGradient {
+  background: linear-gradient(90deg, #feac6d 0%, #ae61ed 100%);
+}
+
+.bordered::before {
+  content: "";
+  position: absolute;
+  transform: rotate(90deg) translateX(11px) translateY(-25px);
+  top: 0;
+  right: 0;
+  width: 47px;
+  height: 1px;
+  background-color: #fffbfba6;
+}
+
+.bordered:last-child::before {
+  width: 0px;
+  height: 0px;
+}
+
+.bordered {
+  padding: 0 1.5rem; /* This applies horizontal padding to the element */
+}
