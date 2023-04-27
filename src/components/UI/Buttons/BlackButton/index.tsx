@@ -1,20 +1,20 @@
 import React, { FC, MouseEventHandler } from "react";
-import s from "./GradientButton.module.css";
+
 type Props = {
   children: React.ReactNode;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   className?: string;
 };
 
-const GradientButton: FC<Props> = ({ children, className, onClick }) => {
+const BlackButton: FC<Props> = ({ children, className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={` px-6 py-3 ${s.btnGradient} rounded-lg cursor-pointer ${className}`}
+      className={`bg-white/5 px-6 py-3 rounded-lg cursor-pointer ${className}`}
     >
       {children}
     </button>
   );
 };
 
-export default GradientButton;
+export default BlackButton;
