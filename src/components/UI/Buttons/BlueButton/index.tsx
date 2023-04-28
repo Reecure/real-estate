@@ -10,6 +10,7 @@ type Props = {
 const BlueButton: FC<Props> = ({ children, className, onClick }) => {
   return (
     <button
+      type="button"
       onClick={onClick}
       className={`bg-primary-blue px-6 py-3 ${s.BlueButton} shadow-primary-blue rounded-lg cursor-pointer ${className}`}
     >

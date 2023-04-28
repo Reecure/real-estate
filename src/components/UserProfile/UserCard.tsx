@@ -1,10 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import BlueButton from "../UI/Buttons/BlueButton";
 import RedButton from "../UI/Buttons/RedButton";
 
-type Props = {};
+type Props = {
+  userEditModalOpen: boolean;
+  setUserEditModalOpen: (arg: boolean) => void;
+};
 
-const UserCard = (props: Props) => {
+const UserCard: FC<Props> = ({ userEditModalOpen, setUserEditModalOpen }) => {
   return (
     <div className="text-white">
       <div>
@@ -20,7 +23,10 @@ const UserCard = (props: Props) => {
             </div>
           </div>
           <div className="flex justify-between">
-            <BlueButton className="px-12 rounded-[40px] uppercase">
+            <BlueButton
+              onClick={() => setUserEditModalOpen(!userEditModalOpen)}
+              className="px-12 rounded-[40px] uppercase"
+            >
               Edit
             </BlueButton>
             <RedButton className="px-8 rounded-[40px] uppercase">

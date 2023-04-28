@@ -4,7 +4,7 @@ import GradientButton from "../UI/Buttons/GradientButton";
 
 type Props = {};
 
-const DeleteModal = (props: Props) => {
+const DeleteProfileModal = (props: Props) => {
   return (
     <div className="max-w-[559px] p-10 rounded-[24px] shadow-xl shadow-white/30 text-white bg-[##0A0A0A]">
       <h4>Delete Account</h4>
@@ -25,4 +25,4 @@ const DeleteModal = (props: Props) => {
   );
 };
 
-export default DeleteModal;
+export default DeleteProfileModal;

@@ -1,4 +1,4 @@
-import DeleteModal from "@/components/Modals/DeleteModal";
+import DeleteModal from "@/components/Modals/DeleteProfileModal";
 import EditProfile from "@/components/Modals/EditProfile";
 import EditProject from "@/components/Modals/EditProject";
 import ExportProject from "@/components/Modals/ExportProject";
@@ -8,11 +8,11 @@ type Props = {};
 
 const Forms = (props: Props) => {
   return (
-    <div>
-      <DeleteModal />
+    <div className="p-20">
+      {/* <DeleteModal />
       <EditProfile />
       <EditProject />
-      <ExportProject />
+      <ExportProject /> */}
     </div>
   );
 };

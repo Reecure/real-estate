@@ -1,15 +1,24 @@
-import React from "react";
+import React, { FC, useState } from "react";
 import BlueButton from "../UI/Buttons/BlueButton";
 import GradientButton from "../UI/Buttons/GradientButton";
+import DeleteProfileModal from "./DeleteProfileModal";
 
-type Props = {};
+type Props = {
+  userEditModalOpen: boolean;
+  setUserEditModalOpen: (arg: boolean) => void;
+};
 
-const EditProfile = (props: Props) => {
+const EditProfile: FC<Props> = ({
+  setUserEditModalOpen,
+  userEditModalOpen,
+}) => {
+  const [deleteOpen, setDeleteOpen] = useState(false);
+
   return (
-    <div className="max-w-[560px] p-10 rounded-[24px] shadow-xl shadow-white/30 text-white bg-[#0A0A0A]">
+    <div className="max-w-[560px] p-10 rounded-[24px] shadow-xl shadow-white/30 text-white bg-[#0A0A0A] z-[1110]">
       <div className="flex justify-between items-center mb-10">
         <h4 className="text-4xl">Edit Profile</h4>
-        <button>x</button>
+        <button onClick={() => setUserEditModalOpen(false)}>x</button>
       </div>
       <div className="flex items-center mb-10">
         <div className="mr-10">
@@ -63,8 +72,13 @@ const EditProfile = (props: Props) => {
         />
       </div>
       <div className="flex justify-between space-x-6">
-        <BlueButton>Delete account</BlueButton>
+        <BlueButton onClick={() => setDeleteOpen((prev) => !prev)}>
+          Delete account
+        </BlueButton>
         <GradientButton>Save</GradientButton>
+      </div>
+      <div className="absolute min-w-screen min-h-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;">
+        {deleteOpen && <DeleteProfileModal />}
       </div>
     </div>
   );

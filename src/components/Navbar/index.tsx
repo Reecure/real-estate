@@ -2,13 +2,15 @@ import Container from "@/components/UI/Container";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import logo from "../../../public/logo.png";
+import UserActions from "../Modals/UserActions";
 import BlueButton from "../UI/Buttons/BlueButton";
 
 type Props = {};
 
 const Navbar = (props: Props) => {
+  const [logged, setLogged] = useState(true);
   const [yPosition, setYPosition] = useState(0);
-
+  const [userMenuOpen, setUserMenuOpen] = useState(false);
   useEffect(() => {
     function handleScroll() {
       setYPosition(window.scrollY);
@@ -34,15 +36,32 @@ const Navbar = (props: Props) => {
             <li>About Us</li>
             <li>Other Projects</li>
           </ul>
-          <BlueButton
-            onClick={() => {
-              console.log("hello from navbar");
-            }}
-          >
-            Sign in
-          </BlueButton>
+          <div>
+            {logged ? (
+              <div className="flex items-center space-x-3">
+                <div className="w-6 h-6 bg-primary-text-dark-gray rounded-full cursor-pointer"></div>
+                <div
+                  onClick={() => setUserMenuOpen((prev) => !prev)}
+                  className="w-10 h-10 rounded-full bg-primary-text-dark-gray  cursor-pointer"
+                ></div>
+              </div>
+            ) : (
+              <BlueButton
+                onClick={() => {
+                  console.log("hello from navbar");
+                }}
+              >
+                Sign in
+              </BlueButton>
+            )}
+          </div>
         </div>
       </div>
+      {userMenuOpen && (
+        <div className="absolute top-20 right-10 xl:right-32">
+          <UserActions />
+        </div>
+      )}
     </Container>
   );
 };
