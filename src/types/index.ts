@@ -18,3 +18,12 @@ export interface Project {
   agentRemarks: string;
   videoLink: string;
 }
+
+export interface ApartmentRequests {
+  name: string;
+  type: string;
+  status: "New" | "In Progress" | "Closed";
+  text: string;
+  data: string;
+  user: string;
+}
