@@ -15,7 +15,7 @@ interface State {
 
 const initialState: State = {
   currentPage: 1,
-  perPage: 5,
+  perPage: 10,
   totalItems: 0,
   loading: false,
   error: "",
