@@ -1,4 +1,9 @@
-import React from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import {
+  fetchUserRequests,
+  selectUserRequests,
+} from "@/redux/features/getUserRequestsSlice";
+import React, { useEffect, useState } from "react";
 import Container from "../UI/Container";
 import AboutUs from "./AboutUs";
 import Appartaments from "./Appartaments";
@@ -12,7 +17,6 @@ const Main = (props: Props) => {
   return (
     <>
       <Hero />
-
       <Appartaments />
       <AboutUs />
       <OtherProjects />

@@ -1,4 +1,4 @@
-const requests = [
+export const requests = [
   {
     name: "Malto House",
     type: "Apartment",

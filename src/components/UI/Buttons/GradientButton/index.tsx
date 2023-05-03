@@ -10,7 +10,7 @@ const GradientButton: FC<Props> = ({ children, className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={` px-6 py-3 ${s.btnGradient} rounded-lg cursor-pointer ${className}`}
+      className={` px-6 py-3 ${s.btnGradient} rounded-[40px] cursor-pointer ${className}`}
     >
       {children}
     </button>
