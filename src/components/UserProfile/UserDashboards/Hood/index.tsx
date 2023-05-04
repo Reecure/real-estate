@@ -11,7 +11,7 @@ type Props = {
 
 const Hood: FC<Props> = ({ sectionHandler, selectedSection }) => {
   return (
-    <div className="flex justify-between">
+    <div className="flex justify-between py-10">
       <div>
         <ul className="flex space-x-5">
           <li

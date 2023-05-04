@@ -1,17 +1,27 @@
+import Navbar from "@/components/Navbar";
+import Container from "@/components/UI/Container";
 import UserDashboards from "@/components/UserProfile/UserDashboards";
 import { store } from "@/redux/app/store";
-import React from "react";
+import { SessionProvider } from "next-auth/react";
+import React, { FC } from "react";
 import { Provider } from "react-redux";
 
-type Props = {};
+type Props = {
+  session: any;
+};
 
-const Dashboards = (props: Props) => {
+const Dashboards: FC<Props> = ({ session }) => {
   return (
-    <Provider store={store}>
-      <div className="">
-        <UserDashboards />
-      </div>{" "}
-    </Provider>
+    <Container className="">
+      <SessionProvider session={session}>
+        <Provider store={store}>
+          <Navbar />
+          <div className="custom-padding">
+            <UserDashboards />
+          </div>
+        </Provider>
+      </SessionProvider>
+    </Container>
   );
 };
 
