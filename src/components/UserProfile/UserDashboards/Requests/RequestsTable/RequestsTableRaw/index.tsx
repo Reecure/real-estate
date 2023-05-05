@@ -1,23 +1,30 @@
 import BlackButton from "@/components/UI/Buttons/BlackButton";
+import { ApartmentRequest } from "@/types";
 import React, { FC } from "react";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 type Props = {
   className: string;
+  item: ApartmentRequest;
 };
 
-const RequestsTableRaw: FC<Props> = ({ className }) => {
+const RequestsTableRaw: FC<Props> = ({ className, item }) => {
   return (
     <tr className={`${className}`}>
-      <td className="py-4 px-7  ">Malto House</td>
-      <td className="px-1">Apartment</td>
-      <td className="px-1">In Progress</td>
-      <td className="px-1">It’s good apartment</td>
-      <td className="px-1">3/28/2022</td>
-      <td className="px-1">Rin Ellei</td>
+      <td className="py-4 px-7  ">{item.name}</td>
+      <td className="px-1">{item.type}</td>
+      <td className="px-1">{item.status}</td>
+      <td className="px-1">{item.text}</td>
+      <td className="px-1">{item.data}</td>
+      <td className="px-1 text-primary-blue">{item.user}</td>
       <td className="px-1">
-        <BlackButton>Answer</BlackButton>
+        <BlackButton className="border-[2px] border-primary-text-dark-gray">
+          Answer
+        </BlackButton>
       </td>
-      <td className="px-1">Act</td>
+      <td className="px-1">
+        <BsThreeDotsVertical className="cursor-pointer" />
+      </td>
     </tr>
   );
 };

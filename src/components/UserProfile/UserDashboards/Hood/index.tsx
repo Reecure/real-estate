@@ -1,4 +1,8 @@
+import GradientButton from "@/components/UI/Buttons/GradientButton";
+import Link from "next/link";
 import React, { FC } from "react";
+import ProjectsHoodNav from "./ProjectsHoodNav";
+import RequestsHoodNav from "./RequestsHoodNav";
 
 type Props = {
   sectionHandler: (id: number) => void;
@@ -42,20 +46,15 @@ const Hood: FC<Props> = ({ sectionHandler, selectedSection }) => {
           </li>
         </ul>
       </div>
-      <div className="flex space-x-4">
-        <select className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg">
-          <option>All Statuses</option>
-          <option>All Statuses</option>
-          <option>All Statuses</option>
-          <option>All Statuses</option>
-        </select>
-        <select className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg">
-          <option>All Types</option>
-          <option>All Statuses</option>
-          <option>All Statuses</option>
-          <option>All Statuses</option>
-        </select>
-      </div>
+      {selectedSection === 1 ? (
+        <RequestsHoodNav />
+      ) : selectedSection === 2 ? (
+        <>
+          <ProjectsHoodNav />
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

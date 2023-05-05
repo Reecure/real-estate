@@ -10,7 +10,7 @@ const BlackButton: FC<Props> = ({ children, className, onClick }) => {
   return (
     <button
       onClick={onClick}
-      className={`bg-white/5 px-6 py-3 rounded-lg cursor-pointer ${className}`}
+      className={`bg-black/60 px-6 py-2 rounded-[40px] cursor-pointer ${className}`}
     >
       {children}
     </button>

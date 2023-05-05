@@ -19,10 +19,10 @@ export interface Project {
   videoLink: string;
 }
 
-export interface ApartmentRequests {
+export interface ApartmentRequest {
   name: string;
   type: string;
-  status: "New" | "In Progress" | "Closed";
+  status: string;
   text: string;
   data: string;
   user: string;
