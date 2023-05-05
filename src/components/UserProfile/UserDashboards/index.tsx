@@ -8,7 +8,7 @@ import Requests from "./Requests";
 type Props = {};
 
 const UserDashboards = (props: Props) => {
-  const [selectedSection, setSelectedSection] = useState(1);
+  const [selectedSection, setSelectedSection] = useState(0);
   const sectionHandler = useCallback((id: number) => {
     setSelectedSection(id);
   }, []);

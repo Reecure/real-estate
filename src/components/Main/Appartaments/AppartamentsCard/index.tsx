@@ -1,5 +1,6 @@
 import GradientButton from "@/components/UI/Buttons/GradientButton";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import appart from "../../../../../public/appartamentTest.png";
 import s from "./AppartamentsCard.module.css";
@@ -14,7 +15,9 @@ const AppartamentsCard = (props: Props) => {
       <div className="p-4 ">
         <div className="flex justify-between items-center mb-4">
           <p>100.000$</p>
-          <GradientButton className={``}>View Details</GradientButton>
+          <Link href={`/apartment`}>
+            <GradientButton className={``}>View Details</GradientButton>
+          </Link>
         </div>
         <div className="grid grid-cols-3 text-center border-[1px] border-primary-text-dark-gray rounded-lg py-3 ">
           <div className={`relative  ${s.bordered}`}>1 Bedrooms</div>

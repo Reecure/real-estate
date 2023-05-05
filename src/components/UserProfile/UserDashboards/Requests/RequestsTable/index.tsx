@@ -1,9 +1,7 @@
 "use client";
 
-import Container from "@/components/UI/Container";
 import React, { useEffect, useState } from "react";
 import RequestsTableRaw from "./RequestsTableRaw";
-import { requests } from "../../../../../data/requests";
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import {
   fetchUserRequests,
