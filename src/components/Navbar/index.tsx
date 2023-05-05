@@ -9,7 +9,7 @@ import BlueButton from "../UI/Buttons/BlueButton";
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const { status, data } = useSession();
+  const { status } = useSession();
   const [logged, setLogged] = useState(true);
   const [yPosition, setYPosition] = useState(0);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
@@ -22,9 +22,6 @@ const Navbar = (props: Props) => {
     } else {
       setLogged((prev) => (prev = false));
     }
-
-    console.log(data?.user?.user?.["_doc"]);
-
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

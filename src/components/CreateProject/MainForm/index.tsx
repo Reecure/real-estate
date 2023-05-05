@@ -1,18 +1,27 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import { Formik, Field, Form } from "formik";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdditionalDetail from "./AdditionalDetail";
 import Crypto from "./Crypto";
 import MainInfo from "./MainInfo";
 import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
+import axios from "axios";
+import { useSession } from "next-auth/react";
+import { IProject } from "../../../../models/project";
 
 type Props = {};
 
 const MainForm = (props: Props) => {
   const [openAdditionalDetails, setOpenAdditionalDetails] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [userId, setUserId] = useState("");
+  const { data } = useSession();
+  useEffect(() => {
+    setUserId((prev) => (prev = data?.user?.user?.["_doc"]?.["_id"]));
+    console.log(userId);
+  }, [userId, data]);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -36,30 +45,37 @@ const MainForm = (props: Props) => {
     <>
       <Formik
         initialValues={{
-          mls_number: "",
+          mlsNumber: "",
           address: "",
           price: "",
           neighbourhood: "",
-          property_type: "",
+          propertyType: "",
           poster: "",
-          selling_NFT: false,
-          accept_Crypto: false,
+          sellingNFT: false,
+          acceptCrypto: false,
           firstName: "",
           lastName: "",
           email: "",
           phoneNumber: "",
-          accepted_currencies: "",
+          acceptedCurrencies: "",
           size: "",
           bedrooms: "",
           bathrooms: "",
-          year_built: "",
+          yearBuilt: "",
           floors: "",
           description: "",
-          agent_remarks: "",
-          video_link: "",
+          agentRemarks: "",
+          videoLink: "",
         }}
         onSubmit={async (values) => {
-          alert(JSON.stringify(values, null, 2));
+          try {
+            const res = await axios.post<IProject>("/api/create-project", {
+              ...values,
+              owner: userId,
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         {({ isSubmitting, setFieldValue }) => (
@@ -121,7 +137,7 @@ const MainForm = (props: Props) => {
                 </div>
               </div>
             </div>
-            <button>send</button>
+            <button type="submit">send</button>
           </Form>
         )}
       </Formik>

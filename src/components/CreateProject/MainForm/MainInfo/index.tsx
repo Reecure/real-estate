@@ -7,13 +7,13 @@ const MainInfo = (props: Props) => {
   return (
     <div className="flex gap-10">
       <div className="flex flex-col w-full">
-        <label htmlFor="mls_number" className="mb-1 text-[12px]">
+        <label htmlFor="mlsNumberr" className="mb-1 text-[12px]">
           mls number
         </label>
         <Field
           type="text"
-          id="mls_number"
-          name="mls_number"
+          id="mlsNumber"
+          name="mlsNumber"
           className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
         />
         <label htmlFor="price" className="mb-1 text-[12px]">
@@ -25,12 +25,12 @@ const MainInfo = (props: Props) => {
           type="text"
           className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
         />
-        <label htmlFor="property_type" className="mb-1 text-[12px]">
+        <label htmlFor="propertyType" className="mb-1 text-[12px]">
           Property type
         </label>
         <Field
-          name="property_type"
-          id="property_type"
+          name="propertyType"
+          id="propertyType"
           type="text"
           className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
         />

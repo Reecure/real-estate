@@ -9,12 +9,12 @@ const AdditionalDetail = (props: Props) => {
       <div className="">
         <div className="flex gap-10">
           <div className="flex flex-col w-full">
-            <label htmlFor="accepted_currencies" className="mb-1 text-[12px]">
+            <label htmlFor="acceptedCurrencies" className="mb-1 text-[12px]">
               Accepted currencies
             </label>
             <Field
-              id="accepted_currencies"
-              name="accepted_currencies"
+              id="acceptedCurrencies"
+              name="acceptedCurrencies"
               type="text"
               className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
             />
@@ -42,12 +42,12 @@ const AdditionalDetail = (props: Props) => {
                 type="text"
                 className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
               />
-              <label htmlFor="year_built" className="mb-1 text-[12px]">
+              <label htmlFor="yearBuilt" className="mb-1 text-[12px]">
                 Year built
               </label>
               <Field
-                id="year_built"
-                name="year_built"
+                id="yearBuilt"
+                name="yearBuilt"
                 type="text"
                 className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
               />
@@ -78,20 +78,28 @@ const AdditionalDetail = (props: Props) => {
 
       <div>
         <label htmlFor="description">Description</label>
-        <div className="h-40 w-full bg-white/5"></div>
+        <Field
+          id="description"
+          name="description"
+          className="h-40 w-full bg-white/5"
+        ></Field>
       </div>
 
       <div>
-        <label htmlFor="agent_remarks">agent remarks</label>
-        <div className="h-20 w-full bg-white/5"></div>
+        <label htmlFor="agentRemarks">agent remarks</label>
+        <Field
+          id="agentRemarks"
+          name="agentRemarks"
+          className="h-20 w-full bg-white/5"
+        ></Field>
       </div>
       <div className="flex flex-col w-full">
-        <label htmlFor="video_link" className="mb-1 text-[12px]">
+        <label htmlFor="videoLink" className="mb-1 text-[12px]">
           Video link
         </label>
         <Field
-          id="video_link"
-          name="video_link"
+          id="videoLink"
+          name="videoLink"
           type="text"
           className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
         />

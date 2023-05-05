@@ -1,29 +1,40 @@
+export interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  requests: {
+    project: string;
+    userId: string;
+    status: "New" | "In Progress" | "Closed";
+    date: Date;
+  }[];
+  projects: string;
+}
+
 export interface Project {
-  id?: number;
+  _id: string;
   mlsNumber: string;
   address: string;
-  price: number;
-  neighborhood: string;
+  price: string;
+  neighbourhood: string;
   propertyType: string;
-  photos: string[]; // an array of photo URLs
-  owner: string;
-  features: {
-    acceptedCurrencies: string[];
-    size: number; // in square feet
-    bedrooms: number;
-    bathrooms: number;
-    yearBuilt: number;
-    floors: number;
-  };
-  ownerInfo?: {
-    id: number;
-    firstName: string;
-    lastName: string;
-    email: string;
-  };
+  sellingNFT: boolean;
+  acceptCrypto: boolean;
+  acceptedCurrencies: string;
+  size: string;
+  poster: string;
+  bedrooms: string;
+  bathrooms: string;
+  yearBuilt: string;
+  floors: string;
   description: string;
   agentRemarks: string;
   videoLink: string;
+  owner: {
+    user: User;
+  };
+  createdAt: Date;
 }
 
 export interface ApartmentRequest {
