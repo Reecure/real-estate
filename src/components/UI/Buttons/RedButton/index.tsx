@@ -1,18 +1,14 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, ButtonHTMLAttributes } from "react";
 
-type Props = {
-  children: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const RedButton: FC<Props> = ({ children, className, onClick }) => {
+const RedButton: FC<ButtonProps> = ({ className = "", ...rest }) => {
   return (
     <button
-      onClick={onClick}
-      className={`bg-primary-red px-6 py-3 rounded-lg cursor-pointer ${className}`}
+      {...rest}
+      className={`bg-primary-red px-6 py-2 rounded-lg cursor-pointer ${className}`}
     >
-      {children}
+      {rest.children}
     </button>
   );
 };

@@ -7,11 +7,7 @@ type Props = {
 };
 
 const NewProject: FC<Props> = ({ session }) => {
-  return (
-    <SessionProvider session={session}>
-      <CreateProject />
-    </SessionProvider>
-  );
+  return <CreateProject />;
 };
 
 export default NewProject;

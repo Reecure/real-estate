@@ -7,7 +7,7 @@ import { IProject } from "../../../../models/project";
 export const fetchUserProjects = createAsyncThunk(
   "projects/userProjects",
   async () => {
-    const res = axios
+    const res = await axios
       .get("/api/getUserProjectsFromDb")
       .then((data) => data.data.projects);
     return res;

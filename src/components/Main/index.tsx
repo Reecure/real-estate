@@ -10,8 +10,6 @@ import OtherProjects from "./OtherProjects";
 type Props = {};
 
 const Main = (props: Props) => {
-  const data = useSession();
-  console.log(data);
   return (
     <>
       <Hero />

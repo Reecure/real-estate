@@ -8,7 +8,6 @@ import MainInfo from "./MainInfo";
 import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
 import axios from "axios";
-import { useSession } from "next-auth/react";
 import { IProject } from "../../../../models/project";
 
 type Props = {};
@@ -16,12 +15,6 @@ type Props = {};
 const MainForm = (props: Props) => {
   const [openAdditionalDetails, setOpenAdditionalDetails] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
-  const [userId, setUserId] = useState("");
-  const { data } = useSession();
-  useEffect(() => {
-    setUserId((prev) => (prev = data?.user?.user?.["_doc"]?.["_id"]));
-    console.log(userId);
-  }, [userId, data]);
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -71,7 +64,7 @@ const MainForm = (props: Props) => {
           try {
             const res = await axios.post<IProject>("/api/create-project", {
               ...values,
-              owner: userId,
+              owner: "6453dfb9c8156bf9ee4a6f75",
             });
           } catch (error) {
             console.log(error);

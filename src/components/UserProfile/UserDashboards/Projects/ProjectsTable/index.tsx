@@ -6,9 +6,9 @@ import {
   selectProjects,
   selectVisibleProjects,
 } from "@/redux/features/getUserProjectsSlice";
-import { Project, userProjects } from "@/types";
+import { Project } from "@/types";
 import React, { useEffect } from "react";
-import { IProject } from "../../../../../../models/project";
+
 import ProjectTableRaw from "./ProjectTableRaw";
 
 type Props = {};
