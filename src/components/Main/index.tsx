@@ -1,5 +1,3 @@
-"use client";
-import { useSession } from "next-auth/react";
 import React from "react";
 import AboutUs from "./AboutUs";
 import Appartaments from "./Appartaments";
@@ -16,7 +14,7 @@ const Main = (props: Props) => {
       <Appartaments />
       <AboutUs />
       <OtherProjects />
-      <DidYouFindYourDreamHome />
+      {/* <DidYouFindYourDreamHome /> */}
     </>
   );
 };

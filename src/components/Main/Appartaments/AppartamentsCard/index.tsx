@@ -11,7 +11,7 @@ type Props = {
 
 const AppartamentsCard: FC<Props> = ({ apart }) => {
   return (
-    <div className="max-w-[577px] ">
+    <div className="max-w-[577px] mx-auto">
       <div>
         <Image src={appart} alt="image" />
       </div>
@@ -22,14 +22,20 @@ const AppartamentsCard: FC<Props> = ({ apart }) => {
             <GradientButton className={``}>View Details</GradientButton>
           </Link>
         </div>
-        <div className="grid grid-cols-3 text-center border-[1px] border-primary-text-dark-gray rounded-lg py-3 ">
-          <div className={`relative  ${s.bordered}`}>
+        <div className="flex justify-between items-center border-[2px] rounded-lg whitespace-nowrap">
+          <div
+            className={`flex justify-center p-2 md:p-5 border-r-[2px] w-full`}
+          >
             {apart.bedrooms} Bedrooms
           </div>
-          <div className={`relative  ${s.bordered}`}>
+          <div
+            className={`flex justify-center p-2 md:p-5 border-r-[2px] w-full `}
+          >
             {apart.bathrooms} Bath
           </div>
-          <div className={`relative ${s.bordered}`}>{apart.size} sq ft</div>
+          <div className={`flex justify-center p-2 md:p-5 w-full`}>
+            {apart.size} sq ft
+          </div>
         </div>
       </div>
     </div>
