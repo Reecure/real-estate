@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React, { FC } from "react";
 import img from "../../../../../public/editModalImage.png";
+import { BsThreeDotsVertical } from "react-icons/bs";
 
 type Props = {
   className?: string;
@@ -9,7 +10,9 @@ type Props = {
 const RecentTableRaw: FC<Props> = ({ className }) => {
   return (
     <tr className={`py-4  ${className} `}>
-      <td className="flex items-center space-x-2 ">
+      <td
+        className={`flex min-w-[190px] items-center space-x-2 sticky left-0 z-[1]   ${className}`}
+      >
         <Image
           src={img}
           alt="img"
@@ -17,11 +20,13 @@ const RecentTableRaw: FC<Props> = ({ className }) => {
         />
         <p>Malto House</p>
       </td>
-      <td className="px-1">535 sq ft</td>
-      <td className="px-1">$30K</td>
-      <td className="px-1">Yesterday</td>
-      <td className="px-1">You</td>
-      <td className="px-1">Action</td>
+      <td className="min-w-[150px] px-1">535 sq ft</td>
+      <td className="min-w-[150px] px-1">$30K</td>
+      <td className="min-w-[150px] px-1">Yesterday</td>
+      <td className="min-w-[150px] px-1">You</td>
+      <td className="min-w-[40px] px-1">
+        <BsThreeDotsVertical />
+      </td>
     </tr>
   );
 };

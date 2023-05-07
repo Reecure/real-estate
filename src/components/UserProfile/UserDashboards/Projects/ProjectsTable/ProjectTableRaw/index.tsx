@@ -28,9 +28,9 @@ const ProjectTableRaw: FC<Props> = ({ className, item }) => {
       <td className="min-w-[150px] px-1">{item.price}</td>
       <td className="min-w-[150px] px-1">{item.yearBuilt}</td>
       <td className="min-w-[150px] px-1">
-        <BlackButton>Answer</BlackButton>
+        <BlackButton className="!px-10">Edit</BlackButton>
       </td>
-      <td className="px-1">
+      <td className="px-1 min-[60px]">
         <BsThreeDotsVertical />
       </td>
     </tr>

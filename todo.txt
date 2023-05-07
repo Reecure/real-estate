@@ -1,7 +1,6 @@
 
 tier A : {
-    user profile recent action table pagination table rensponsibility etc...
-    dashboard projects add pagination 
+   dashboard projects add pagination 
     apartment on main page pagination filtration etc
 }
 
@@ -21,7 +20,9 @@ future: {
                                                ____
 }
 
-maybe letter: {
+maybe letter: { 
+    
+    user profile recent action table pagination
     create project button in projects more responsive table row wids
     styling text in new project
 }

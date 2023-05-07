@@ -20,6 +20,8 @@ const initialState = {
   error: "",
   selecteType: "All",
   searchValue: "",
+  currentPage: 1,
+  perPage: 5,
 };
 
 const getUserProjectsSlice = createSlice({
@@ -31,6 +33,12 @@ const getUserProjectsSlice = createSlice({
     },
     setSearchValue: (state, action) => {
       state.searchValue = action.payload;
+    },
+    setPage: (state, action) => {
+      state.currentPage = action.payload;
+    },
+    setPerPage: (state, action) => {
+      state.perPage = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -50,18 +58,36 @@ const getUserProjectsSlice = createSlice({
 
 export default getUserProjectsSlice.reducer;
 
-export const { setType, setSearchValue } = getUserProjectsSlice.actions;
+export const { setType, setSearchValue, setPage, setPerPage } =
+  getUserProjectsSlice.actions;
 
 export const selectProjects = (state: RootState) => state.userProjects;
 
 export const selectVisibleProjects = (state: RootState) => {
-  const { selecteType, projects, searchValue } = state.userProjects;
+  const { perPage, currentPage, selecteType, projects, searchValue } =
+    state.userProjects;
+
+  const startIndex = (currentPage - 1) * perPage;
+  const endIndex = startIndex + perPage;
+
   const filterType = (item: IProject) =>
     selecteType === "All" || item.propertyType === selecteType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
     item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());
-  console.log(searchValue);
 
-  return projects.filter(filterSearch).filter(filterType);
+  const visibleProjects = projects.filter(filterSearch).filter(filterType);
+  return visibleProjects.slice(startIndex, endIndex);
+};
+
+export const selectTotalPages = (state: RootState) => {
+  const { perPage, projects, selecteType, searchValue } = state.userProjects;
+  const filterType = (item: IProject) =>
+    selecteType === "All" || item.propertyType === selecteType;
+  const filterSearch = (item: IProject) =>
+    searchValue === "" ||
+    item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());
+  const totalItems = projects.filter(filterSearch).filter(filterType).length;
+
+  return Math.ceil(totalItems / perPage);
 };
