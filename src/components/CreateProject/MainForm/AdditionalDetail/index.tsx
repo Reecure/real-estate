@@ -7,7 +7,7 @@ const AdditionalDetail = (props: Props) => {
   return (
     <div>
       <div className="">
-        <div className="flex gap-10">
+        <div className="flex flex-col md:flex-row gap-10">
           <div className="flex flex-col w-full">
             <label htmlFor="acceptedCurrencies" className="mb-1 text-[12px]">
               Accepted currencies
@@ -31,7 +31,7 @@ const AdditionalDetail = (props: Props) => {
           <div className="w-full"></div>
         </div>
         <div>
-          <div className="flex gap-10">
+          <div className="flex flex-col md:flex-row gap-10">
             <div className="flex flex-col w-full">
               <label htmlFor="bedrooms" className="mb-1 text-[12px]">
                 Bedrooms
@@ -79,6 +79,7 @@ const AdditionalDetail = (props: Props) => {
       <div>
         <label htmlFor="description">Description</label>
         <Field
+          as="textarea"
           id="description"
           name="description"
           className="h-40 w-full bg-white/5"
@@ -88,6 +89,7 @@ const AdditionalDetail = (props: Props) => {
       <div>
         <label htmlFor="agentRemarks">agent remarks</label>
         <Field
+          as="textarea"
           id="agentRemarks"
           name="agentRemarks"
           className="h-20 w-full bg-white/5"

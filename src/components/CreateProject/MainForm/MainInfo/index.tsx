@@ -5,7 +5,7 @@ type Props = {};
 
 const MainInfo = (props: Props) => {
   return (
-    <div className="flex gap-10">
+    <div className="flex flex-col md:flex-row gap-10">
       <div className="flex flex-col w-full">
         <label htmlFor="mlsNumberr" className="mb-1 text-[12px]">
           mls number
@@ -14,7 +14,7 @@ const MainInfo = (props: Props) => {
           type="text"
           id="mlsNumber"
           name="mlsNumber"
-          className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
+          className="w-full  py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
         />
         <label htmlFor="price" className="mb-1 text-[12px]">
           Price

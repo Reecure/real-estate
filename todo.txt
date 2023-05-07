@@ -1,8 +1,4 @@
 
-tier S : {
-    responsive new project page > additional add animated arrow and send button replace on create
-}
-
 tier A : {
     user profile recent action table pagination table rensponsibility etc...
     dashboard projects add pagination 
@@ -15,6 +11,7 @@ tier B : {
 }
 
 future: {
+    refactor code
     animated for fixed asides from left to right
     animated buttons
     userSlice
@@ -26,6 +23,7 @@ future: {
 
 maybe letter: {
     create project button in projects more responsive table row wids
+    styling text in new project
 }
 
 

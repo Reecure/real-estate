@@ -9,6 +9,7 @@ import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
 import axios from "axios";
 import { IProject } from "../../../../models/project";
+import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 type Props = {};
 
@@ -73,8 +74,34 @@ const MainForm = (props: Props) => {
       >
         {({ isSubmitting, setFieldValue }) => (
           <Form>
-            <div className="grid grid-cols-[3fr_1fr] gap-10">
-              <div>
+            <div className="flex justify-between flex-col md:flex-row-reverse gap-10">
+              <div className="relative w-full  min-w-[150px] min-h-[300px] md:max-w-[460px] md:max-h-[560px]  overflow-hidden bg-white/5 rounded-[24px] ">
+                <Field
+                  ref={fileInputRef}
+                  type="file"
+                  name="poster"
+                  id="poster"
+                  onChange={handleFileChange}
+                  className="absolute inset-0 w-full h-full opacity-0 z-10"
+                />
+                <div className=" flex flex-col items-center absolute top-1/2 -translate-y-1/2 left-1/2  -translate-x-1/2 ">
+                  <Image src={img} alt="img" className="mb-5 " />
+                  <BlueButton onClick={handleClick}>Upload Poster</BlueButton>
+                </div>
+
+                <div className="absolute top-1/2  -translate-y-1/2 ">
+                  {previewImage && (
+                    <Image
+                      src={previewImage}
+                      alt="Preview"
+                      width={480}
+                      height={705}
+                    />
+                  )}
+                </div>
+              </div>
+
+              <div className="w-full">
                 {/* Main inputs MLS ADDRESS etc... */}
                 <MainInfo />
 
@@ -88,46 +115,26 @@ const MainForm = (props: Props) => {
                 <ShareOffersForm />
 
                 {/* Additional Details */}
-                <h5
-                  className="text-2xl font-semibold text-primary-blue mt-9 cursor-pointer mb-10"
+                <div
+                  className="flex items-center space-x-5"
                   onClick={() => setOpenAdditionalDetails((prev) => !prev)}
                 >
-                  Additional details
-                </h5>
+                  <h5 className="text-2xl font-semibold text-primary-blue mt-9 cursor-pointer mb-10">
+                    Additional details
+                  </h5>
+                  <MdOutlineKeyboardArrowRight
+                    className={`text-primary-blue text-2xl duration-300 ${
+                      openAdditionalDetails ? "rotate-90" : ""
+                    }`}
+                  />
+                </div>
+
                 {openAdditionalDetails && (
                   <>
                     <h5 className="text-2xl font-semibold pb-10">Features</h5>
                     <AdditionalDetail />
                   </>
                 )}
-              </div>
-
-              <div>
-                <div className="relative overflow-hidden bg-white/5 rounded-[24px] w-[480px] h-[705px]">
-                  <Field
-                    ref={fileInputRef}
-                    type="file"
-                    name="poster"
-                    id="poster"
-                    onChange={handleFileChange}
-                    className="absolute inset-0 w-full h-full opacity-0 z-10"
-                  />
-                  <div className=" flex flex-col items-center absolute top-1/2 -translate-y-1/2 left-1/2  -translate-x-1/2 ">
-                    <Image src={img} alt="img" className="mb-5 " />
-                    <BlueButton onClick={handleClick}>Upload Poster</BlueButton>
-                  </div>
-
-                  <div className="absolute top-1/2  -translate-y-1/2 ">
-                    {previewImage && (
-                      <Image
-                        src={previewImage}
-                        alt="Preview"
-                        width={480}
-                        height={705}
-                      />
-                    )}
-                  </div>
-                </div>
               </div>
             </div>
             <button type="submit">send</button>
