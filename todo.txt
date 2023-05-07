@@ -1,9 +1,4 @@
 
-tier A : {
-   dashboard projects add pagination 
-    apartment on main page pagination filtration etc
-}
-
 tier B : {
     delete account modal and edit responsibility
     slider in similar listing (product description page) on small user send message card edit
@@ -21,9 +16,12 @@ future: {
 }
 
 maybe letter: { 
+    tables when swith ctate reset page to 1 and when page empty some image that is empy and page 1 - 1
     
     user profile recent action table pagination
-    create project button in projects more responsive table row wids
+   
+    create project button in projects more responsive table row width
+   
     styling text in new project
 }
 

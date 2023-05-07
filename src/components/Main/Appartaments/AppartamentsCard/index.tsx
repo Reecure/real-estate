@@ -18,7 +18,7 @@ const AppartamentsCard: FC<Props> = ({ apart }) => {
       <div className="p-4 ">
         <div className="flex justify-between items-center mb-4">
           <p>{apart.price}</p>
-          <Link href={`/apartment/${apart._id}`}>
+          <Link href={`other-projects/apartment/${apart._id}`}>
             <GradientButton className={``}>View Details</GradientButton>
           </Link>
         </div>
