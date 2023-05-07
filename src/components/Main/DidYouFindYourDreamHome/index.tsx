@@ -28,7 +28,7 @@ const DidYouFindYourDreamHome = (props: Props) => {
         onSubmit={() => {}}
       >
         <Form className=" ">
-          <div className="flex flex-col sm:flex-row space-y-5   max-w-[600px]">
+          <div className="flex flex-col sm:flex-row space-y-5 sm:space-y-0   max-w-[600px]">
             <Field
               type="text"
               name="firstName"

@@ -27,7 +27,9 @@ const DeleteProfileModal: FC<Props> = ({
           <h4 className="text-xl text-[36px]">Delete Account</h4>
         </div>
         <div className="">
-          <p className="text-xl">x</p>
+          <button className="text-xl" onClick={() => setDeleteOpen(false)}>
+            x
+          </button>
         </div>
       </div>
 
