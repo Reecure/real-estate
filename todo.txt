@@ -1,7 +1,6 @@
 
 tier S : {
     responsive new project page > additional add animated arrow and send button replace on create
-    request project responsive ))
 }
 
 tier A : {
@@ -23,6 +22,10 @@ future: {
     modals animation from small to big > [] > |    |
                                               |    |
                                                ____
+}
+
+maybe letter: {
+    create project button in projects more responsive table row wids
 }
 
 

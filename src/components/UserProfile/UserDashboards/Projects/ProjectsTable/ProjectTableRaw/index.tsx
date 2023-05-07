@@ -13,7 +13,9 @@ type Props = {
 const ProjectTableRaw: FC<Props> = ({ className, item }) => {
   return (
     <tr className={`${className}`}>
-      <td className="flex items-center space-x-2 ">
+      <td
+        className={`${className} min-w-[150px] flex items-center space-x-2 sticky left-0 z-[1]`}
+      >
         <Image
           src={img}
           alt="img"
@@ -21,11 +23,11 @@ const ProjectTableRaw: FC<Props> = ({ className, item }) => {
         />
         <p>{item.neighbourhood}</p>
       </td>
-      <td className="px-1">{item.propertyType}</td>
-      <td className="px-1">{item.size}</td>
-      <td className="px-1">{item.price}</td>
-      <td className="px-1">{item.yearBuilt}</td>
-      <td className="px-1">
+      <td className="min-w-[150px] px-1">{item.propertyType}</td>
+      <td className="min-w-[150px] px-1">{item.size}</td>
+      <td className="min-w-[150px] px-1">{item.price}</td>
+      <td className="min-w-[150px] px-1">{item.yearBuilt}</td>
+      <td className="min-w-[150px] px-1">
         <BlackButton>Answer</BlackButton>
       </td>
       <td className="px-1">

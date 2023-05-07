@@ -24,30 +24,32 @@ const ProjectTable = (props: Props) => {
 
   return (
     <>
-      <table className="text-white  w-full  ">
-        <tbody>
-          <tr className="text-primary-text-dark-gray">
-            <td className="py-4 px-7">Name</td>
-            <td className="px-1">Type</td>
-            <td className="px-1">Size</td>
-            <td className="px-1">Price</td>
-            <td className="px-1">Creation Data</td>
-            <td className="px-1"></td>
-            <td className="px-1"></td>
-          </tr>
-          {visibleProjects.map((item: Project, i) => {
-            return (
-              <ProjectTableRaw
-                key={item._id}
-                item={{ ...item }}
-                className={`${
-                  i % 2 === 0 ? "bg-white/5" : "bg-primary-dark-gray"
-                }`}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="overflow-x-auto ">
+        <table className="text-white  w-full  ">
+          <tbody>
+            <tr className="text-primary-text-dark-gray">
+              <td className="py-4 px-7 sticky left-0 z-[1] bg-black">Name</td>
+              <td className="px-1">Type</td>
+              <td className="px-1">Size</td>
+              <td className="px-1">Price</td>
+              <td className="px-1">Creation Data</td>
+              <td className="px-1"></td>
+              <td className="px-1"></td>
+            </tr>
+            {visibleProjects.map((item: Project, i) => {
+              return (
+                <ProjectTableRaw
+                  key={item._id}
+                  item={{ ...item }}
+                  className={`${
+                    i % 2 === 0 ? "bg-[#0A0A0A]" : "bg-primary-dark-gray"
+                  }`}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };

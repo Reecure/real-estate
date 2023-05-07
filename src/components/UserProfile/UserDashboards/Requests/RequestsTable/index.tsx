@@ -71,31 +71,35 @@ const RequestsTable = (props: Props) => {
           </select>
         </div>
       </div>
-      <table className="text-white  w-full  ">
-        <tbody>
-          <tr className="text-primary-text-dark-gray">
-            <td className="py-4 px-7">Name</td>
-            <td className="px-1">Type</td>
-            <td className="px-1">Status</td>
-            <td className="px-1">Text</td>
-            <td className="px-1">Data</td>
-            <td className="px-1">User</td>
-            <td className="px-1"></td>
-            <td className="px-1"></td>
-          </tr>
-          {visibleRequests.map((item: ApartmentRequest, i) => {
-            return (
-              <RequestsTableRaw
-                item={{ ...item }}
-                key={i}
-                className={`${
-                  i % 2 === 0 ? "bg-white/5" : "bg-primary-dark-gray"
-                }`}
-              />
-            );
-          })}
-        </tbody>
-      </table>
+      <div className="overflow-x-auto sm:overflow-x-hidden">
+        <table className="text-white table-auto ">
+          <thead>
+            <tr className="text-primary-text-dark-gray">
+              <td className="py-4 px-7 sticky left-0 z-1 bg-black">Name</td>
+              <td className="px-1">Type</td>
+              <td className="px-1">Status</td>
+              <td className="px-1">Text</td>
+              <td className="px-1">Data</td>
+              <td className="px-1">User</td>
+              <td className="px-1"></td>
+              <td className="px-1"></td>
+            </tr>
+          </thead>
+          <tbody>
+            {visibleRequests.map((item: ApartmentRequest, i) => {
+              return (
+                <RequestsTableRaw
+                  item={{ ...item }}
+                  key={i}
+                  className={`${
+                    i % 2 === 0 ? "bg-[#0A0A0A]" : "bg-primary-dark-gray"
+                  }`}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 };
