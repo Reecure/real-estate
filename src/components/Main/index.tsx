@@ -14,7 +14,7 @@ const Main = (props: Props) => {
       <Appartaments />
       <AboutUs />
       <OtherProjects />
-      {/* <DidYouFindYourDreamHome /> */}
+      <DidYouFindYourDreamHome />
     </>
   );
 };

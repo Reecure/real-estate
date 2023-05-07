@@ -24,27 +24,51 @@ const ProjectDescription: FC<Props> = ({ apart }) => {
     setIsPlaying(!isPlaying);
   };
   return (
-    <div className="text-white mt-10">
-      <section className="flex justify-between rounded-lg border-white border-[1px] text-2xl ">
-        <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-whit">
-          <BiBed className="mr-2" />
-          {apart.bedrooms}
+    <div className="text-white ">
+      <section>
+        <div className="hidden sm:grid grid-cols-5 rounded-lg border-white border-[1px] text-base md:text-lg  xl:text-2xl ">
+          <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-white">
+            <BiBed className="mr-2" />
+            {apart.bedrooms}
+          </div>
+          <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-white">
+            <BiBath className="mr-2" />
+            {apart.bathrooms}
+          </div>
+          <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-white">
+            <Floor className="mr-2" />
+            {apart.floors}
+          </div>
+          <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-white">
+            <AiOutlineCalendar className="mr-2" />
+            {apart.yearBuilt}
+          </div>
+          <div className="flex items-center justify-center p-5 w-full">
+            <IoIosResize className="mr-2" />
+            {apart.size}
+          </div>
         </div>
-        <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-whit">
-          <BiBath className="mr-2" />
-          {apart.bathrooms}
-        </div>
-        <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-whit">
-          <Floor className="mr-2" />
-          {apart.floors}
-        </div>
-        <div className="flex items-center justify-center p-5 w-full border-r-[1px] border-whit">
-          <AiOutlineCalendar className="mr-2" />
-          {apart.yearBuilt}
-        </div>
-        <div className="flex items-center justify-center p-5 w-full">
-          <IoIosResize className="mr-2" />
-          {apart.size}
+        <div className="grid grid-cols-3 gap-5  sm:hidden text-2xl">
+          <div className="flex justify-center">
+            <BiBed className="mr-2" />
+            {apart.bedrooms}
+          </div>
+          <div className="flex justify-center">
+            <BiBath className="mr-2" />
+            {apart.bathrooms}
+          </div>
+          <div className="flex justify-center">
+            <Floor className="mr-2" />
+            {apart.floors}
+          </div>
+          <div className="flex justify-center">
+            <AiOutlineCalendar className="mr-2" />
+            {apart.yearBuilt}
+          </div>
+          <div className="flex justify-center">
+            <IoIosResize className="mr-2" />
+            {apart.size}
+          </div>
         </div>
       </section>
       <article className="pt-14">

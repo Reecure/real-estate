@@ -7,7 +7,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <footer>
-      <div className="flex flex-col items-center space-y-5 md:space-y-0 md:flex-row md:justify-between custom-padding py-14 border-b-[1px]">
+      <div className="flex flex-col items-center space-y-5 md:space-y-0 md:flex-row md:justify-between custom-padding py-5 md:py-14 border-b-[1px]">
         <div>
           <Image src={logo} alt="logo" />
           <p className="max-w-[313px] mt-4 font-normal">

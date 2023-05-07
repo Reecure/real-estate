@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 import appart from "../../../../../public/appartamentTest.png";
-import s from "./AppartamentsCard.module.css";
+
 type Props = {
   apart: Project;
 };
