@@ -9,8 +9,8 @@ const AboutUs = (props: Props) => {
   return (
     <section className={`${s.about} inner-shadow `}>
       <div>
-        <div className="flex justify-between items-center custom-padding ">
-          <div className="mt-[15%] space-y-4">
+        <div className="flex flex-col md:flex-row justify-between items-center custom-padding ">
+          <div className="mt-20 md:mt-40 space-y-4">
             <h3 className="text-3xl text-primary-blue ">About Us</h3>
             <p className="max-w-[666px] text-primary-gray font-normal">
               Homeverse.io is a gated community with a great location. Located
@@ -20,7 +20,7 @@ const AboutUs = (props: Props) => {
               available on premises.
             </p>
             <BlueButton
-              className=""
+              className="mt-10"
               onClick={() => {
                 console.log("hello from about us");
               }}
@@ -28,7 +28,7 @@ const AboutUs = (props: Props) => {
               Read More
             </BlueButton>
           </div>
-          <div className="mt-[15%] space-y-10">
+          <div className="flex md:flex-col mt-[15%]  md:space-y-10">
             <Benefit
               top="500+"
               middle="Projects"

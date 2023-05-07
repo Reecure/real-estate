@@ -1,18 +1,14 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, ButtonHTMLAttributes } from "react";
 
-type Props = {
-  children: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const BlackButton: FC<Props> = ({ children, className, onClick }) => {
+const BlackButton: FC<ButtonProps> = ({ className = "", ...rest }) => {
   return (
     <button
-      onClick={onClick}
+      {...rest}
       className={`bg-black/60 px-6 py-2 rounded-[40px] cursor-pointer ${className}`}
     >
-      {children}
+      {rest.children}
     </button>
   );
 };

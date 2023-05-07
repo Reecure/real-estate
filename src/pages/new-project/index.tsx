@@ -1,14 +1,13 @@
 import CreateProject from "@/components/CreateProject";
-import React from "react";
+import { SessionProvider } from "next-auth/react";
+import React, { FC } from "react";
 
-type Props = {};
+type Props = {
+  session: any;
+};
 
-const NewProject = (props: Props) => {
-  return (
-    <div>
-      <CreateProject />
-    </div>
-  );
+const NewProject: FC<Props> = ({ session }) => {
+  return <CreateProject />;
 };
 
 export default NewProject;

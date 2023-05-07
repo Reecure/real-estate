@@ -1,10 +1,4 @@
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
-import {
-  fetchUserRequests,
-  selectUserRequests,
-} from "@/redux/features/getUserRequestsSlice";
-import React, { useEffect, useState } from "react";
-import Container from "../UI/Container";
+import React from "react";
 import AboutUs from "./AboutUs";
 import Appartaments from "./Appartaments";
 import DidYouFindYourDreamHome from "./DidYouFindYourDreamHome";

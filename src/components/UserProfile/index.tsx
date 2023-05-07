@@ -48,10 +48,9 @@ const UserProfile = (props: Props) => {
         />
         <RecentActions />
       </Container>
-      <div className={` ${!userEditModalOpen ? "hidden" : "block"} `}>
-        <div
-          className={`absolute min-w-screen min-h-screen top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 `}
-        >
+
+      <div className={`${!userEditModalOpen ? "hidden" : "block"} `}>
+        <div className={`absolute top-0 left-1/3   `}>
           {userEditModalOpen && (
             <EditProfile
               userEditModalOpen={userEditModalOpen}

@@ -1,0 +1,185 @@
+[
+  {
+    "id": 1,
+    "mlsNumber": "ABC123",
+    "address": "123 Main St",
+    "price": 500000,
+    "neighborhood": "Downtown",
+    "propertyType": "Condo",
+    "photos": [
+      "https://example.com/photo1.jpg",
+      "https://example.com/photo2.jpg"
+    ],
+    "owner": "John Doe",
+    "features": {
+      "acceptedCurrencies": ["USD"],
+      "size": 1000,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "yearBuilt": 2000,
+      "floors": 5
+    },
+    "ownerInfo": {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Doe",
+      "email": "johndoe@example.com"
+    },
+    "description": "Beautiful condo in the heart of downtown",
+    "agentRemarks": "Don't miss out on this great opportunity!",
+    "videoLink": "https://example.com/video1.mp4"
+  },
+  {
+    "id": 2,
+    "mlsNumber": "DEF456",
+    "address": "456 Oak St",
+    "price": 750000,
+    "neighborhood": "Suburbs",
+    "propertyType": "House",
+    "photos": [
+      "https://example.com/photo3.jpg",
+      "https://example.com/photo4.jpg"
+    ],
+    "owner": "Jane Smith",
+    "features": {
+      "acceptedCurrencies": ["USD", "CAD"],
+      "size": 2000,
+      "bedrooms": 4,
+      "bathrooms": 3,
+      "yearBuilt": 1990,
+      "floors": 2
+    },
+    "ownerInfo": {
+      "id": 2,
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "janesmith@example.com"
+    },
+    "description": "Spacious house in a quiet neighborhood",
+    "agentRemarks": "This house won't last long!",
+    "videoLink": ""
+  },
+  {
+    "id": 3,
+    "mlsNumber": "GHI789",
+    "address": "789 Elm St",
+    "price": 900000,
+    "neighborhood": "Luxury",
+    "propertyType": "Penthouse",
+    "photos": [
+      "https://example.com/photo5.jpg",
+      "https://example.com/photo6.jpg",
+      "https://example.com/photo7.jpg"
+    ],
+    "owner": "Robert Johnson",
+    "features": {
+      "acceptedCurrencies": ["USD", "EUR"],
+      "size": 3000,
+      "bedrooms": 3,
+      "bathrooms": 4,
+      "yearBuilt": 2010,
+      "floors": 1
+    },
+    "ownerInfo": {
+      "id": 3,
+      "firstName": "Robert",
+      "lastName": "Johnson",
+      "email": "robertjohnson@example.com"
+    },
+    "description": "Stunning penthouse with incredible views",
+    "agentRemarks": "The ultimate in luxury living",
+    "videoLink": "https://example.com/video2.mp4"
+  },
+  {
+    "id": 4,
+    "mlsNumber": "MNO345",
+    "address": "345 Maple Ave",
+    "price": 600000,
+    "neighborhood": "Family-friendly",
+    "propertyType": "Single Family Home",
+    "photos": [
+      "https://example.com/photo10.jpg",
+      "https://example.com/photo11.jpg",
+      "https://example.com/photo12.jpg"
+    ],
+    "owner": "David Lee",
+    "features": {
+      "acceptedCurrencies": ["USD", "JPY"],
+      "size": 2500,
+      "bedrooms": 3,
+      "bathrooms": 2,
+      "yearBuilt": 1985,
+      "floors": 2
+    },
+    "ownerInfo": {
+      "id": 4,
+      "firstName": "David",
+      "lastName": "Lee",
+      "email": "davidlee@example.com"
+    },
+    "description": "Charming single family home with a spacious yard",
+    "agentRemarks": "This is the perfect home for a growing family",
+    "videoLink": "https://example.com/video3.mp4"
+  },
+  {
+    "id": 5,
+    "mlsNumber": "PQR678",
+    "address": "678 Oak St",
+    "price": 850000,
+    "neighborhood": "Desirable",
+    "propertyType": "Luxury Condo",
+    "photos": [
+      "https://example.com/photo13.jpg",
+      "https://example.com/photo14.jpg",
+      "https://example.com/photo15.jpg"
+    ],
+    "owner": "Sophia Kim",
+    "features": {
+      "acceptedCurrencies": ["USD", "KRW"],
+      "size": 1800,
+      "bedrooms": 2,
+      "bathrooms": 2,
+      "yearBuilt": 2015,
+      "floors": 10
+    },
+    "ownerInfo": {
+      "id": 5,
+      "firstName": "Sophia",
+      "lastName": "Kim",
+      "email": "sophiakim@example.com"
+    },
+    "description": "Luxury condo with high-end finishes and spectacular views",
+    "agentRemarks": "This is a must-see for anyone looking for luxury living",
+    "videoLink": "https://example.com/video4.mp4"
+  },
+  {
+    "id": 6,
+    "mlsNumber": "STU901",
+    "address": "901 Elm St",
+    "price": 450000,
+    "neighborhood": "Historic",
+    "propertyType": "Victorian House",
+    "photos": [
+      "https://example.com/photo16.jpg",
+      "https://example.com/photo17.jpg"
+    ],
+    "owner": "Emily Davis",
+    "features": {
+      "acceptedCurrencies": ["USD", "GBP"],
+      "size": 2000,
+      "bedrooms": 4,
+      "bathrooms": 2,
+      "yearBuilt": 1900,
+      "floors": 3
+    },
+    "ownerInfo": {
+      "id": 5,
+      "firstName": "Sophia",
+      "lastName": "Kim",
+      "email": "sophiakim@example.com"
+    },
+    "description": "Beautifully restored Victorian house with original features",
+    "agentRemarks": "This is a one-of-a-kind property with a rich history",
+    "videoLink": ""
+  }
+]

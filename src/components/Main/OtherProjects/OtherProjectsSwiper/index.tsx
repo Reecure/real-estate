@@ -1,48 +1,56 @@
-"use client";
-import React from "react";
+import React, { useRef, useState } from "react";
+// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import "./OtherProjectsSwiper.module.css";
+import s from "./OtherProjectsSwiper.module.css";
 
+// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
+// import required modules
 import { Pagination, Navigation } from "swiper";
+import Link from "next/link";
 
-type Props = {};
-
-const OtherProjectsSwiper = (props: Props) => {
+export default function App() {
   return (
-    <Swiper
-      loop={true}
-      pagination={true}
-      navigation={{}}
-      allowTouchMove={false}
-      centeredSlides={true}
-      slidesPerView={3}
-      spaceBetween={24}
-      className="h-full"
-      modules={[Navigation, Pagination]}
-    >
-      <SwiperSlide className={``}>
-        <div className=" flex items-center justify-center   h-full">
-          Slide 1
-        </div>
-      </SwiperSlide>
-      <SwiperSlide className={``}>
-        <div className="flex items-center justify-center   h-full">Slide 2</div>
-      </SwiperSlide>
-      <SwiperSlide className={``}>
-        <div className="flex items-center justify-center   h-full">Slide 3</div>
-      </SwiperSlide>
-      <SwiperSlide className={``}>
-        <div className="flex items-center justify-center   h-full">Slide 4</div>
-      </SwiperSlide>
-      <SwiperSlide className={``}>
-        <div className="flex items-center justify-center   h-full">Slide 5</div>
-      </SwiperSlide>
-    </Swiper>
+    <>
+      <Swiper
+        loop={true}
+        pagination={{
+          clickable: true,
+        }}
+        centeredSlides={true}
+        navigation={true}
+        modules={[Pagination, Navigation]}
+        breakpoints={{
+          320: {
+            slidesPerView: 1,
+            spaceBetween: 0,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          920: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        }}
+        className="min-h-[340px]"
+      >
+        {Array(10)
+          .fill(null)
+          .map((item, i) => {
+            return (
+              <Link key={i} href="/">
+                <SwiperSlide className="bg-slate-500 border-4 border-white rounded-lg text-black min-h-[300px]">
+                  Slide {i}
+                </SwiperSlide>
+              </Link>
+            );
+          })}
+      </Swiper>
+    </>
   );
-};
-
-export default OtherProjectsSwiper;
+}

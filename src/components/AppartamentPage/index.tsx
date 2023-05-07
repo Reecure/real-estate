@@ -1,20 +1,24 @@
-import React from "react";
+import { Project } from "@/types";
+import React, { FC } from "react";
 import Container from "../UI/Container";
 import MessageToUserCard from "./MessageToUserCard";
-import ProductDescription from "./ProductDescription";
-import SwiperProductPage from "./SwiperProductPage";
+import ProjectDescription from "./ProductDescription";
 
-type Props = {};
+import SwiperProjectPage from "./SwiperProjectPage";
 
-const AppartamentPage = (props: Props) => {
+type Props = {
+  apart: Project;
+};
+
+const AppartamentPage: FC<Props> = ({ apart }) => {
   return (
-    <Container className="grid grid-cols-[4fr_1fr] gap-12">
+    <Container className="grid grid-cols-1 xl:grid-cols-[4fr_1fr] gap-12">
       <div className="max-w-[880px] ">
-        <SwiperProductPage />
-        <ProductDescription />
+        <SwiperProjectPage />
+        <ProjectDescription apart={apart} />
       </div>
       <div className="">
-        <MessageToUserCard />
+        <MessageToUserCard apart={apart} />
       </div>
     </Container>
   );

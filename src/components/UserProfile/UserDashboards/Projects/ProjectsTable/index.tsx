@@ -6,8 +6,9 @@ import {
   selectProjects,
   selectVisibleProjects,
 } from "@/redux/features/getUserProjectsSlice";
-import { userProjects } from "@/types";
+import { Project } from "@/types";
 import React, { useEffect } from "react";
+
 import ProjectTableRaw from "./ProjectTableRaw";
 
 type Props = {};
@@ -34,10 +35,10 @@ const ProjectTable = (props: Props) => {
             <td className="px-1"></td>
             <td className="px-1"></td>
           </tr>
-          {visibleProjects.map((item: userProjects, i) => {
+          {visibleProjects.map((item: Project, i) => {
             return (
               <ProjectTableRaw
-                key={item.id}
+                key={item._id}
                 item={{ ...item }}
                 className={`${
                   i % 2 === 0 ? "bg-white/5" : "bg-primary-dark-gray"

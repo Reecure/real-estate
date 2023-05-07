@@ -31,10 +31,10 @@
   background-color: rgba(0, 0, 0, 0.1);
   color: rgb(255, 255, 255) !important;
 }
-.swiper-pagination-bullet {
+.swiperPaginationBullet {
   background-color: #ffffffcc !important;
 }
-.swiper-pagination-bullet-active {
+.swiperPaginationBulletActive {
   width: 13px !important;
-  background-color: #1daeff !important;
+  background-color: #fa7900 !important;
 }

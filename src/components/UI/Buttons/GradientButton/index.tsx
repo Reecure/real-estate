@@ -1,18 +1,14 @@
-import React, { FC, MouseEventHandler } from "react";
+import React, { FC, ButtonHTMLAttributes } from "react";
 import s from "./GradientButton.module.css";
-type Props = {
-  children: React.ReactNode;
-  onClick?: MouseEventHandler<HTMLButtonElement>;
-  className?: string;
-};
+type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement>;
 
-const GradientButton: FC<Props> = ({ children, className, onClick }) => {
+const GradientButton: FC<ButtonProps> = ({ className = "", ...rest }) => {
   return (
     <button
-      onClick={onClick}
-      className={` px-6 py-3 ${s.btnGradient} rounded-[40px] cursor-pointer ${className}`}
+      {...rest}
+      className={` px-6 py-2 ${s.btnGradient} rounded-[40px] cursor-pointer ${className}`}
     >
-      {children}
+      {rest.children}
     </button>
   );
 };

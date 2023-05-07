@@ -1,11 +1,15 @@
 import { RootState } from "@/redux/app/store";
 import { userProjects } from "@/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
+import { IProject } from "../../../../models/project";
 
 export const fetchUserProjects = createAsyncThunk(
   "projects/userProjects",
   async () => {
-    const res = fetch("/api/getUserProjects").then((data) => data.json());
+    const res = await axios
+      .get("/api/getUserProjectsFromDb")
+      .then((data) => data.data.projects);
     return res;
   }
 );
@@ -52,11 +56,11 @@ export const selectProjects = (state: RootState) => state.userProjects;
 
 export const selectVisibleProjects = (state: RootState) => {
   const { selecteType, projects, searchValue } = state.userProjects;
-  const filterType = (item: userProjects) =>
-    selecteType === "All" || item.type === selecteType;
-  const filterSearch = (item: userProjects) =>
+  const filterType = (item: IProject) =>
+    selecteType === "All" || item.propertyType === selecteType;
+  const filterSearch = (item: IProject) =>
     searchValue === "" ||
-    item.name.toLowerCase().includes(searchValue.toLowerCase());
+    item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());
   console.log(searchValue);
 
   return projects.filter(filterSearch).filter(filterType);

@@ -1,12 +1,14 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import { Formik, Field, Form } from "formik";
 import Image from "next/image";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AdditionalDetail from "./AdditionalDetail";
 import Crypto from "./Crypto";
 import MainInfo from "./MainInfo";
 import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
+import axios from "axios";
+import { IProject } from "../../../../models/project";
 
 type Props = {};
 
@@ -36,30 +38,37 @@ const MainForm = (props: Props) => {
     <>
       <Formik
         initialValues={{
-          mls_number: "",
+          mlsNumber: "",
           address: "",
           price: "",
           neighbourhood: "",
-          property_type: "",
+          propertyType: "",
           poster: "",
-          selling_NFT: false,
-          accept_Crypto: false,
+          sellingNFT: false,
+          acceptCrypto: false,
           firstName: "",
           lastName: "",
           email: "",
           phoneNumber: "",
-          accepted_currencies: "",
+          acceptedCurrencies: "",
           size: "",
           bedrooms: "",
           bathrooms: "",
-          year_built: "",
+          yearBuilt: "",
           floors: "",
           description: "",
-          agent_remarks: "",
-          video_link: "",
+          agentRemarks: "",
+          videoLink: "",
         }}
         onSubmit={async (values) => {
-          alert(JSON.stringify(values, null, 2));
+          try {
+            const res = await axios.post<IProject>("/api/create-project", {
+              ...values,
+              owner: "6453dfb9c8156bf9ee4a6f75",
+            });
+          } catch (error) {
+            console.log(error);
+          }
         }}
       >
         {({ isSubmitting, setFieldValue }) => (
@@ -121,7 +130,7 @@ const MainForm = (props: Props) => {
                 </div>
               </div>
             </div>
-            <button>send</button>
+            <button type="submit">send</button>
           </Form>
         )}
       </Formik>

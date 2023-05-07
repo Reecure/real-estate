@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import userRequests from "../features/getUserRequestsSlice";
 import userProjects from "../features/getUserProjectsSlice";
+import allApartments from "../features/getAllApartmentsSlice";
 
 export const store = configureStore({
-  reducer: { userRequests, userProjects },
+  reducer: { userRequests, userProjects, allApartments },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
