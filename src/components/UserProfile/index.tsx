@@ -23,22 +23,12 @@ const UserProfile = (props: Props) => {
     };
   }, [userEditModalOpen]);
 
-  const modalOpenHandler = useCallback(
-    (arg: boolean) => {
-      setUserEditModalOpen(arg);
-    },
-    [userEditModalOpen]
-  );
+  const modalOpenHandler = useCallback((arg: boolean) => {
+    setUserEditModalOpen(arg);
+  }, []);
 
   return (
     <div className={`relative `}>
-      <div
-        className={`absolute top-16 left-24 text-primary-blue font-semibold text-2xl whitespace-nowrap cursor-pointer ${
-          userEditModalOpen && "blur-sm"
-        }`}
-      >
-        <Link href="/">Back to Projects</Link>
-      </div>
       <Container
         className={`custom-padding py-10 ${userEditModalOpen && "blur-lg"} `}
       >
@@ -49,15 +39,14 @@ const UserProfile = (props: Props) => {
         <RecentActions />
       </Container>
 
-      <div className={`${!userEditModalOpen ? "hidden" : "block"} `}>
-        <div className={`absolute top-0 left-1/3   `}>
-          {userEditModalOpen && (
-            <EditProfile
-              userEditModalOpen={userEditModalOpen}
-              setUserEditModalOpen={modalOpenHandler}
-            />
-          )}
-        </div>
+      <div className={`${!userEditModalOpen ? "hidden" : "static"} `}>
+        {userEditModalOpen && (
+          <EditProfile
+            className="absolute top-0 left-0 "
+            userEditModalOpen={userEditModalOpen}
+            setUserEditModalOpen={modalOpenHandler}
+          />
+        )}
       </div>
     </div>
   );
