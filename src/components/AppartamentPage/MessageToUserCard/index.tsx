@@ -24,7 +24,7 @@ const MessageToUserCard: FC<Props> = ({ apart }) => {
   }, []);
 
   return (
-    <div className="max-w-[250px]">
+    <div className="w-full sm:max-w-[550px]">
       <article>
         <Image src={""} alt="avatar" className="mx-auto" />
         <p className="text-xl text-center mb-4">
@@ -42,27 +42,35 @@ const MessageToUserCard: FC<Props> = ({ apart }) => {
         }}
       >
         <Form className="space-y-2 flex flex-col text-xs">
-          <label htmlFor="name">Name</label>
-          <Field
-            name="name"
-            type="text"
-            className="bg-primary-dark-gray rounded-lg py-3 px-4"
-          />
-          <label htmlFor="email">Email</label>
-          <Field
-            name="email"
-            type="text"
-            className="bg-primary-dark-gray rounded-lg py-3 px-4"
-          />
-          <label htmlFor="message">Message</label>
-          <Field
-            as="textarea"
-            name="message"
-            type="textarea"
-            className="bg-primary-dark-gray rounded-lg min-h-[100px] py-3 px-4"
-          />
-          <div className="py-8">
-            <BlueButton type="submit" className="w-full">
+          <div className="flexflex-col">
+            <div className="flex flex-col">
+              <label htmlFor="name">Name</label>
+              <Field
+                name="name"
+                type="text"
+                className="bg-primary-dark-gray rounded-lg py-3 px-4"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="email">Email</label>
+              <Field
+                name="email"
+                type="text"
+                className="bg-primary-dark-gray rounded-lg py-3 px-4"
+              />
+            </div>
+            <div className="flex flex-col">
+              <label htmlFor="message">Message</label>
+              <Field
+                as="textarea"
+                name="message"
+                type="textarea"
+                className="bg-primary-dark-gray rounded-lg min-h-[100px] py-3 px-4"
+              />
+            </div>
+          </div>
+          <div className="py-8 mx-auto">
+            <BlueButton type="submit" className="max-w-[250px]">
               Send Message
             </BlueButton>
           </div>

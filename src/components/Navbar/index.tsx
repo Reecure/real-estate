@@ -49,7 +49,7 @@ const Navbar = (props: Props) => {
               <Link href="/">
                 <li>About Us</li>
               </Link>
-              <Link href="/">
+              <Link href="/other-projects">
                 <li>Other Projects</li>
               </Link>
             </ul>

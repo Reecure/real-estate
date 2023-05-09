@@ -46,17 +46,17 @@ const DeleteProfileModal: FC<Props> = ({
         />
         <label htmlFor="">Confirm account deletion</label>
       </div>
-      <div className="flex justify-between">
+      <div className="flex justify-between space-x-2 sm:space-x-0 ">
         <RedButton
           disabled={!confirmDelete}
           onClick={() => {
             alert("Account success deleted");
           }}
-          className="bg-red-400 disabled:bg-red-400/25 disabled:text-white/25"
+          className="!whitespace-nowrap bg-red-400 disabled:bg-red-400/25 disabled:text-white/25"
         >
           Delete account
         </RedButton>
-        <div className="flex space-x-5">
+        <div className="flex flex-col items-center sm:flex-row space-y-2 sm:space-y-0 sm:space-x-5">
           <BlackButton
             onClick={() => {
               setDeleteOpen(!deleteOpen);
@@ -65,7 +65,7 @@ const DeleteProfileModal: FC<Props> = ({
           >
             Cancel
           </BlackButton>
-          <GradientButton>Export</GradientButton>
+          <GradientButton className="">Export</GradientButton>
         </div>
       </div>
     </dialog>

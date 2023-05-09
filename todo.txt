@@ -1,11 +1,9 @@
 
-tier B : {
-    delete account modal and edit responsibility
-    slider in similar listing (product description page) on small user send message card edit
+now: {
+    realize other project page
 }
 
 future: {
-    refactor code
     animated for fixed asides from left to right
     animated buttons
     userSlice
@@ -16,6 +14,10 @@ future: {
 }
 
 maybe letter: { 
+    
+    
+    slider in similar listing (product description page)
+
     tables when swith ctate reset page to 1 and when page empty some image that is empy and page 1 - 1
     
     user profile recent action table pagination
@@ -23,6 +25,8 @@ maybe letter: {
     create project button in projects more responsive table row width
    
     styling text in new project
+    
+    refactor code
 }
 
 
