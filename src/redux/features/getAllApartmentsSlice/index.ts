@@ -64,10 +64,10 @@ const initialState = {
     sellingNFT: false,
   },
   houseProperties: {
-    size: 0,
-    bathrooms: 0,
-    bedrooms: 0,
-    floors: 0,
+    size: null,
+    bathrooms: null,
+    bedrooms: null,
+    floors: null,
     yearBuilt: 0,
   },
   price: 0,
@@ -142,16 +142,18 @@ export const selectAllVisibleApartments = (state: RootState) => {
   const { data, houseProperties, price, payment } = state.allApartments;
 
   const filterProperties = (item: IProject) => {
+    console.log(houseProperties.size);
+
     return (
-      (houseProperties.size === 0 ||
+      (houseProperties.size === null ||
         Number(item.size) >= houseProperties.size) &&
-      (houseProperties.bathrooms === 0 ||
+      (houseProperties.bathrooms === null ||
         Number(item.bathrooms) >= houseProperties.bathrooms) &&
-      (houseProperties.bedrooms === 0 ||
+      (houseProperties.bedrooms === null ||
         Number(item.bedrooms) >= houseProperties.bedrooms) &&
-      (houseProperties.floors === 0 ||
+      (houseProperties.floors === null ||
         Number(item.floors) >= houseProperties.floors) &&
-      (houseProperties.yearBuilt === 0 ||
+      (houseProperties.yearBuilt === null ||
         Number(item.yearBuilt) >= houseProperties.yearBuilt)
     );
   };

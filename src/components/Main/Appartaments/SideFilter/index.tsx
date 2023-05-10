@@ -11,9 +11,12 @@ import {
   setSize,
   setYearBuilt,
 } from "@/redux/features/getAllApartmentsSlice";
-import { Formik } from "formik";
-import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import BathroomsFilter from "./BathroomsFilter";
+import BedroomsFilter from "./BedroomsFilter";
+import FloorsFilter from "./FloorsFilter";
+import SelectorForm from "./SelectorForm";
+import SizeFilter from "./SizeFilter";
 
 type Props = {};
 
@@ -22,40 +25,11 @@ const SideFilter = (props: Props) => {
   const dispatch = useAppDispatch();
 
   return (
-    <div className="">
-      <div>
-        <div>
-          <label htmlFor="text">Size</label>
-          <input
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            onChange={(e) => {
-              dispatch(setSize(e.currentTarget.value));
-            }}
-          />
-        </div>
-        <div></div>
-        <div>
-          <label htmlFor="bedrooms">bedrooms</label>
-          <input
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            onChange={(e) => {
-              dispatch(setBedrooms(e.currentTarget.value));
-            }}
-          />
-        </div>
-        <div>
-          <label htmlFor="Floors">Floors</label>
-          <input
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            onChange={(e) => {
-              dispatch(setFloors(e.currentTarget.value));
-            }}
-          />
-        </div>
-      </div>
+    <div className="space-y-5 ">
+      <SizeFilter />
+      <BedroomsFilter />
+      <BathroomsFilter />
+      <FloorsFilter />
 
       <div>
         <label htmlFor="sellingNFT">Price</label>
@@ -78,6 +52,7 @@ const SideFilter = (props: Props) => {
           }}
         />
       </div>
+
       <div>
         <div>
           <input
