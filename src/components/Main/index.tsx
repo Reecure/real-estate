@@ -4,17 +4,29 @@ import Appartaments from "./Appartaments";
 import DidYouFindYourDreamHome from "./DidYouFindYourDreamHome";
 import Hero from "./Hero";
 import OtherProjects from "./OtherProjects";
+import { useSpring, animated } from "@react-spring/web";
+import ObserverSection from "./ObserverSection";
 
 type Props = {};
 
 const Main = (props: Props) => {
   return (
     <>
-      <Hero />
-      <Appartaments />
-      <AboutUs />
-      <OtherProjects />
-      <DidYouFindYourDreamHome />
+      <ObserverSection>
+        <Hero />
+      </ObserverSection>
+      <ObserverSection>
+        <Appartaments />
+      </ObserverSection>
+      <ObserverSection>
+        <AboutUs />
+      </ObserverSection>
+      <ObserverSection>
+        <OtherProjects />
+      </ObserverSection>
+      <ObserverSection>
+        <DidYouFindYourDreamHome />
+      </ObserverSection>
     </>
   );
 };

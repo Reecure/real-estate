@@ -1,9 +1,12 @@
 import { Field } from "formik";
-import React from "react";
+import React, { FC } from "react";
+import { animated, useSpring, useTransition } from "@react-spring/web";
 
-type Props = {};
+type Props = {
+  isOpen: boolean;
+};
 
-const AdditionalDetail = (props: Props) => {
+const AdditionalDetail: FC<Props> = ({ isOpen }) => {
   return (
     <div>
       <div className="">

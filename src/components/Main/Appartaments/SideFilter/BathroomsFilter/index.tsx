@@ -16,7 +16,7 @@ const BathroomsFilter = (props: Props) => {
     <div>
       <SelectorForm
         arr={bathrooms}
-        title="bathrooms"
+        title="Bathrooms"
         handler={bathroomsHandler}
       />
     </div>

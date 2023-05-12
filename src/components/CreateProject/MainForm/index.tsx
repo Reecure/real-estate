@@ -1,19 +1,20 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import { Formik, Field, Form } from "formik";
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, FC } from "react";
 import AdditionalDetail from "./AdditionalDetail";
 import Crypto from "./Crypto";
 import MainInfo from "./MainInfo";
 import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
-import axios from "axios";
-import { IProject } from "../../../../models/project";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
+import s from "./MainForm.module.css";
 
-type Props = {};
+type Props = {
+  onSubmit: (arg: any) => void;
+};
 
-const MainForm = (props: Props) => {
+const MainForm: FC<Props> = ({ onSubmit }) => {
   const [openAdditionalDetails, setOpenAdditionalDetails] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
 
@@ -61,16 +62,7 @@ const MainForm = (props: Props) => {
           agentRemarks: "",
           videoLink: "",
         }}
-        onSubmit={async (values) => {
-          try {
-            const res = await axios.post<IProject>("/api/create-project", {
-              ...values,
-              owner: "6453dfb9c8156bf9ee4a6f75",
-            });
-          } catch (error) {
-            console.log(error);
-          }
-        }}
+        onSubmit={onSubmit}
       >
         {({ isSubmitting, setFieldValue }) => (
           <Form>
@@ -115,25 +107,32 @@ const MainForm = (props: Props) => {
                 <ShareOffersForm />
 
                 {/* Additional Details */}
-                <div
-                  className="flex items-center space-x-5"
-                  onClick={() => setOpenAdditionalDetails((prev) => !prev)}
-                >
-                  <h5 className="text-2xl font-semibold text-primary-blue mt-9 cursor-pointer mb-10">
+                <div className="flex items-center space-x-5">
+                  <h5
+                    onClick={() => setOpenAdditionalDetails((prev) => !prev)}
+                    className="text-2xl font-semibold text-primary-blue mt-9 cursor-pointer mb-10"
+                  >
                     Additional details
                   </h5>
                   <MdOutlineKeyboardArrowRight
-                    className={`text-primary-blue text-2xl duration-300 ${
+                    onClick={() => setOpenAdditionalDetails((prev) => !prev)}
+                    className={`text-primary-blue text-2xl duration-300 cursor-pointer ${
                       openAdditionalDetails ? "rotate-90" : ""
                     }`}
                   />
                 </div>
 
                 {openAdditionalDetails && (
-                  <>
+                  <div
+                    className={`${
+                      openAdditionalDetails
+                        ? `${s.myAnimOpen}`
+                        : `${s.myAnimClose}`
+                    }`}
+                  >
                     <h5 className="text-2xl font-semibold pb-10">Features</h5>
-                    <AdditionalDetail />
-                  </>
+                    <AdditionalDetail isOpen={openAdditionalDetails} />
+                  </div>
                 )}
               </div>
             </div>

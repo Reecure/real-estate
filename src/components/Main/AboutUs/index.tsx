@@ -1,5 +1,5 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import s from "./AboutUs.module.css";
 import Benefit from "./Benefit";
 

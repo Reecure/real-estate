@@ -36,11 +36,11 @@ const OtherProjectsPage = (props: Props) => {
   return (
     <div className="relative ">
       <div className={` min-h-screen py-28 custom-padding !overflow-y-hidden`}>
-        <div className="flex lg:hidden items-center bg-[#0e0e0e] mb-10 p-3 rounded-lg">
+        <div className="flex  items-center bg-[#0e0e0e] mb-10 p-3 rounded-lg">
           <div className="w-[30%] md:w-[40%] lg:w-[65%] ">
             <BlueButton
               onClick={() => setFilterOpen((prev) => !prev)}
-              className="block  max-w-[230px] text-white py-3 px-2 mb-5 bg-black rounded-lg "
+              className="block lg:hidden  max-w-[230px] text-white py-3 px-2 mb-5 bg-black rounded-lg "
             >
               Filter
             </BlueButton>
