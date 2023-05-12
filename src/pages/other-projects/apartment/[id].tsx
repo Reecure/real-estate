@@ -3,7 +3,7 @@ import { Project } from "@/types";
 import { data } from "autoprefixer";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Layout from "../layout";
+import Layout from "../../layout";
 
 type Props = {};
 

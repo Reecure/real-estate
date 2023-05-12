@@ -1,3 +1,4 @@
+import SideFilter from "@/components/Main/Appartaments/SideFilter";
 import DeleteModal from "@/components/Modals/DeleteProfileModal";
 import EditProfile from "@/components/Modals/EditProfile";
 import EditProject from "@/components/Modals/EditProject";

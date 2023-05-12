@@ -48,7 +48,9 @@ const ProjectsHoodNav = (props: Props) => {
         <option value="Town House">Town House</option>
       </select>
       <Link href="/new-project">
-        <GradientButton className="">Create Project</GradientButton>
+        <GradientButton className="whitespace-nowrap py-3">
+          Create Project
+        </GradientButton>
       </Link>
     </div>
   );

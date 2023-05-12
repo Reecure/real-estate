@@ -1,3 +1,41 @@
-fix in requests dashboard when switch  count of visible items reset page to 0
 
-fix matching password
+now: {
+    realize other project page
+}
+
+future: {
+    animated for fixed asides from left to right
+    animated buttons
+    userSlice
+    productSlice                               ----
+    modals animation from small to big > [] > |    |
+                                              |    |
+                                               ____
+}
+
+maybe letter: { 
+    
+    
+    slider in similar listing (product description page)
+
+    tables when swith ctate reset page to 1 and when page empty some image that is empy and page 1 - 1
+    
+    user profile recent action table pagination
+   
+    create project button in projects more responsive table row width
+   
+    styling text in new project
+    
+    refactor code
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useRef } from "react";
 import BlackButton from "../UI/Buttons/BlackButton";
 import GradientButton from "../UI/Buttons/GradientButton";
 import Container from "../UI/Container";
 import AdditionalDetail from "./MainForm/AdditionalDetail";
 import MainForm from "./MainForm";
 import Link from "next/link";
+import { FormikProps, useFormikContext } from "formik";
 
 type Props = {};
 
 const CreateProject = (props: Props) => {
+  const handleOnSubmit = (values: any) => {
+    alert(JSON.stringify(values, null, 2));
+  };
+
   return (
     <Container className="text-white custom-padding">
       <div className="flex justify-between py-16">
@@ -24,7 +29,7 @@ const CreateProject = (props: Props) => {
         </div>
       </div>
       <div>
-        <MainForm />
+        <MainForm onSubmit={handleOnSubmit} />
       </div>
     </Container>
   );

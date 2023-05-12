@@ -12,12 +12,12 @@ type Props = {
 
 const AppartamentPage: FC<Props> = ({ apart }) => {
   return (
-    <Container className="grid grid-cols-1 xl:grid-cols-[4fr_1fr] gap-12">
+    <Container className="grid grid-cols-1 lg:grid-cols-[4fr_1fr] gap-12">
       <div className="max-w-[880px] ">
         <SwiperProjectPage />
         <ProjectDescription apart={apart} />
       </div>
-      <div className="">
+      <div className="flex justify-center">
         <MessageToUserCard apart={apart} />
       </div>
     </Container>

@@ -11,13 +11,17 @@ type Props = {
 const RequestsTableRaw: FC<Props> = ({ className, item }) => {
   return (
     <tr className={`${className}`}>
-      <td className="py-4 px-7  ">{item.name}</td>
-      <td className="px-1">{item.type}</td>
-      <td className="px-1">{item.status}</td>
-      <td className="px-1">{item.text}</td>
-      <td className="px-1">{item.data}</td>
-      <td className="px-1 text-primary-blue">{item.user}</td>
-      <td className="px-1">
+      <td
+        className={`min-w-[150px] py-4 px-7 sticky left-0 z-[1] ${className}`}
+      >
+        {item.name}
+      </td>
+      <td className="min-w-[150px] px-1">{item.type}</td>
+      <td className="min-w-[150px] px-1">{item.status}</td>
+      <td className="min-w-[150px] px-1">{item.text}</td>
+      <td className="min-w-[150px] px-1">{item.data}</td>
+      <td className="min-w-[150px] px-1 text-primary-blue">{item.user}</td>
+      <td className="min-w-[150px] px-1">
         <BlackButton className="border-[2px] border-primary-text-dark-gray">
           Answer
         </BlackButton>
