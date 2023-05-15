@@ -2,7 +2,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
 import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
-import EditProfile from "../Modals/EditProfile";
+import EditProfile from "../Modals/EditProfileModal";
 import Container from "../UI/Container";
 import RecentActions from "./RecentActions";
 import UserCard from "./UserCard";
@@ -48,16 +48,12 @@ const UserProfile = (props: Props) => {
         <RecentActions />
       </Container>
 
-      <div className={`${!userEditModalOpen ? "hidden" : "static"} `}>
-        {userEditModalOpen && (
-          <EditProfile
-            user={selectUserById}
-            className="absolute top-0 left-0 "
-            userEditModalOpen={userEditModalOpen}
-            setUserEditModalOpen={modalOpenHandler}
-          />
-        )}
-      </div>
+      <EditProfile
+        user={selectUserById}
+        className="absolute top-0 left-0 "
+        userEditModalOpen={userEditModalOpen}
+        setUserEditModalOpen={modalOpenHandler}
+      />
     </div>
   );
 };

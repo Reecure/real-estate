@@ -4,12 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
 import appart from "../../../../../public/appartamentTest.png";
+import { Paths } from "@/constants/paths";
 
 type Props = {
   apart: Project;
 };
 
-const AppartamentsCard: FC<Props> = ({ apart }) => {
+const ApartmentsCard: FC<Props> = ({ apart }) => {
   return (
     <div className="max-w-[577px] mx-auto">
       <div>
@@ -17,8 +18,8 @@ const AppartamentsCard: FC<Props> = ({ apart }) => {
       </div>
       <div className="p-4 ">
         <div className="flex justify-between items-center mb-4">
-          <p>{apart.price}</p>
-          <Link href={`other-projects/apartment/${apart._id}`}>
+          <p>{apart.price}$</p>
+          <Link href={`${Paths.Apartment}/${apart._id}`}>
             <GradientButton className={``}>View Details</GradientButton>
           </Link>
         </div>
@@ -42,4 +43,4 @@ const AppartamentsCard: FC<Props> = ({ apart }) => {
   );
 };
 
-export default AppartamentsCard;
+export default ApartmentsCard;

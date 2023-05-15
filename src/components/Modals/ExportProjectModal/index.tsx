@@ -1,8 +1,6 @@
-import Image from "next/image";
 import React from "react";
-import image from "../../../public/editModalImage.png";
-import BlueButton from "../UI/Buttons/BlueButton";
-import GradientButton from "../UI/Buttons/GradientButton";
+import BlueButton from "../../UI/Buttons/BlueButton";
+import GradientButton from "../../UI/Buttons/GradientButton";
 
 type Props = {};
 

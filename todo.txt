@@ -1,20 +1,38 @@
+refactor {
+    1.ApartmentPage {
+        1.1MessageToUserCard fetch
+        1.2ProductDescription
+    }
+    2.CreateAccount
+    3.Footer
+    4.Main {
+        4.1DidYouFindYourDreamHome
+        4.2Other projects
+    }
+    5.OtherProjects
+    6.UserProfile{
+        6.1ProjectHoodNav
+        6.2RequestHoodNav
+        6.3All Tables
+    }
 
-now: {
-    realize other project page
+    Pages
+    1.Other-projects {
+        apartment: (fetch)
+    }
 }
 
-future: {
-    animated for fixed asides from left to right
-    animated buttons
-    userSlice
-    productSlice                               ----
-    modals animation from small to big > [] > |    |
-                                              |    |
-                                               ____
+
+tier s: {
+    1.request status new style
+    2.request tree dots > close request archive
+    3.create mails page
+    4.edit project > edit,  export, delete
+    5.pages create account, reset password, signIn, email verification, password change, 404 page,
 }
 
 maybe letter: { 
-    
+    check all fetches
     
     slider in similar listing (product description page)
 

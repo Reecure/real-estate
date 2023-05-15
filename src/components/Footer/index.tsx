@@ -31,11 +31,18 @@ const Footer = (props: Props) => {
             <div className="w-8 h-8 rounded-lg bg-primary-dark-gray"></div>
             <div className="w-8 h-8 rounded-lg bg-primary-dark-gray"></div>
           </div>
-          <div className="mt-6">English - En</div>
+          <select className={`custom-field  mt-6`}>
+            <option value="Eng" id="" className={``}>
+              English - En
+            </option>
+            <option value="Ua" id="" className={``}>
+              Ukraine - Ua
+            </option>
+          </select>
         </div>
       </div>
       <div className="pt-8 pb-16 text-center text-primary-gray font-normal">
-        © 2022 Dandelion | All Rights Reserved
+        © 2023 Dandelion | All Rights Reserved
       </div>
     </footer>
   );

@@ -1,5 +1,4 @@
 import { RootState } from "@/redux/app/store";
-import { userProjects } from "@/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IProject } from "../../../../models/project";

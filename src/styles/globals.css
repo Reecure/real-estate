@@ -18,3 +18,7 @@ body {
 .inner-shadow {
   box-shadow: inset 0px 0px 450px rgba(0, 0, 0, 0.9);
 }
+
+.custom-field {
+  @apply w-full  py-3 px-2 mb-5 !bg-[#0E0E0E] rounded-lg
+}

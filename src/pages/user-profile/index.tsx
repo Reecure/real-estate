@@ -7,16 +7,15 @@ import React, { FC } from "react";
 import { Provider } from "react-redux";
 
 type Props = {
-  session: any;
 };
 
-const UserProfilePage: FC<Props> = ({ session }) => {
+const UserProfilePage: FC<Props> = () => {
   return (
     <Container>
       <Navbar />
       <main className="py-16">
         <Provider store={store}>
-          <UserProfile />{" "}
+          <UserProfile />
         </Provider>
       </main>
     </Container>

@@ -1,52 +1,44 @@
-import React from "react";
+import React, { FC } from "react";
 import { Field } from "formik";
+import { IField } from "@/types";
+import { FieldTemplate } from "@/components/Templates/FieldTemplate";
+
+const Fields: IField[] = [
+  {
+    value: "First Name",
+    name: "firstName",
+    id: "firstName",
+    type: "text",
+  },
+  {
+    value: "Last Name",
+    name: "lastName",
+    id: "lastName",
+    type: "text",
+  },
+  {
+    value: "Email Address",
+    name: "email",
+    id: "email",
+    type: "email",
+  },
+  {
+    value: "Phone Number",
+    name: "phoneNumber",
+    id: "phoneNumber",
+    type: "text",
+  },
+];
 
 type Props = {};
 
-const ShareOffersForm = (props: Props) => {
+const ShareOffersForm: FC<Props> = () => {
   return (
     <>
-      <div className="flex gap-10">
-        <div className="flex flex-col w-full">
-          <label htmlFor="firstName" className="mb-1 text-[12px]">
-            First name
-          </label>
-          <Field
-            name="firstName"
-            id="firstName"
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-          />
-          <label htmlFor="email" className="mb-1 text-[12px]">
-            Email address
-          </label>
-          <Field
-            name="email"
-            id="email"
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-          />
-        </div>
-        <div className="flex flex-col w-full">
-          <label htmlFor="lastName" className="mb-1 text-[12px]">
-            Last name
-          </label>
-          <Field
-            name="lastName"
-            id="lastName"
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-          />
-          <label htmlFor="phoneNumber" className="mb-1 text-[12px]">
-            Phone number
-          </label>
-          <Field
-            name="phoneNumber"
-            id="phoneNumber"
-            type="text"
-            className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-          />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10">
+        {Fields.map((item) => {
+          return <FieldTemplate key={item.id} field={{ ...item }} />;
+        })}
       </div>
     </>
   );

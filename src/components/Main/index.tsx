@@ -1,6 +1,6 @@
 import React from "react";
 import AboutUs from "./AboutUs";
-import Appartaments from "./Appartaments";
+import Apartments from "./Appartaments";
 import DidYouFindYourDreamHome from "./DidYouFindYourDreamHome";
 import Hero from "./Hero";
 import OtherProjects from "./OtherProjects";
@@ -16,7 +16,7 @@ const Main = (props: Props) => {
         <Hero />
       </ObserverSection>
       <ObserverSection>
-        <Appartaments />
+        <Apartments />
       </ObserverSection>
       <ObserverSection>
         <AboutUs />

@@ -6,10 +6,9 @@ import React, { FC } from "react";
 import { Provider } from "react-redux";
 
 type Props = {
-  session: any;
 };
 
-const Dashboards: FC<Props> = ({ session }) => {
+const Dashboards: FC<Props> = () => {
   return (
     <Container className="">
       <Provider store={store}>

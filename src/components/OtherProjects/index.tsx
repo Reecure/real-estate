@@ -5,7 +5,7 @@ import {
 } from "@/redux/features/getAllApartmentsSlice";
 import { Project } from "@/types";
 import React, { useEffect, useMemo, useState } from "react";
-import AppartamentsCard from "../Main/Appartaments/AppartamentsCard";
+import ApartmentsCard from "../Main/Appartaments/AppartamentsCard";
 import SideFilter from "../Main/Appartaments/SideFilter";
 import TopFilter from "../Main/Appartaments/TopFilter";
 import BlueButton from "../UI/Buttons/BlueButton";
@@ -55,7 +55,7 @@ const OtherProjectsPage = (props: Props) => {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {visibleProjects.map((project: Project, i) => {
-              return <AppartamentsCard key={i} apart={project} />;
+              return <ApartmentsCard key={i} apart={project} />;
             })}
           </div>
         </div>
