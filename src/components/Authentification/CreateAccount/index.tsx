@@ -1,9 +1,9 @@
 import Image from "next/image";
 
 import React from "react";
-import logo from "../../../public/logo.png";
-import GradientButton from "../UI/Buttons/GradientButton";
-import Container from "../UI/Container";
+import logo from "../../../../public/logo.png";
+import GradientButton from "../../UI/Buttons/GradientButton";
+import Container from "../../UI/Container";
 
 type Props = {};
 

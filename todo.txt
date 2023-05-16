@@ -23,9 +23,8 @@ refactor {
 }
 
 
-tier s: {
-    3.create mails page
-    5.pages create account, reset password, signIn, email verification, password change, 404 page,
+tier s: {create account reset password signIn  email verification password change
+    5.pages 404 page,
     6.to do edit project modal remove from tbody and change from export form to edit
 }
 

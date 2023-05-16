@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import confirmEmail from "../../../../public/confirmEmail.svg";
-import GradientButton from "../Buttons/GradientButton";
+import GradientButton from "../../UI/Buttons/GradientButton";
 
 type Props = {};
 

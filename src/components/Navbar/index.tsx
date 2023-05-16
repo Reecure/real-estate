@@ -29,7 +29,7 @@ const Tabs: ITab[] = [
 type Props = {};
 
 const Navbar = (props: Props) => {
-  const [logged, setLogged] = useState(true);
+  const [logged, setLogged] = useState(false);
   const [yPosition, setYPosition] = useState(0);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [hamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);

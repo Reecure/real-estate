@@ -1,5 +1,5 @@
 import React from "react";
-import GradientButton from "../Buttons/GradientButton";
+import GradientButton from "../../UI/Buttons/GradientButton";
 
 type Props = {};
 
