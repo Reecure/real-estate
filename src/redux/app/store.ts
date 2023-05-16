@@ -3,9 +3,10 @@ import userRequests from "../features/getUserRequestsSlice";
 import userProjects from "../features/getUserProjectsSlice";
 import allApartments from "../features/getAllApartmentsSlice";
 import user from "../features/getUserByIdSlice";
+import project from "../features/getProjectByIdSlice";
 
 export const store = configureStore({
-  reducer: { userRequests, userProjects, allApartments, user },
+  reducer: { userRequests, userProjects, allApartments, user, project },
 });
 
 // Infer the `RootState` and `AppDispatch` types from the store itself

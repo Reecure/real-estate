@@ -3,13 +3,12 @@ import axios from "axios";
 import { RootState } from "@/redux/app/store";
 import { User } from "@/types";
 
-export const fetchUser = createAsyncThunk<User>(
+export const fetchUser = createAsyncThunk(
   "user/getUserById",
-  async () => {
-    const res = await axios
-      .get(`/api/getUserById?id=6453dfb9c8156bf9ee4a6f75`)
-      .then((res) => res.data);
-
+  async (id: any) => {
+    const res = await fetch(`/api/getUserById?id=${id}`).then((res) =>
+      res.json()
+    );
     return res.user;
   }
 );
@@ -56,8 +55,4 @@ const getUserByIdSlice = createSlice({
 
 export default getUserByIdSlice.reducer;
 
-export const selectUser = (state: RootState) => {
-  const { user } = state.user;
-
-  return user;
-};
+export const selectUser = (state: RootState) => state.user;

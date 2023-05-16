@@ -10,7 +10,7 @@ import {
   setPerPage,
 } from "@/redux/features/getUserProjectsSlice";
 import { Project } from "@/types";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 
 import ProjectTableRaw from "./ProjectTableRaw";

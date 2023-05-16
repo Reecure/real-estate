@@ -24,12 +24,11 @@ refactor {
 
 
 tier s: {
-    1.request status new style
-    2.request tree dots > close request archive
     3.create mails page
-    4.edit project > edit,  export, delete
     5.pages create account, reset password, signIn, email verification, password change, 404 page,
+    6.to do edit project modal remove from tbody and change from export form to edit
 }
+
 
 maybe letter: { 
     check all fetches
