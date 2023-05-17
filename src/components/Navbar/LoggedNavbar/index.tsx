@@ -4,18 +4,14 @@ import React, { FC } from "react";
 import { Paths } from "@/constants/paths";
 
 type Props = {
-  userMenuOpen: boolean;
   handleUserMenuOpen: () => void;
 };
 
-export const LoggedNavbar: FC<Props> = ({
-  handleUserMenuOpen,
-  userMenuOpen,
-}) => {
+export const LoggedNavbar: FC<Props> = ({ handleUserMenuOpen }) => {
   return (
     <>
       <div className="flex items-center space-x-3">
-        <Link href={Paths.UserMail}>
+        <Link href="/">
           <TbBellRingingFilled className="w-6 h-6 text-primary-text-dark-gray" />
         </Link>
         <div

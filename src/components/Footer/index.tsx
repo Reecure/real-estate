@@ -1,6 +1,8 @@
 import Image from "next/image";
 import React from "react";
 import logo from "../../../public/logo.png";
+import { AiOutlineInstagram, AiOutlineYoutube } from "react-icons/ai";
+import { CiTwitter } from "react-icons/ci";
 
 type Props = {};
 
@@ -27,9 +29,15 @@ const Footer = (props: Props) => {
         <div className=" max-w-[313px] w-full md:max-w-fit">
           <h4 className="text-2xl">Follow Us</h4>
           <div className="flex space-x-2 mt-4 ">
-            <div className="w-8 h-8 rounded-lg bg-primary-dark-gray"></div>
-            <div className="w-8 h-8 rounded-lg bg-primary-dark-gray"></div>
-            <div className="w-8 h-8 rounded-lg bg-primary-dark-gray"></div>
+            <div className="flex items-center justify-center text-lg text-primary-text-dark-gray cursor-pointer w-8 h-8 rounded-lg bg-primary-dark-gray">
+              <AiOutlineInstagram />
+            </div>
+            <div className="flex items-center justify-center text-lg text-primary-text-dark-gray cursor-pointer w-8 h-8 rounded-lg bg-primary-dark-gray">
+              <AiOutlineYoutube />
+            </div>
+            <div className="flex items-center justify-center text-lg text-primary-text-dark-gray cursor-pointer w-8 h-8 rounded-lg bg-primary-dark-gray">
+              <CiTwitter />
+            </div>
           </div>
           <select className={`custom-field  mt-6`}>
             <option value="Eng" id="" className={``}>

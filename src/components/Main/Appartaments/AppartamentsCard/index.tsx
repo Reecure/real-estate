@@ -20,7 +20,9 @@ const ApartmentsCard: FC<Props> = ({ apart }) => {
         <div className="flex justify-between items-center mb-4">
           <p>{apart.price}$</p>
           <Link href={`${Paths.Apartment}/${apart._id}`}>
-            <GradientButton className={``}>View Details</GradientButton>
+            <GradientButton className={``} onClick={() => {}}>
+              View Details
+            </GradientButton>
           </Link>
         </div>
         <div className="flex justify-between items-center border-[2px] rounded-lg whitespace-nowrap">

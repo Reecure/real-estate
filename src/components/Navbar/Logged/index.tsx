@@ -9,16 +9,13 @@ type Props = {
 };
 export const Logged: FC<Props> = ({
   logged,
-  userMenuOpen,
+
   handleUserMenuOpen,
 }) => {
   return (
     <>
       {logged ? (
-        <LoggedNavbar
-          userMenuOpen={userMenuOpen}
-          handleUserMenuOpen={handleUserMenuOpen}
-        />
+        <LoggedNavbar handleUserMenuOpen={handleUserMenuOpen} />
       ) : (
         <NonLoggedNavbar />
       )}

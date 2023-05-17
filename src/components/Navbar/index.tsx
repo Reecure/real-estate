@@ -26,10 +26,8 @@ const Tabs: ITab[] = [
   },
 ];
 
-type Props = {};
-
-const Navbar = (props: Props) => {
-  const [logged, setLogged] = useState(false);
+const Navbar = () => {
+  const [logged, setLogged] = useState(true);
   const [yPosition, setYPosition] = useState(0);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [hamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
@@ -63,7 +61,7 @@ const Navbar = (props: Props) => {
         <div>
           <div className="hidden md:flex space-x-12">
             <ul className="flex items-center text-white space-x-12 font-semibold">
-              {Tabs.map((item, i) => {
+              {Tabs.map((item) => {
                 return (
                   <Link key={item.name} href={item.path}>
                     <li>{item.name}</li>

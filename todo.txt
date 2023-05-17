@@ -1,51 +1,30 @@
 refactor {
     1.ApartmentPage {
-        1.1MessageToUserCard fetch
         1.2ProductDescription
     }
-    2.CreateAccount
-    3.Footer
-    4.Main {
-        4.1DidYouFindYourDreamHome
+    2.Main {
         4.2Other projects
     }
-    5.OtherProjects
-    6.UserProfile{
-        6.1ProjectHoodNav
-        6.2RequestHoodNav
-        6.3All Tables
-    }
-
-    Pages
-    1.Other-projects {
-        apartment: (fetch)
-    }
+    3. create about-us page
+    4. resent action realize table and three dots menu
+    5. delete account text styles and confirm checkbox
+    6. new project add  checkbox style and create btn
+    7. requests answer  button
 }
 
-
-tier s: {create account reset password signIn  email verification password change
-    5.pages 404 page,
+tier s: {
     6.to do edit project modal remove from tbody and change from export form to edit
 }
 
 
-maybe letter: { 
-    check all fetches
-    
+maybe letter: {
     slider in similar listing (product description page)
 
-    tables when swith ctate reset page to 1 and when page empty some image that is empy and page 1 - 1
+    tables when swith state reset page to 1 and when page empty some image that is empy and page 1 - 1
     
     user profile recent action table pagination
-   
-    create project button in projects more responsive table row width
-   
-    styling text in new project
-    
-    refactor code
+
 }
-
-
 
 
 

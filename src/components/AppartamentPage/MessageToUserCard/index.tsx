@@ -1,34 +1,31 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
-import { Project, User } from "@/types";
-import axios from "axios";
+import { Project } from "@/types";
+
 import { Field, Form, Formik } from "formik";
 import Image from "next/image";
-import React, { FC, useState, useEffect } from "react";
+import React, { FC, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
 
 type Props = {
   apart: Project;
 };
 
 const MessageToUserCard: FC<Props> = ({ apart }) => {
-  const [user, setUser] = useState(Object);
+  const { user } = useAppSelector(selectUser);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const fetchUser = async () => {
-      const res = await axios
-        .get("/api/getUserById?id=6453dfb9c8156bf9ee4a6f75")
-        .then((data) => data.data);
-
-      setUser(res.user);
-    };
-    fetchUser();
-  }, []);
+    dispatch(fetchUser(apart.owner));
+    console.log(apart.owner);
+  }, [dispatch, apart]);
 
   return (
     <div className="w-full sm:max-w-[550px]">
       <article>
         <Image src={""} alt="avatar" className="mx-auto" />
         <p className="text-xl text-center mb-4">
-          {user.firstName} {user.lastName}
+          {user && user.firstName} {user && user.lastName}
         </p>
       </article>
       <Formik

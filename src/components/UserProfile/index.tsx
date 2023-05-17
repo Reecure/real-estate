@@ -9,13 +9,15 @@ import UserCard from "./UserCard";
 
 type Props = {};
 
-const UserProfile = (props: Props) => {
+const UserProfile = () => {
   const [userEditModalOpen, setUserEditModalOpen] = useState(false);
+
+  const { user } = useAppSelector(selectUser);
 
   const dispatch = useAppDispatch();
   const selectUserById = useAppSelector(selectUser);
   useEffect(() => {
-    dispatch(fetchUser());
+    dispatch(fetchUser("6453dfb9c8156bf9ee4a6f75"));
   }, [dispatch]);
 
   useEffect(() => {
@@ -41,7 +43,7 @@ const UserProfile = (props: Props) => {
         className={`custom-padding py-10 ${userEditModalOpen && "blur-lg"} `}
       >
         <UserCard
-          user={selectUserById}
+          user={user}
           userEditModalOpen={userEditModalOpen}
           setUserEditModalOpen={modalOpenHandler}
         />
@@ -49,7 +51,7 @@ const UserProfile = (props: Props) => {
       </Container>
 
       <EditProfile
-        user={selectUserById}
+        user={user}
         className="absolute top-0 left-0 "
         userEditModalOpen={userEditModalOpen}
         setUserEditModalOpen={modalOpenHandler}

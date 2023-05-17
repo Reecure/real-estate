@@ -1,24 +1,37 @@
 import { Project } from "@/types";
-import React, { FC } from "react";
+import React, { FC, useEffect } from "react";
 import Container from "../UI/Container";
 import MessageToUserCard from "./MessageToUserCard";
 import ProjectDescription from "./ProductDescription";
 
 import SwiperProjectPage from "./SwiperProjectPage";
+import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import {
+  fetchProjectById,
+  selectProject,
+} from "@/redux/features/getProjectByIdSlice";
+import { useRouter } from "next/router";
 
-type Props = {
-  apart: Project;
-};
+type Props = {};
 
-const AppartamentPage: FC<Props> = ({ apart }) => {
+const AppartamentPage: FC<Props> = () => {
+  const { data } = useAppSelector(selectProject);
+  const dispatch = useAppDispatch();
+  const router = useRouter();
+  const { id } = router.query;
+
+  useEffect(() => {
+    dispatch(fetchProjectById(id));
+  }, [dispatch, id]);
+
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-[4fr_1fr] gap-12">
       <div className="max-w-[880px] ">
         <SwiperProjectPage />
-        <ProjectDescription apart={apart} />
+        <ProjectDescription apart={data as Project} />
       </div>
       <div className="flex justify-center">
-        <MessageToUserCard apart={apart} />
+        <MessageToUserCard apart={data as Project} />
       </div>
     </Container>
   );

@@ -1,8 +1,36 @@
 import BlueButton from "@/components/UI/Buttons/BlueButton";
 import { Field, Form, Formik } from "formik";
 import React from "react";
+import { IField } from "@/types";
 
 type Props = {};
+
+const Fieds: IField[] = [
+  {
+    id: "firstName",
+    name: "firstName",
+    type: "text",
+    value: "First Name",
+  },
+  {
+    id: "email",
+    name: "email",
+    type: "text",
+    value: "Your Email",
+  },
+  {
+    id: "phoneNumber",
+    name: "phoneNumber",
+    type: "text",
+    value: "Phone Number",
+  },
+  {
+    id: "interested",
+    name: "interested",
+    type: "text",
+    value: "Interested In",
+  },
+];
 
 const DidYouFindYourDreamHome = (props: Props) => {
   return (
@@ -28,33 +56,19 @@ const DidYouFindYourDreamHome = (props: Props) => {
         onSubmit={() => {}}
       >
         <Form className=" ">
-          <div className="flex flex-col sm:flex-row space-y-5 sm:space-y-0   max-w-[600px]">
-            <Field
-              type="text"
-              name="firstName"
-              placeholder="Your Name"
-              className="bg-transparent border-b-[1px] mr-4 focus:outline-none w-full"
-            />
-            <Field
-              type="text"
-              name="email"
-              placeholder="Your Email"
-              className="bg-transparent border-b-[1px] focus:outline-none w-full"
-            />
-          </div>
-          <div className="flex flex-col sm:flex-row space-y-5 max-w-[600px]">
-            <Field
-              type="text"
-              name="phoneNumber"
-              placeholder="Phone Number"
-              className="bg-transparent border-b-[1px] mt-5 mr-4 focus:outline-none w-full"
-            />
-            <Field
-              type="text"
-              name="interested"
-              placeholder="Interested in"
-              className="bg-transparent border-b-[1px] focus:outline-none w-full"
-            />
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5`}>
+            {Fieds.map((item) => {
+              return (
+                <div key={item.id}>
+                  <Field
+                    type={item.type}
+                    name={item.name}
+                    placeholder={item.value}
+                    className="bg-transparent border-b-[1px] mr-4 focus:outline-none w-full"
+                  />
+                </div>
+              );
+            })}
           </div>
           <div className="mb-16 mt-5 ">
             <Field
@@ -64,6 +78,7 @@ const DidYouFindYourDreamHome = (props: Props) => {
               className="bg-transparent border-b-[1px] focus:outline-none w-full max-w-[600px]"
             />
           </div>
+
           <BlueButton>Submit</BlueButton>
         </Form>
       </Formik>

@@ -6,8 +6,7 @@ import { store } from "@/redux/app/store";
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 
-type Props = {
-};
+type Props = {};
 
 const UserProfilePage: FC<Props> = () => {
   return (
@@ -15,7 +14,7 @@ const UserProfilePage: FC<Props> = () => {
       <Navbar />
       <main className="py-16">
         <Provider store={store}>
-          <UserProfile />
+          <UserProfile />{" "}
         </Provider>
       </main>
     </Container>

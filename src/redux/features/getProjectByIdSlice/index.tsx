@@ -1,15 +1,14 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { Project } from "../../../types/index";
-import { ObjectId } from "mongodb";
+import { Project } from "@/types";
 import { RootState } from "@/redux/app/store";
 
 export const fetchProjectById = createAsyncThunk(
   "project/getProjectById",
-  async (id: string) => {
+  async (id: any) => {
     const data = await fetch(`/api/getProject?id=${id}`).then((data) =>
       data.json()
     );
-    return data;
+    return data.project;
   }
 );
 
@@ -43,4 +42,4 @@ const getProjectByIdSlice = createSlice({
 
 export default getProjectByIdSlice.reducer;
 
-export const selectAllProject = (state: RootState) => state.project;
+export const selectProject = (state: RootState) => state.project;
