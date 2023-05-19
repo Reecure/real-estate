@@ -21,7 +21,9 @@ const AppartamentPage: FC<Props> = () => {
   const { id } = router.query;
 
   useEffect(() => {
-    dispatch(fetchProjectById(id));
+    if (id) {
+      dispatch(fetchProjectById(id));
+    }
   }, [dispatch, id]);
 
   return (

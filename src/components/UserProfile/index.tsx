@@ -1,13 +1,10 @@
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
-import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
 import EditProfile from "../Modals/EditProfileModal";
 import Container from "../UI/Container";
 import RecentActions from "./RecentActions";
 import UserCard from "./UserCard";
-
-type Props = {};
 
 const UserProfile = () => {
   const [userEditModalOpen, setUserEditModalOpen] = useState(false);
@@ -15,11 +12,9 @@ const UserProfile = () => {
   const { user } = useAppSelector(selectUser);
 
   const dispatch = useAppDispatch();
-  const selectUserById = useAppSelector(selectUser);
   useEffect(() => {
     dispatch(fetchUser("6453dfb9c8156bf9ee4a6f75"));
   }, [dispatch]);
-
   useEffect(() => {
     if (userEditModalOpen) {
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera

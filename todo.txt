@@ -10,6 +10,7 @@ refactor {
     5. delete account text styles and confirm checkbox
     6. new project add  checkbox style and create btn
     7. requests answer  button
+
 }
 
 tier s: {
@@ -18,6 +19,8 @@ tier s: {
 
 
 maybe letter: {
+    localization and light and dark theme
+
     slider in similar listing (product description page)
 
     tables when swith state reset page to 1 and when page empty some image that is empy and page 1 - 1

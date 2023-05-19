@@ -1,6 +1,7 @@
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import {
   fetchApartments,
+  selectAllApartment,
   selectAllVisibleApartments,
 } from "@/redux/features/getAllApartmentsSlice";
 import { Project } from "@/types";
@@ -9,12 +10,12 @@ import ApartmentsCard from "../Main/Appartaments/AppartamentsCard";
 import SideFilter from "../Main/Appartaments/SideFilter";
 import TopFilter from "../Main/Appartaments/TopFilter";
 import BlueButton from "../UI/Buttons/BlueButton";
+import ApartmentCardSkeleton from "@/components/Main/Appartaments/ApartmentCardSkeleton";
 
-type Props = {};
-
-const OtherProjectsPage = (props: Props) => {
+const OtherProjectsPage = () => {
   const [filterOpen, setFilterOpen] = useState(false);
   const visibleProjects = useAppSelector(selectAllVisibleApartments);
+  const { loading } = useAppSelector(selectAllApartment);
   const dispatch = useAppDispatch();
 
   const resizeHandler = () => {
@@ -35,7 +36,7 @@ const OtherProjectsPage = (props: Props) => {
 
   return (
     <div className="relative ">
-      <div className={` min-h-screen py-28 custom-padding !overflow-y-hidden`}>
+      <div className={`py-28 custom-padding`}>
         <div className="flex  items-center bg-[#0e0e0e] mb-10 p-3 rounded-lg">
           <div className="w-[30%] md:w-[40%] lg:w-[65%] ">
             <BlueButton
@@ -53,10 +54,16 @@ const OtherProjectsPage = (props: Props) => {
           <div className="hidden lg:block">
             <SideFilter />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {visibleProjects.map((project: Project, i) => {
-              return <ApartmentsCard key={i} apart={project} />;
-            })}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
+            {loading
+              ? Array(6)
+                  .fill(null)
+                  .map((_, i) => {
+                    return <ApartmentCardSkeleton key={i} />;
+                  })
+              : visibleProjects.map((project: Project, i) => {
+                  return <ApartmentsCard key={i} apart={project} />;
+                })}
           </div>
         </div>
       </div>

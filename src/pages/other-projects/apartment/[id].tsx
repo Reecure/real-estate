@@ -5,8 +5,6 @@ import Layout from "../../layout";
 import { Provider } from "react-redux";
 import { store } from "@/redux/app/store";
 
-type Props = {};
-
 const Appartament = () => {
   return (
     <Provider store={store}>

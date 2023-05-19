@@ -7,8 +7,6 @@ import Container from "../../UI/Container";
 import { Formik, Form, Field } from "formik";
 import { IField } from "@/types";
 
-type Props = {};
-
 const Fields: IField[] = [
   {
     name: "firstName",

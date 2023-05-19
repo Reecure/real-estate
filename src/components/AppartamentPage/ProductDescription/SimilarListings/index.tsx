@@ -11,10 +11,16 @@ const SimilarListings = (props: Props) => {
       <div className="p-5">
         <h4>Malto House</h4>
       </div>
-      <div className="flex justify-between items-center py-5 border-t-[1px] border-primary-gray ">
-        <div className="mx-auto">4</div>
-        <div className="mx-auto">2</div>
-        <div className="mx-auto">2</div>
+      <div className="flex justify-between items-center  border-t-[1px] border-primary-gray ">
+        <div className="mx-auto border-r-[1px]  w-full flex justify-center py-3  border-primary-gray ">
+          <p>4</p>
+        </div>
+        <div className="mx-auto border-r-[1px]  w-full flex justify-center py-3 border-primary-gray">
+          <p>2</p>
+        </div>
+        <div className="mx-auto w-full flex justify-center py-3 ">
+          <p>2</p>
+        </div>
       </div>
     </div>
   );

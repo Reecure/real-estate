@@ -20,7 +20,7 @@
   right: 0 !important;
   height: 300px !important;
   width: 50px !important;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: cadetblue;
   color: rgb(255, 255, 255) !important;
 }
 .swiper-button-prev {

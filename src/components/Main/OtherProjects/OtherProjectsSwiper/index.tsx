@@ -5,8 +5,8 @@ import s from "./OtherProjectsSwiper.module.css";
 
 // Import Swiper styles
 import "swiper/css";
-import "swiper/css/pagination";
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // import required modules
 import { Pagination, Navigation } from "swiper";
@@ -21,7 +21,10 @@ export default function App() {
           clickable: true,
         }}
         centeredSlides={true}
-        navigation={true}
+        hashNavigation={true}
+        navigation={{
+          nextEl: "",
+        }}
         modules={[Pagination, Navigation]}
         breakpoints={{
           320: {
@@ -37,7 +40,7 @@ export default function App() {
             spaceBetween: 30,
           },
         }}
-        className="min-h-[340px]"
+        className="min-h-[340px] overflow-x-hidden"
       >
         {Array(10)
           .fill(null)

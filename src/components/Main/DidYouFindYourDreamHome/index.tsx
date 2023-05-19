@@ -3,9 +3,7 @@ import { Field, Form, Formik } from "formik";
 import React from "react";
 import { IField } from "@/types";
 
-type Props = {};
-
-const Fieds: IField[] = [
+const Fields: IField[] = [
   {
     id: "firstName",
     name: "firstName",
@@ -32,7 +30,7 @@ const Fieds: IField[] = [
   },
 ];
 
-const DidYouFindYourDreamHome = (props: Props) => {
+const DidYouFindYourDreamHome = () => {
   return (
     <div className="flex flex-col md:flex-row sm:justify-between md:items-center custom-padding py-20 lg:py-52">
       <div className="max-w-[610px] md:max-w-[400px] lg:max-w-[610px] ">
@@ -57,7 +55,7 @@ const DidYouFindYourDreamHome = (props: Props) => {
       >
         <Form className=" ">
           <div className={`grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-5`}>
-            {Fieds.map((item) => {
+            {Fields.map((item) => {
               return (
                 <div key={item.id}>
                   <Field

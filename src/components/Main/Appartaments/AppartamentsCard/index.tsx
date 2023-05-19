@@ -3,7 +3,8 @@ import { Project } from "@/types";
 import Image from "next/image";
 import Link from "next/link";
 import React, { FC } from "react";
-import appart from "../../../../../public/appartamentTest.png";
+
+import { BiBed, BiBath } from "react-icons/bi";
 import { Paths } from "@/constants/paths";
 
 type Props = {
@@ -12,9 +13,16 @@ type Props = {
 
 const ApartmentsCard: FC<Props> = ({ apart }) => {
   return (
-    <div className="max-w-[577px] mx-auto">
+    <div className="max-w-[577px] mx-auto bg-primary-dark-gray  rounded-xl">
       <div>
-        <Image src={appart} alt="image" />
+        <Image
+          src={apart.poster}
+          width={577}
+          height={200}
+          quality={100}
+          alt="image"
+          className={`rounded-xl`}
+        />
       </div>
       <div className="p-4 ">
         <div className="flex justify-between items-center mb-4">
@@ -25,18 +33,20 @@ const ApartmentsCard: FC<Props> = ({ apart }) => {
             </GradientButton>
           </Link>
         </div>
-        <div className="flex justify-between items-center border-[2px] rounded-lg whitespace-nowrap">
+        <div className="flex justify-between items-center text-md border-[2px] rounded-lg whitespace-nowrap">
           <div
-            className={`flex justify-center p-2 md:p-5 border-r-[2px] w-full`}
+            className={`flex justify-center items-center p-2 border-r-[2px] w-full`}
           >
-            {apart.bedrooms} Bedrooms
+            <BiBed className={`text-lg mr-1`} />
+            {apart.bedrooms} Rooms
           </div>
           <div
-            className={`flex justify-center p-2 md:p-5 border-r-[2px] w-full `}
+            className={`flex justify-center items-center p-2 border-r-[2px] w-full `}
           >
+            <BiBath className={`text-lg mr-1`} />
             {apart.bathrooms} Bath
           </div>
-          <div className={`flex justify-center p-2 md:p-5 w-full`}>
+          <div className={`flex justify-center items-center p-2 w-full`}>
             {apart.size} sq ft
           </div>
         </div>

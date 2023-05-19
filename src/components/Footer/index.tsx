@@ -3,10 +3,7 @@ import React from "react";
 import logo from "../../../public/logo.png";
 import { AiOutlineInstagram, AiOutlineYoutube } from "react-icons/ai";
 import { CiTwitter } from "react-icons/ci";
-
-type Props = {};
-
-const Footer = (props: Props) => {
+const Footer = () => {
   return (
     <footer>
       <div className="flex flex-col items-center space-y-5 md:space-y-0 md:flex-row md:justify-between custom-padding py-5 md:py-14 border-b-[1px]">

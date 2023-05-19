@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { TbBellRingingFilled } from "react-icons/tb";
 import React, { FC } from "react";
-import { Paths } from "@/constants/paths";
 
 type Props = {
   handleUserMenuOpen: () => void;
