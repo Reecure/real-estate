@@ -14,7 +14,7 @@ import { useRouter } from "next/router";
 
 type Props = {};
 
-const AppartamentPage: FC<Props> = () => {
+const ApartmentPage: FC<Props> = () => {
   const { data } = useAppSelector(selectProject);
   const dispatch = useAppDispatch();
   const router = useRouter();
@@ -39,4 +39,4 @@ const AppartamentPage: FC<Props> = () => {
   );
 };
 
-export default AppartamentPage;
+export default ApartmentPage;

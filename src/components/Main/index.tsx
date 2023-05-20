@@ -21,9 +21,9 @@ const Main = (props: Props) => {
       <ObserverSection>
         <AboutUs />
       </ObserverSection>
-      <ObserverSection>
-        <OtherProjects />
-      </ObserverSection>
+      {/*<ObserverSection>*/}
+      {/*  <OtherProjects />*/}
+      {/*</ObserverSection>*/}
       <ObserverSection>
         <DidYouFindYourDreamHome />
       </ObserverSection>

@@ -4,7 +4,7 @@ import SimilarListings from "./SimilarListings";
 import { BiBed, BiBath } from "react-icons/bi";
 import { AiOutlineAppstore as Floor, AiOutlineCalendar } from "react-icons/ai";
 import { IoIosResize } from "react-icons/io";
-import SimilarListingSwiper from "@/components/AppartamentPage/ProductDescription/SimilarListings/SimilarListingSwiper";
+import SimilarListingSwiper from "@/components/ApartmentPage/ProductDescription/SimilarListings/SimilarListingSwiper";
 
 type Props = {
   apart: Project;
@@ -64,20 +64,20 @@ const ProjectDescription: FC<Props> = ({ apart }) => {
       <article className="pt-14">
         <h3 className="text-xl text-primary-blue my-5">Description</h3>
         <p className="text-primary-text-dark-gray">
-          {apart &&
-            (visibleAllDescription ? (
-              <>{apart.description}</>
-            ) : (
-              <>
-                {apart.description.slice(0, 600)}
-                <span
-                  onClick={() => setVisibleAllDescription((prev) => !prev)}
-                  className={`cursor-pointer`}
-                >
-                  ...
-                </span>
-              </>
-            ))}
+          {apart && apart.description}
+          {/*(visibleAllDescription ? (*/}
+          {/*<>{}</>*/}
+          {/*) : (*/}
+          {/*<>*/}
+          {/*  {apart.description.slice(0, 600)}*/}
+          {/*  <span*/}
+          {/*      onClick={() => setVisibleAllDescription((prev) => !prev)}*/}
+          {/*      className={`cursor-pointer`}*/}
+          {/*  >*/}
+          {/*        ...*/}
+          {/*      </span>*/}
+          {/*</>*/}
+          {/*))*/}
         </p>
         <div></div>
       </article>

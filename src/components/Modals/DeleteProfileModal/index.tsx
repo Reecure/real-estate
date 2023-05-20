@@ -4,6 +4,7 @@ import GradientButton from "../../UI/Buttons/GradientButton";
 import RedButton from "../../UI/Buttons/RedButton";
 import s from "@/components/Modals/ModalsTransition.module.css";
 import { CSSTransition } from "react-transition-group";
+import { Field } from "formik";
 
 type Props = {
   deleteOpen: boolean;
@@ -48,14 +49,18 @@ const DeleteProfileModal: FC<Props> = ({
           This action can not be undone. We highly recommend to export your
           account
         </p>
-        <div className="mb-10 space-x-3">
-          <input
-            type="checkbox"
-            onChange={(e) => {
-              setConfirmDelete(e.currentTarget.checked);
-            }}
-          />
-          <label htmlFor="">Confirm account deletion</label>
+        <div className="mb-10 ">
+          <label className="custom-checkbox">
+            Confirm account deletion
+            <input
+              type="checkbox"
+              name="confirmDelete"
+              onChange={(e) => {
+                setConfirmDelete(e.currentTarget.checked);
+              }}
+            />
+            <span className="checkmark"></span>
+          </label>
         </div>
         <div className="flex justify-between space-x-2 sm:space-x-0 ">
           <RedButton

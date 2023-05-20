@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import SimilarListings from "@/components/AppartamentPage/ProductDescription/SimilarListings";
+import SimilarListings from "@/components/ApartmentPage/ProductDescription/SimilarListings";
 
 const SimilarListingSwiper = () => {
   return (

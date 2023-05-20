@@ -11,7 +11,7 @@ import {
   setPage,
   setPerPage,
 } from "@/redux/features/getUserRequestsSlice";
-import { ApartmentRequest } from "../../../../../types/index";
+import { ApartmentRequest } from "@/types";
 import { SlArrowLeft, SlArrowRight } from "react-icons/sl";
 type Props = {};
 

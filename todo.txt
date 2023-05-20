@@ -1,16 +1,6 @@
 refactor {
-    1.ApartmentPage {
-        1.2ProductDescription
-    }
-    2.Main {
-        4.2Other projects
-    }
-    3. create about-us page
-    4. resent action realize table and three dots menu
-    5. delete account text styles and confirm checkbox
-    6. new project add  checkbox style and create btn
     7. requests answer  button
-
+    8. project edit
 }
 
 tier s: {
@@ -19,14 +9,21 @@ tier s: {
 
 
 maybe letter: {
-    localization and light and dark theme
+    3. create about-us page
+
+     6. new project add create button send project
 
     slider in similar listing (product description page)
 
     tables when swith state reset page to 1 and when page empty some image that is empy and page 1 - 1
     
-    user profile recent action table pagination
+   4. resent action realize table and three dots menu
 
+    localization and light and dark theme
+
+    2.Main {
+        4.2Other projects
+    }
 }
 
 

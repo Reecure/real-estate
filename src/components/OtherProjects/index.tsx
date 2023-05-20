@@ -37,7 +37,7 @@ const OtherProjectsPage = () => {
   return (
     <div className="relative ">
       <div className={`py-28 custom-padding`}>
-        <div className="flex  items-center bg-[#0e0e0e] mb-10 p-3 rounded-lg">
+        <div className="flex lg:hidden   items-center bg-[#0e0e0e] mb-10 p-3 rounded-lg">
           <div className="w-[30%] md:w-[40%] lg:w-[65%] ">
             <BlueButton
               onClick={() => setFilterOpen((prev) => !prev)}
@@ -46,9 +46,7 @@ const OtherProjectsPage = () => {
               Filter
             </BlueButton>
           </div>
-          <div className=" w-full">
-            <TopFilter />
-          </div>
+          <div className=" w-full"></div>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_4fr] gap-10">
           <div className="hidden lg:block">

@@ -144,7 +144,7 @@ body {
 /* Style the checkmark/indicator */
 .custom-checkbox .checkmark:after {
   left: 6px;
-  top: 2px;
+  top: 3px;
   width: 5px;
   height: 9px;
   border: solid white;
