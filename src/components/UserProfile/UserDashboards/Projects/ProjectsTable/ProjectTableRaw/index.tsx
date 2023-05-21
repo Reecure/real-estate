@@ -6,6 +6,8 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import { Project } from "@/types";
 import ProjectTaleDotsRawModal from "@/components/Modals/ProjectTaleDotsRawModal";
 import EditProjectModal from "@/components/Modals/EditProjectModal";
+import Link from "next/link";
+import { Paths } from "@/constants/paths";
 
 type Props = {
   className: string;
@@ -31,11 +33,18 @@ const ProjectTableRaw: FC<Props> = ({ className, item }) => {
           className={`${className} min-w-[150px] flex items-center space-x-2 sticky left-0 z-[1]`}
         >
           <Image
-            src={img}
+            src={item.poster}
+            width={320}
+            height={320}
             alt="img"
             className="my-4 ml-6 rounded-md w-12 h-12 "
           />
-          <p>{item.neighbourhood}</p>
+          <Link
+            href={`${Paths.Apartment}/${item._id}`}
+            className={`hover:text-primary-blue duration-100`}
+          >
+            {item.name}
+          </Link>
         </td>
         <td className="min-w-[150px] px-1">{item.propertyType}</td>
         <td className="min-w-[150px] px-1">{item.size}</td>

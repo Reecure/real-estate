@@ -30,7 +30,12 @@ const RequestsTableRaw: FC<Props> = ({ className, item }) => {
         <td className="min-w-[150px] px-1">{item.data}</td>
         <td className="min-w-[150px] px-1 text-primary-blue">{item.user}</td>
         <td className="min-w-[150px] px-1">
-          <BlackButton className="border-[1px]  border-[#404040] uppercase tracking-[2px] text-[12px] font-semibold">
+          <BlackButton
+            onClick={() => {
+              alert("Redirect to Messages");
+            }}
+            className="border-[1px]  border-[#404040] uppercase tracking-[2px] text-[12px] font-semibold"
+          >
             Answer
           </BlackButton>
         </td>

@@ -7,8 +7,28 @@ import {
 } from "@/redux/features/getUserProjectsSlice";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { ProjectTypes } from "@/constants/projectTypes";
 
 type Props = {};
+
+const ProjectTypeOptions = [
+  {
+    name: "All",
+    value: "All Projects",
+  },
+  {
+    name: ProjectTypes.Apartment,
+    value: ProjectTypes.Apartment,
+  },
+  {
+    name: ProjectTypes.Townhouse,
+    value: ProjectTypes.Townhouse,
+  },
+  {
+    name: ProjectTypes.Penthouse,
+    value: ProjectTypes.Penthouse,
+  },
+];
 
 const ProjectsHoodNav = (props: Props) => {
   const [search, setSearch] = useState("");
@@ -43,9 +63,13 @@ const ProjectsHoodNav = (props: Props) => {
         value={selecteType}
         className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
       >
-        <option value="All">All Projects</option>
-        <option value="Apartment">Apartment</option>
-        <option value="Town House">Town House</option>
+        {ProjectTypeOptions.map((item) => {
+          return (
+            <option key={item.name} value={item.name}>
+              {item.value}
+            </option>
+          );
+        })}
       </select>
       <Link href="/new-project">
         <GradientButton className="whitespace-nowrap py-3">

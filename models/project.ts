@@ -3,6 +3,7 @@ import User from "./user";
 
 export interface IProject extends Document {
   mlsNumber: string;
+  name: string;
   address: string;
   price: string;
   neighbourhood: string;
@@ -28,6 +29,7 @@ export interface IProject extends Document {
 
 const ProjectSchema = new Schema<IProject>({
   mlsNumber: String,
+  name: String,
   address: String,
   price: String,
   neighbourhood: String,

@@ -22,7 +22,6 @@ const RecentActionsTable = (props: Props) => {
               <td className="px-1">Price</td>
               <td className="px-1">date</td>
               <td className="px-1">Owner</td>
-              <td className="px-1"></td>
             </tr>
           </thead>
           <tbody>

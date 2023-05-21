@@ -5,7 +5,7 @@ type Props = {
   session: any;
 };
 
-const NewProject: FC<Props> = ({ session }) => {
+const NewProject: FC<Props> = () => {
   return <CreateProject />;
 };
 

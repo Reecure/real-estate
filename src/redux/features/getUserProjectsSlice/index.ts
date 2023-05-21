@@ -73,7 +73,7 @@ export const selectVisibleProjects = (state: RootState) => {
     selecteType === "All" || item.propertyType === selecteType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
-    item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());
+    item.name.toLowerCase().includes(searchValue.toLowerCase());
 
   const visibleProjects = projects.filter(filterSearch).filter(filterType);
   return visibleProjects.slice(startIndex, endIndex);

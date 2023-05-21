@@ -52,7 +52,7 @@ const OtherProjectsPage = () => {
           <div className="hidden lg:block">
             <SideFilter />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 ">
+          <div className="grid grid-cols-1 grid-rows-[min-content] md:grid-cols-2 gap-10 ">
             {loading
               ? Array(6)
                   .fill(null)

@@ -29,7 +29,7 @@ const ApartmentPage: FC<Props> = () => {
   return (
     <Container className="grid grid-cols-1 lg:grid-cols-[4fr_1fr] gap-12">
       <div className="max-w-[880px] ">
-        <SwiperProjectPage />
+        <SwiperProjectPage apart={data as Project} />
         <ProjectDescription apart={data as Project} />
       </div>
       <div className="flex justify-center">

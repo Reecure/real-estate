@@ -6,12 +6,21 @@ import { Project, User } from "@/types";
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 
 import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
+import BlackButton from "@/components/UI/Buttons/BlackButton";
+import { ProjectTypes } from "@/constants/projectTypes";
 
 type Props = {
   isOpen: boolean;
   setIsOpen: () => void;
   item: Project;
 };
+
+const projectOptions = [
+  ProjectTypes.Penthouse,
+  ProjectTypes.Townhouse,
+  ProjectTypes.Apartment,
+];
+
 const EditProjectModal: FC<Props> = ({ isOpen, setIsOpen, item }) => {
   const { user } = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
@@ -29,36 +38,36 @@ const EditProjectModal: FC<Props> = ({ isOpen, setIsOpen, item }) => {
         }
       >
         <div className="flex justify-between items-center mb-10">
-          <h4 className="text-4xl">Export Project</h4>
+          <h4 className="text-4xl">Edit Project</h4>
           <button onClick={setIsOpen}>x</button>
         </div>
         <div className=" mb-10">
-          <div className="">
-            <p>
-              You want to export project “{item.neighbourhood}” by{" "}
-              {user.firstName} {user.lastName}
-            </p>
-          </div>
-          <div className="flex flex-col w-full justify-center ">
-            <label htmlFor="fileName" className="mb-1 text-[12px]">
-              File Name
-            </label>
-            <input
-              type="text"
-              className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            />
-            <label htmlFor="projectsFormat" className="mb-1 text-[12px]">
-              Projects Format
-            </label>
-            <input
-              type="text"
-              className="w-full py-3 px-2 mb-6 bg-[#0E0E0E] rounded-lg"
-            />
-          </div>
+          <label htmlFor="" className={`uppercase text-[9px] tracking-[2px]`}>
+            Name
+          </label>
+          <input
+            type="text"
+            className={`custom-field`}
+            placeholder={item.name}
+          />
+          <label htmlFor="" className={`uppercase text-[9px] tracking-[2px]`}>
+            Type
+          </label>
+          <select name="" id="" className={`custom-field`}>
+            {projectOptions.map((item) => {
+              return (
+                <option key={item} value={item}>
+                  {item}
+                </option>
+              );
+            })}
+          </select>
         </div>
         <div className="flex justify-end space-x-6">
-          <BlueButton>Cancel</BlueButton>
-          <GradientButton>Export</GradientButton>
+          <BlackButton className={`uppercase`}>Delete</BlackButton>
+          <BlackButton className={`uppercase`}>Suspend</BlackButton>
+          <BlackButton className={`uppercase`}>Export</BlackButton>
+          <GradientButton className={`uppercase`}>Save</GradientButton>
         </div>
       </dialog>
     </CSSTransition>

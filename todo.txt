@@ -1,25 +1,21 @@
-refactor {
-    7. requests answer  button
-    8. project edit
-}
 
 tier s: {
     6.to do edit project modal remove from tbody and change from export form to edit
 }
 
-
 maybe letter: {
-    3. create about-us page
 
-     6. new project add create button send project
+    3 dots table customize and tables normalize responsive
 
-    slider in similar listing (product description page)
+    about-us page typography
 
-    tables when swith state reset page to 1 and when page empty some image that is empy and page 1 - 1
-    
-   4. resent action realize table and three dots menu
+    tables when switch state reset page to 1 and when page empty some image that is empy and page 1 - 1
 
-    localization and light and dark theme
+    localization
+
+    forms validation
+
+    6. new project add create button send project
 
     2.Main {
         4.2Other projects

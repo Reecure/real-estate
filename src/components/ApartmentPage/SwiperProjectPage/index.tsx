@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { FC, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -10,8 +10,13 @@ import "swiper/css/thumbs";
 // import required modules
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import Image from "next/legacy/image";
+import { Project } from "@/types";
 
-export default function SwiperProjectPage() {
+type Props = {
+  apart: Project;
+};
+
+const SwiperProjectPage: FC<Props> = ({ apart }) => {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (
@@ -30,7 +35,7 @@ export default function SwiperProjectPage() {
               <>
                 <SwiperSlide className="max-w-[900px] max-h-[600px] ">
                   <Image
-                    src="https://swiperjs.com/demos/images/nature-1.jpg"
+                    src={apart.poster}
                     alt="img1"
                     width={900}
                     height={600}
@@ -60,7 +65,7 @@ export default function SwiperProjectPage() {
               <>
                 <SwiperSlide className="w-[205px]">
                   <Image
-                    src="https://swiperjs.com/demos/images/nature-1.jpg"
+                    src={apart.poster}
                     alt="img1"
                     width={205}
                     height={134}
@@ -73,4 +78,6 @@ export default function SwiperProjectPage() {
       </Swiper>
     </>
   );
-}
+};
+
+export default SwiperProjectPage;

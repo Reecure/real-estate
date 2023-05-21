@@ -16,6 +16,7 @@ export interface User {
 
 export interface Project {
   _id: string;
+  name: string;
   mlsNumber: string;
   address: string;
   price: string;
