@@ -38,6 +38,7 @@ const getUserProjectsSlice = createSlice({
     },
     setPerPage: (state, action) => {
       state.perPage = action.payload;
+      state.currentPage = 1;
     },
   },
   extraReducers: (builder) => {
