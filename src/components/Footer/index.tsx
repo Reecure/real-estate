@@ -18,7 +18,7 @@ const Footer = () => {
         <div className="space-y-3 font-normal  ">
           <h4 className="text-2xl mb-4">Contact Us</h4>
           <p className="text-primary-text-dark-gray">
-            Deam home villas San Diego, CA, USA
+            Dream home villas San Diego, CA, USA
           </p>
           <p className="text-primary-text-dark-gray">025-777-3067</p>
           <p className="text-primary-text-dark-gray">admin@thehomeverse.io</p>

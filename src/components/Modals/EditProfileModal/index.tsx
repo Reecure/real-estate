@@ -66,7 +66,7 @@ const EditProfile: FC<Props> = ({
               email: "",
               currentPassword: "",
               newPassword: "",
-              confitmNewPassword: "",
+              confirmNewPassword: "",
             }}
             onSubmit={(values) => {
               alert(JSON.stringify(values, null, 2));
@@ -125,13 +125,13 @@ const EditProfile: FC<Props> = ({
                   className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
                 />
                 <label
-                  htmlFor="confitmNewPassword"
+                  htmlFor="confirmNewPassword"
                   className="mb-1 text-[12px]"
                 >
                   Confirm New Password
                 </label>
                 <Field
-                  name="confitmNewPassword"
+                  name="confirmNewPassword"
                   type="password"
                   className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
                 />

@@ -27,7 +27,7 @@ const UserCard: FC<Props> = ({
               <h5 className="text-2xl mb-4">
                 {user.firstName} {user.lastName}
               </h5>
-              <p className="text-primary-text-dark-gray">@sometag</p>
+              <p className="text-primary-text-dark-gray">@someTag</p>
             </div>
           </div>
           <div className="flex justify-between">

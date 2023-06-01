@@ -24,18 +24,20 @@ const initialState: State = {
 };
 
 const getProjectByIdSlice = createSlice({
-  name: "getProjevtById",
+  name: "getProjectById",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(fetchProjectById.fulfilled, (state, action) => {
-      (state.data = action.payload), (state.loading = false);
+      state.data = action.payload;
+      state.loading = false;
     });
     builder.addCase(fetchProjectById.pending, (state) => {
       state.loading = true;
     });
     builder.addCase(fetchProjectById.rejected, (state, action) => {
-      (state.loading = false), (state.error = action.error.message as string);
+      state.loading = false;
+      state.error = action.error.message as string;
     });
   },
 });

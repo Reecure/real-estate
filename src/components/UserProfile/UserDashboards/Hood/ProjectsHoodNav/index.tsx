@@ -9,8 +9,6 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { ProjectTypes } from "@/constants/projectTypes";
 
-type Props = {};
-
 const ProjectTypeOptions = [
   {
     name: "All",
@@ -30,10 +28,10 @@ const ProjectTypeOptions = [
   },
 ];
 
-const ProjectsHoodNav = (props: Props) => {
+const ProjectsHoodNav = () => {
   const [search, setSearch] = useState("");
 
-  const { selecteType, searchValue } = useAppSelector(selectProjects);
+  const { selectedType } = useAppSelector(selectProjects);
   const dispatch = useAppDispatch();
   const selectTypeHandler = (value: string) => {
     dispatch(setType(value));
@@ -60,7 +58,7 @@ const ProjectsHoodNav = (props: Props) => {
         onChange={(e) => {
           selectTypeHandler(e.currentTarget.value);
         }}
-        value={selecteType}
+        value={selectedType}
         className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
       >
         {ProjectTypeOptions.map((item) => {

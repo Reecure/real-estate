@@ -6,10 +6,9 @@ import { IProject } from "../../../../models/project";
 export const fetchUserProjects = createAsyncThunk(
   "projects/userProjects",
   async () => {
-    const res = await axios
+    return await axios
       .get("/api/getUserProjectsFromDb")
       .then((data) => data.data.projects);
-    return res;
   }
 );
 
@@ -17,7 +16,7 @@ const initialState = {
   projects: [],
   loading: false,
   error: "",
-  selecteType: "All",
+  selectedType: "All",
   searchValue: "",
   currentPage: 1,
   perPage: 5,
@@ -28,7 +27,7 @@ const getUserProjectsSlice = createSlice({
   initialState,
   reducers: {
     setType: (state, action) => {
-      state.selecteType = action.payload;
+      state.selectedType = action.payload;
     },
     setSearchValue: (state, action) => {
       state.searchValue = action.payload;
@@ -64,14 +63,14 @@ export const { setType, setSearchValue, setPage, setPerPage } =
 export const selectProjects = (state: RootState) => state.userProjects;
 
 export const selectVisibleProjects = (state: RootState) => {
-  const { perPage, currentPage, selecteType, projects, searchValue } =
+  const { perPage, currentPage, selectedType, projects, searchValue } =
     state.userProjects;
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
   const filterType = (item: IProject) =>
-    selecteType === "All" || item.propertyType === selecteType;
+    selectedType === "All" || item.propertyType === selectedType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
     item.name.toLowerCase().includes(searchValue.toLowerCase());
@@ -81,9 +80,9 @@ export const selectVisibleProjects = (state: RootState) => {
 };
 
 export const selectTotalPages = (state: RootState) => {
-  const { perPage, projects, selecteType, searchValue } = state.userProjects;
+  const { perPage, projects, selectedType, searchValue } = state.userProjects;
   const filterType = (item: IProject) =>
-    selecteType === "All" || item.propertyType === selecteType;
+    selectedType === "All" || item.propertyType === selectedType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
     item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());

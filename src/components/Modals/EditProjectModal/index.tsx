@@ -1,11 +1,11 @@
 import React, { FC, useEffect } from "react";
-import BlueButton from "@/components/UI/Buttons/BlueButton";
+
 import GradientButton from "@/components/UI/Buttons/GradientButton";
 import { CSSTransition } from "react-transition-group";
-import { Project, User } from "@/types";
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { Project } from "@/types";
+import { useAppDispatch } from "@/redux/app/hooks";
 
-import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
+import { fetchUser } from "@/redux/features/getUserByIdSlice";
 import BlackButton from "@/components/UI/Buttons/BlackButton";
 import { ProjectTypes } from "@/constants/projectTypes";
 
@@ -22,12 +22,11 @@ const projectOptions = [
 ];
 
 const EditProjectModal: FC<Props> = ({ isOpen, setIsOpen, item }) => {
-  const { user } = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchUser(item.owner));
-  }, [dispatch]);
+  }, [dispatch, item.owner]);
 
   return (
     <CSSTransition in={isOpen} timeout={300}>
