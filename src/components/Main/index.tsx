@@ -3,8 +3,6 @@ import AboutUs from "./AboutUs";
 import Apartments from "./Appartaments";
 import DidYouFindYourDreamHome from "./DidYouFindYourDreamHome";
 import Hero from "./Hero";
-import OtherProjects from "./OtherProjects";
-import { useSpring, animated } from "@react-spring/web";
 import ObserverSection from "./ObserverSection";
 
 type Props = {};

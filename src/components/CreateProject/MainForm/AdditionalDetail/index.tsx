@@ -1,6 +1,4 @@
-import { Field } from "formik";
 import React, { FC } from "react";
-import { animated, useSpring, useTransition } from "@react-spring/web";
 import { IField } from "@/types";
 import { FieldTemplate } from "@/components/Templates/FieldTemplate";
 import { CSSTransition } from "react-transition-group";

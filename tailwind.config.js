@@ -9,6 +9,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
+        "hero-pettern": "url('/public/hero-pattern.svg')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
