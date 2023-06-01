@@ -1,35 +1,18 @@
 
-now: {
-    realize other project page
+maybe letter: {
+
+    hover effects
+
+    about-us page typography
+
+    localization
+
+    forms validation
+
+    6. new project add create button send project
+
+    3 dots table customize and tables normalize responsive remove this block from tbody etc
 }
-
-future: {
-    animated for fixed asides from left to right
-    animated buttons
-    userSlice
-    productSlice                               ----
-    modals animation from small to big > [] > |    |
-                                              |    |
-                                               ____
-}
-
-maybe letter: { 
-    
-    
-    slider in similar listing (product description page)
-
-    tables when swith ctate reset page to 1 and when page empty some image that is empy and page 1 - 1
-    
-    user profile recent action table pagination
-   
-    create project button in projects more responsive table row width
-   
-    styling text in new project
-    
-    refactor code
-}
-
-
 
 
 

@@ -1,5 +1,4 @@
 import { RootState } from "@/redux/app/store";
-import { userProjects } from "@/types";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { IProject } from "../../../../models/project";
@@ -7,10 +6,9 @@ import { IProject } from "../../../../models/project";
 export const fetchUserProjects = createAsyncThunk(
   "projects/userProjects",
   async () => {
-    const res = await axios
+    return await axios
       .get("/api/getUserProjectsFromDb")
       .then((data) => data.data.projects);
-    return res;
   }
 );
 
@@ -18,7 +16,7 @@ const initialState = {
   projects: [],
   loading: false,
   error: "",
-  selecteType: "All",
+  selectedType: "All",
   searchValue: "",
   currentPage: 1,
   perPage: 5,
@@ -29,7 +27,7 @@ const getUserProjectsSlice = createSlice({
   initialState,
   reducers: {
     setType: (state, action) => {
-      state.selecteType = action.payload;
+      state.selectedType = action.payload;
     },
     setSearchValue: (state, action) => {
       state.searchValue = action.payload;
@@ -39,6 +37,7 @@ const getUserProjectsSlice = createSlice({
     },
     setPerPage: (state, action) => {
       state.perPage = action.payload;
+      state.currentPage = 1;
     },
   },
   extraReducers: (builder) => {
@@ -64,26 +63,26 @@ export const { setType, setSearchValue, setPage, setPerPage } =
 export const selectProjects = (state: RootState) => state.userProjects;
 
 export const selectVisibleProjects = (state: RootState) => {
-  const { perPage, currentPage, selecteType, projects, searchValue } =
+  const { perPage, currentPage, selectedType, projects, searchValue } =
     state.userProjects;
 
   const startIndex = (currentPage - 1) * perPage;
   const endIndex = startIndex + perPage;
 
   const filterType = (item: IProject) =>
-    selecteType === "All" || item.propertyType === selecteType;
+    selectedType === "All" || item.propertyType === selectedType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
-    item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());
+    item.name.toLowerCase().includes(searchValue.toLowerCase());
 
   const visibleProjects = projects.filter(filterSearch).filter(filterType);
   return visibleProjects.slice(startIndex, endIndex);
 };
 
 export const selectTotalPages = (state: RootState) => {
-  const { perPage, projects, selecteType, searchValue } = state.userProjects;
+  const { perPage, projects, selectedType, searchValue } = state.userProjects;
   const filterType = (item: IProject) =>
-    selecteType === "All" || item.propertyType === selecteType;
+    selectedType === "All" || item.propertyType === selectedType;
   const filterSearch = (item: IProject) =>
     searchValue === "" ||
     item.neighbourhood.toLowerCase().includes(searchValue.toLowerCase());

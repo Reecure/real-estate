@@ -4,9 +4,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import Layout from "../layout";
 
-type Props = {};
-
-const OtherProjects = (props: Props) => {
+const OtherProjects = () => {
   return (
     <Layout>
       <Provider store={store}>

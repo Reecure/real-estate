@@ -2,6 +2,8 @@ import BlueButton from "@/components/UI/Buttons/BlueButton";
 import React, { useEffect, useRef, useState } from "react";
 import s from "./AboutUs.module.css";
 import Benefit from "./Benefit";
+import Link from "next/link";
+import { Paths } from "@/constants/paths";
 
 type Props = {};
 
@@ -19,14 +21,16 @@ const AboutUs = (props: Props) => {
               with easy access to freeways, buses and trolleys. . Laundry is
               available on premises.
             </p>
-            <BlueButton
-              className="mt-10"
-              onClick={() => {
-                console.log("hello from about us");
-              }}
-            >
-              Read More
-            </BlueButton>
+            <Link href={Paths.AboutUs}>
+              <BlueButton
+                className="mt-10"
+                onClick={() => {
+                  console.log("hello from about us");
+                }}
+              >
+                Read More
+              </BlueButton>
+            </Link>
           </div>
           <div className="flex md:flex-col mt-[15%]  md:space-y-10">
             <Benefit

@@ -1,3 +1,5 @@
+import { Paths } from "@/constants/paths";
+
 export interface User {
   firstName: string;
   lastName: string;
@@ -14,6 +16,7 @@ export interface User {
 
 export interface Project {
   _id: string;
+  name: string;
   mlsNumber: string;
   address: string;
   price: string;
@@ -46,7 +49,7 @@ export interface ApartmentRequest {
   user: string;
 }
 
-export interface userProjects {
+export interface IUserProjects {
   id: number;
   image: string;
   name: string;
@@ -54,4 +57,17 @@ export interface userProjects {
   size: number;
   price: string;
   creationData: string;
+}
+
+export interface ITab {
+  name: string;
+  path: Paths;
+}
+
+export interface IField {
+  as?: string;
+  value: string;
+  type: string;
+  id: string;
+  name: string;
 }

@@ -1,10 +1,8 @@
 import React from "react";
 import AboutUs from "./AboutUs";
-import Appartaments from "./Appartaments";
+import Apartments from "./Appartaments";
 import DidYouFindYourDreamHome from "./DidYouFindYourDreamHome";
 import Hero from "./Hero";
-import OtherProjects from "./OtherProjects";
-import { useSpring, animated } from "@react-spring/web";
 import ObserverSection from "./ObserverSection";
 
 type Props = {};
@@ -16,14 +14,14 @@ const Main = (props: Props) => {
         <Hero />
       </ObserverSection>
       <ObserverSection>
-        <Appartaments />
+        <Apartments />
       </ObserverSection>
       <ObserverSection>
         <AboutUs />
       </ObserverSection>
-      <ObserverSection>
-        <OtherProjects />
-      </ObserverSection>
+      {/*<ObserverSection>*/}
+      {/*  <OtherProjects />*/}
+      {/*</ObserverSection>*/}
       <ObserverSection>
         <DidYouFindYourDreamHome />
       </ObserverSection>

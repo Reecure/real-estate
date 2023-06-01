@@ -18,7 +18,7 @@ const UserCard: FC<Props> = ({
     <div className="text-white">
       <div>
         <h4 className="text-center text-4xl mb-10 font-semibold">
-          Here is your profile, {user.firstName}!
+          Here is your profile, {user && user.firstName}!
         </h4>
         <div className="max-w-[344px] px-10 mx-auto">
           <div className="flex justify-around items-center mb-10">
@@ -27,7 +27,7 @@ const UserCard: FC<Props> = ({
               <h5 className="text-2xl mb-4">
                 {user.firstName} {user.lastName}
               </h5>
-              <p className="text-primary-text-dark-gray">@sometag</p>
+              <p className="text-primary-text-dark-gray">@someTag</p>
             </div>
           </div>
           <div className="flex justify-between">

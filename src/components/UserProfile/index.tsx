@@ -1,23 +1,20 @@
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
-import Link from "next/link";
 import React, { useCallback, useEffect, useState } from "react";
-import EditProfile from "../Modals/EditProfile";
+import EditProfile from "../Modals/EditProfileModal";
 import Container from "../UI/Container";
 import RecentActions from "./RecentActions";
 import UserCard from "./UserCard";
 
-type Props = {};
-
-const UserProfile = (props: Props) => {
+const UserProfile = () => {
   const [userEditModalOpen, setUserEditModalOpen] = useState(false);
 
-  const dispatch = useAppDispatch();
-  const selectUserById = useAppSelector(selectUser);
-  useEffect(() => {
-    dispatch(fetchUser());
-  }, [dispatch]);
+  const { user } = useAppSelector(selectUser);
 
+  const dispatch = useAppDispatch();
+  useEffect(() => {
+    dispatch(fetchUser("6453dfb9c8156bf9ee4a6f75"));
+  }, [dispatch]);
   useEffect(() => {
     if (userEditModalOpen) {
       document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -41,23 +38,19 @@ const UserProfile = (props: Props) => {
         className={`custom-padding py-10 ${userEditModalOpen && "blur-lg"} `}
       >
         <UserCard
-          user={selectUserById}
+          user={user}
           userEditModalOpen={userEditModalOpen}
           setUserEditModalOpen={modalOpenHandler}
         />
         <RecentActions />
       </Container>
 
-      <div className={`${!userEditModalOpen ? "hidden" : "static"} `}>
-        {userEditModalOpen && (
-          <EditProfile
-            user={selectUserById}
-            className="absolute top-0 left-0 "
-            userEditModalOpen={userEditModalOpen}
-            setUserEditModalOpen={modalOpenHandler}
-          />
-        )}
-      </div>
+      <EditProfile
+        user={user}
+        className="absolute top-0 left-0 "
+        userEditModalOpen={userEditModalOpen}
+        setUserEditModalOpen={modalOpenHandler}
+      />
     </div>
   );
 };

@@ -12,6 +12,7 @@ const BathroomsFilter = (props: Props) => {
   const bathroomsHandler = (item: null | string) => {
     dispatch(setBathrooms(item));
   };
+
   return (
     <div>
       <SelectorForm

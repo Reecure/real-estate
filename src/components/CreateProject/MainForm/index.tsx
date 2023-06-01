@@ -8,7 +8,6 @@ import MainInfo from "./MainInfo";
 import ShareOffersForm from "./ShareOffersForm";
 import img from "../../../../public/non-image-in-field.svg";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-import s from "./MainForm.module.css";
 
 type Props = {
   onSubmit: (arg: any) => void;
@@ -17,6 +16,24 @@ type Props = {
 const MainForm: FC<Props> = ({ onSubmit }) => {
   const [openAdditionalDetails, setOpenAdditionalDetails] = useState(false);
   const [previewImage, setPreviewImage] = useState<string | null>(null);
+  const [isClosing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (isClosing) {
+      setTimeout(() => {
+        setOpenAdditionalDetails(false);
+        setIsClosing(false);
+      }, 300);
+    }
+  }, [isClosing]);
+
+  const handleToggleAdditionalDetails = () => {
+    if (openAdditionalDetails) {
+      setIsClosing(true);
+    } else {
+      setOpenAdditionalDetails(true);
+    }
+  };
 
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
@@ -109,34 +126,21 @@ const MainForm: FC<Props> = ({ onSubmit }) => {
                 {/* Additional Details */}
                 <div className="flex items-center space-x-5">
                   <h5
-                    onClick={() => setOpenAdditionalDetails((prev) => !prev)}
+                    onClick={handleToggleAdditionalDetails}
                     className="text-2xl font-semibold text-primary-blue mt-9 cursor-pointer mb-10"
                   >
                     Additional details
                   </h5>
                   <MdOutlineKeyboardArrowRight
-                    onClick={() => setOpenAdditionalDetails((prev) => !prev)}
+                    onClick={handleToggleAdditionalDetails}
                     className={`text-primary-blue text-2xl duration-300 cursor-pointer ${
                       openAdditionalDetails ? "rotate-90" : ""
                     }`}
                   />
                 </div>
-
-                {openAdditionalDetails && (
-                  <div
-                    className={`${
-                      openAdditionalDetails
-                        ? `${s.myAnimOpen}`
-                        : `${s.myAnimClose}`
-                    }`}
-                  >
-                    <h5 className="text-2xl font-semibold pb-10">Features</h5>
-                    <AdditionalDetail isOpen={openAdditionalDetails} />
-                  </div>
-                )}
+                <AdditionalDetail isOpen={openAdditionalDetails} />
               </div>
             </div>
-            <button type="submit">send</button>
           </Form>
         )}
       </Formik>

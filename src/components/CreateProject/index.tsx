@@ -1,11 +1,8 @@
-import React, { useRef } from "react";
+import React from "react";
 import BlackButton from "../UI/Buttons/BlackButton";
 import GradientButton from "../UI/Buttons/GradientButton";
 import Container from "../UI/Container";
-import AdditionalDetail from "./MainForm/AdditionalDetail";
 import MainForm from "./MainForm";
-import Link from "next/link";
-import { FormikProps, useFormikContext } from "formik";
 
 type Props = {};
 

@@ -1,6 +1,70 @@
-import { Field } from "formik";
 import React, { FC } from "react";
-import { animated, useSpring, useTransition } from "@react-spring/web";
+import { IField } from "@/types";
+import { FieldTemplate } from "@/components/Templates/FieldTemplate";
+import { CSSTransition } from "react-transition-group";
+import s from "./AdditionalDetail.module.css";
+
+const Fields: IField[] = [
+  {
+    value: "Accepted Currencies",
+    id: "acceptedCurrencies",
+    name: "acceptedCurrencies",
+    type: "text",
+  },
+  {
+    value: "Size",
+    id: "size",
+    name: "size",
+    type: "text",
+  },
+  {
+    value: "Bedrooms",
+    id: "bedrooms",
+    name: "bedrooms",
+    type: "text",
+  },
+  {
+    value: "Year Built",
+    id: "yearBuilt",
+    name: "yearBuilt",
+    type: "text",
+  },
+  {
+    value: "Bathrooms",
+    id: "bathrooms",
+    name: "bathrooms",
+    type: "text",
+  },
+  {
+    value: "Floors",
+    id: "floors",
+    name: "floors",
+    type: "text",
+  },
+];
+
+const BigFields: IField[] = [
+  {
+    value: "Description",
+    type: "text",
+    as: "textarea",
+    id: "description",
+    name: "description",
+  },
+  {
+    value: "Agent Remarks",
+    type: "text",
+    as: "textarea",
+    id: "agentRemarks",
+    name: "agentRemarks",
+  },
+  {
+    value: "Video link",
+    type: "text",
+    id: "videoLink",
+    name: "videoLink",
+  },
+];
 
 type Props = {
   isOpen: boolean;
@@ -8,108 +72,30 @@ type Props = {
 
 const AdditionalDetail: FC<Props> = ({ isOpen }) => {
   return (
-    <div>
-      <div className="">
-        <div className="flex flex-col md:flex-row gap-10">
-          <div className="flex flex-col w-full">
-            <label htmlFor="acceptedCurrencies" className="mb-1 text-[12px]">
-              Accepted currencies
-            </label>
-            <Field
-              id="acceptedCurrencies"
-              name="acceptedCurrencies"
-              type="text"
-              className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            />
-            <label htmlFor="size" className="mb-1 text-[12px]">
-              Size
-            </label>
-            <Field
-              id="size"
-              name="size"
-              type="text"
-              className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-            />
-          </div>
-          <div className="w-full"></div>
+    <CSSTransition
+      in={isOpen}
+      timeout={500}
+      classNames={{
+        enterActive: s.additionalShow,
+        exitActive: s.additionalExit,
+      }}
+      mountOnEnter
+      unmountOnExit
+    >
+      <div>
+        <h5 className="text-2xl font-semibold pb-10">Features</h5>
+        <div className={`grid grid-cols-1 md:grid-cols-2 gap-x-10`}>
+          {Fields.map((item, i) => {
+            return <FieldTemplate key={item.id} field={{ ...item }} />;
+          })}
         </div>
         <div>
-          <div className="flex flex-col md:flex-row gap-10">
-            <div className="flex flex-col w-full">
-              <label htmlFor="bedrooms" className="mb-1 text-[12px]">
-                Bedrooms
-              </label>
-              <Field
-                id="bedrooms"
-                name="bedrooms"
-                type="text"
-                className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-              />
-              <label htmlFor="yearBuilt" className="mb-1 text-[12px]">
-                Year built
-              </label>
-              <Field
-                id="yearBuilt"
-                name="yearBuilt"
-                type="text"
-                className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-              />
-            </div>
-            <div className="flex flex-col w-full">
-              <label htmlFor="bathrooms" className="mb-1 text-[12px]">
-                Bathrooms
-              </label>
-              <Field
-                id="bathrooms"
-                name="bathrooms"
-                type="text"
-                className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-              />
-              <label htmlFor="floors" className="mb-1 text-[12px]">
-                Floors
-              </label>
-              <Field
-                id="floors"
-                name="floors"
-                type="text"
-                className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-              />
-            </div>
-          </div>
+          {BigFields.map((item) => {
+            return <FieldTemplate key={item.id} field={{ ...item }} />;
+          })}
         </div>
       </div>
-
-      <div>
-        <label htmlFor="description">Description</label>
-        <Field
-          as="textarea"
-          id="description"
-          name="description"
-          className="h-40 w-full bg-white/5"
-        ></Field>
-      </div>
-
-      <div>
-        <label htmlFor="agentRemarks">agent remarks</label>
-        <Field
-          as="textarea"
-          id="agentRemarks"
-          name="agentRemarks"
-          className="h-20 w-full bg-white/5"
-        ></Field>
-      </div>
-      <div className="flex flex-col w-full">
-        <label htmlFor="videoLink" className="mb-1 text-[12px]">
-          Video link
-        </label>
-        <Field
-          id="videoLink"
-          name="videoLink"
-          type="text"
-          className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-        />
-      </div>
-    </div>
+    </CSSTransition>
   );
 };
 

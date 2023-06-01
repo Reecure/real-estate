@@ -6,11 +6,9 @@ import { store } from "@/redux/app/store";
 import React, { FC } from "react";
 import { Provider } from "react-redux";
 
-type Props = {
-  session: any;
-};
+type Props = {};
 
-const UserProfilePage: FC<Props> = ({ session }) => {
+const UserProfilePage: FC<Props> = () => {
   return (
     <Container>
       <Navbar />

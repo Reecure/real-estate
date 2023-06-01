@@ -45,6 +45,7 @@ const getUserRequestsSlice = createSlice({
     },
     setPerPage: (state, action) => {
       state.perPage = action.payload;
+      state.currentPage = 1;
     },
     setStatus: (state, action) => {
       state.selectedStatus = action.payload;
