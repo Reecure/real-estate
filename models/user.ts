@@ -5,6 +5,7 @@ interface IUser extends Document {
   lastName: string;
   email: string;
   password: string;
+  avatar: string
   requests: {
     project: mongoose.Types.ObjectId;
     userId: mongoose.Types.ObjectId;
@@ -19,6 +20,7 @@ const userSchema = new mongoose.Schema({
   lastName: String,
   email: String,
   password: String,
+    avatar: String,
   requests: [
     {
       project: {

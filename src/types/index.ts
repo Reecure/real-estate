@@ -3,6 +3,7 @@ import { Paths } from "@/constants/paths";
 export interface User {
   firstName: string;
   lastName: string;
+  avatar: string;
   email: string;
   password: string;
   requests: {
@@ -70,4 +71,9 @@ export interface IField {
   type: string;
   id: string;
   name: string;
+  placeholder?: string;
+  pattern?:{
+      pattern: RegExp
+      message: string
+  }
 }

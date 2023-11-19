@@ -8,31 +8,31 @@ type Props = {
 };
 
 const RecentTableRaw: FC<Props> = ({ className }) => {
-  return (
-    <tr className={`py-4  ${className} `}>
-      <td
-        className={`flex min-w-[190px] items-center space-x-2 sticky left-0 z-[1]   ${className}`}
-      >
-        <Image
-          src={img}
-          alt="img"
-          className="my-4 ml-6 rounded-md w-12 h-12 "
-        />
-        <p
-          className={`cursor-pointer`}
-          onClick={() => {
-            alert("Redirect to page");
-          }}
-        >
-          Malto House
-        </p>
-      </td>
-      <td className="min-w-[150px] px-1">535 sq ft</td>
-      <td className="min-w-[150px] px-1">$30K</td>
-      <td className="min-w-[150px] px-1">Yesterday</td>
-      <td className="min-w-[150px] px-1">You</td>
-    </tr>
-  );
+	return (
+		<tr className={`py-4  ${className} `}>
+			<td
+				className={`flex min-w-[190px] items-center space-x-2 sticky left-0 z-[1]   ${className}`}
+			>
+				<Image
+					src={img}
+					alt="img"
+					className="my-4 ml-6 rounded-md w-12 h-12 "
+				/>
+				<p
+					className={"cursor-pointer"}
+					onClick={() => {
+						alert("Redirect to page");
+					}}
+				>
+           Malto House
+				</p>
+			</td>
+			<td className="min-w-[150px] px-1">535 sq ft</td>
+			<td className="min-w-[150px] px-1">$30K</td>
+			<td className="min-w-[150px] px-1">Yesterday</td>
+			<td className="min-w-[150px] px-1">You</td>
+		</tr>
+	);
 };
 
 export default RecentTableRaw;

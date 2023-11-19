@@ -1,4 +1,0 @@
-.newLabel{
-    @apply px-2 py-1 text-[9px] uppercase font-semibold max-w-fit rounded-full;
-    background: linear-gradient(90deg, #feac6d 0%, #ae61ed 100%);;
-}

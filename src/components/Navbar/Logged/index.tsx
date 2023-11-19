@@ -8,17 +8,17 @@ type Props = {
   handleUserMenuOpen: () => void;
 };
 export const Logged: FC<Props> = ({
-  logged,
+	logged,
 
-  handleUserMenuOpen,
+	handleUserMenuOpen,
 }) => {
-  return (
-    <>
-      {logged ? (
-        <LoggedNavbar handleUserMenuOpen={handleUserMenuOpen} />
-      ) : (
-        <NonLoggedNavbar />
-      )}
-    </>
-  );
+	return (
+		<>
+			{logged ? (
+				<LoggedNavbar handleUserMenuOpen={handleUserMenuOpen} />
+			) : (
+				<NonLoggedNavbar />
+			)}
+		</>
+	);
 };

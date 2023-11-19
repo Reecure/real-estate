@@ -1,161 +1,143 @@
-import { User } from "@/types";
-import { Field, Form, Formik } from "formik";
-import React, { FC, useState, useEffect } from "react";
-import BlueButton from "../../UI/Buttons/BlueButton";
-import GradientButton from "../../UI/Buttons/GradientButton";
-import { CSSTransition } from "react-transition-group";
+import {User} from "@/types";
+import React, {FC, useEffect, useState} from "react";
+import {CSSTransition} from "react-transition-group";
 import s from "../ModalsTransition.module.css";
 import DeleteProfileModal from "@/components/Modals/DeleteProfileModal";
+import {useForm} from "react-hook-form";
+import ErrorText from "@/components/UI/ErrorText/ErrorText";
+import Button, {Themes} from "@/components/UI/Button/Button";
+import Modal from "@/components/UI/Modal/Modal";
 
 type Props = {
-  userEditModalOpen: boolean;
-  setUserEditModalOpen: (arg: boolean) => void;
-  className?: string;
   user: User;
 };
 
-const EditProfile: FC<Props> = ({
-  setUserEditModalOpen,
-  userEditModalOpen,
-  className,
-  user,
+const INPUT_STYLE = "w-full py-3 px-2 bg-[#0E0E0E] rounded-lg";
+
+const EditProfileForm: FC<Props> = ({
+	user,
 }) => {
-  const [deleteOpen, setDeleteOpen] = useState(false);
-  console.log(user);
+	const [deleteOpen, setDeleteOpen] = useState(false);
 
-  useEffect(() => {
-    if (deleteOpen) {
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-      document.body.scrollTop = 0;
-    } else {
-      document.documentElement.scrollTop = 0;
-      document.body.scrollTop = 0;
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [deleteOpen]);
+	const {register, handleSubmit, control, formState: {errors}} = useForm({defaultValues: {
+		firstName: "",
+		lastName: "",
+		email: "",
+		currentPassword: "",
+		newPassword: "",
+		confirmNewPassword: "",
+	}});
 
-  return (
-    <>
-      <CSSTransition
-        in={userEditModalOpen}
-        classNames={{
-          enterActive: s.modalActive,
-          exitActive: s.modalExit,
-        }}
-        timeout={500}
-        unmountOnExit
-        mountOnEnter
-      >
-        <dialog
-          open
-          className={`${className} ${
-            deleteOpen ? "pointer-events-none opacity-0" : ""
-          } max-w-[560px] p-10 rounded-[24px] shadow-xl shadow-white/30 text-white bg-[#0A0A0A] z-10`}
-        >
-          <div className="flex justify-between items-center mb-10">
-            <h4 className="text-4xl">Edit Profile</h4>
-            <button onClick={() => setUserEditModalOpen(false)}>x</button>
-          </div>
+	useEffect(() => {
+		if (deleteOpen) {
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+			document.body.scrollTop = 0;
+		} else {
+			document.documentElement.scrollTop = 0;
+			document.body.scrollTop = 0;
+		}
+		return () => {
+			document.body.style.overflow = "auto";
+		};
+	}, [deleteOpen]);
 
-          <Formik
-            initialValues={{
-              firstName: "",
-              lastName: "",
-              email: "",
-              currentPassword: "",
-              newPassword: "",
-              confirmNewPassword: "",
-            }}
-            onSubmit={(values) => {
-              alert(JSON.stringify(values, null, 2));
-            }}
-          >
-            <Form>
-              <div className="flex flex-col sm:flex-row items-center sm:mb-10">
-                <div className="mr-10">
-                  <div className="w-28 h-28 rounded-full bg-slate-600"></div>
-                </div>
-                <div className="flex flex-col w-full">
-                  <label htmlFor="firstName" className="mb-1 text-[12px]">
-                    Firstname
-                  </label>
-                  <Field
-                    name="firstName"
-                    type="text"
-                    placeholder={user.firstName}
-                    className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                  />
-                  <label htmlFor="lastName" className="mb-1 text-[12px]">
-                    Lastname
-                  </label>
-                  <Field
-                    name="lastName"
-                    type="text"
-                    placeholder={user.lastName}
-                    className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                  />
-                </div>
-              </div>
-              <div className="mb-10">
-                <label htmlFor="firstname" className="mb-1 text-[12px]">
-                  Email
-                </label>
-                <Field
-                  name="email"
-                  type="text"
-                  placeholder={user.email}
-                  className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                />
-                <label htmlFor="currentPassword" className="mb-1 text-[12px]">
-                  Current Password
-                </label>
-                <Field
-                  name="currentPassword"
-                  type="password"
-                  className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                />
-                <label htmlFor="newPassword" className="mb-1 text-[12px]">
-                  New Password
-                </label>
-                <Field
-                  name="newPassword"
-                  type="password"
-                  className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                />
-                <label
-                  htmlFor="confirmNewPassword"
-                  className="mb-1 text-[12px]"
-                >
-                  Confirm New Password
-                </label>
-                <Field
-                  name="confirmNewPassword"
-                  type="password"
-                  className="w-full py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg"
-                />
-              </div>
-              <div className="flex justify-between space-x-6">
-                <BlueButton
-                  type="button"
-                  onClick={() => setDeleteOpen((prev) => !prev)}
-                >
-                  Delete account
-                </BlueButton>
-                <GradientButton type="submit">Save</GradientButton>
-              </div>
-            </Form>
-          </Formik>
-        </dialog>
-      </CSSTransition>
-      <DeleteProfileModal
-        deleteOpen={deleteOpen}
-        setDeleteOpen={setDeleteOpen}
-        className={"absolute top-1/4 left-0 "}
-      />
-    </>
-  );
+	const deleteOpenHandler = () => {
+		setDeleteOpen(prev => !prev);
+	};
+
+	return (
+		<>
+			<form onSubmit={handleSubmit((data) => {
+				alert(JSON.stringify(data, null, 2));
+			})}
+			className={"max-w-[450px] w-full"}
+			>
+				<div className="flex flex-col sm:flex-row items-center sm:mb-10">
+					<div className="mr-10">
+						<div className="w-28 h-28 rounded-full bg-slate-600"></div>
+					</div>
+					<div className="flex flex-col w-full">
+						<label htmlFor="firstName" className="mb-1 text-[12px]">
+                                Firstname
+							<input {...register("firstName", {
+								required: {value: true, message: "Firstname is required"}
+							})}
+							type="text"
+							placeholder={user.firstName}
+							className={INPUT_STYLE}
+							/>
+							{(errors.firstName != null) && <ErrorText text={errors.firstName.message || "Error"} />}
+						</label>
+						<label htmlFor="lastName" className="mb-1 text-[12px]">
+                                Lastname
+							<input {...register("lastName", {
+								required: {value: true, message: "Lastname is required"}
+							})}
+							type="text"
+							placeholder={user.lastName}
+							className={INPUT_STYLE}
+							/>
+							{(errors.lastName != null) && <ErrorText text={errors.lastName.message || "Error"} />}
+						</label>
+					</div>
+				</div>
+				<div className="mb-10">
+					<label htmlFor="email" className="mb-1 text-[12px]">
+                            Email
+						<input {...register("email", {
+							required: {value: true, message: "Lastname is required"}
+						})}
+						type="email"
+						placeholder={user.lastName}
+						className={INPUT_STYLE}
+						/>
+						{(errors.email != null) && <ErrorText text={errors.email.message || "Error"} />}
+					</label>
+					<label htmlFor="currentPassword" className="mb-1 text-[12px]">
+                            Current Password
+						<input {...register("currentPassword", )}
+							type="password"
+							placeholder={"*********"}
+							className={INPUT_STYLE}
+						/>
+						{(errors.currentPassword != null) && <ErrorText text={errors.currentPassword.message || "Error"} />}
+					</label>
+					<label htmlFor="newPassword" className="mb-1 text-[12px]">
+                            New Password
+						<input {...register("newPassword", )}
+							type="password"
+							className={INPUT_STYLE}
+						/>
+						{(errors.newPassword != null) && <ErrorText text={errors.newPassword.message || "Error"} />}
+					</label>
+					<label htmlFor="confirmNewPassword" className="mb-1 text-[12px]">
+                            Confirm New Password
+						<input {...register("confirmNewPassword", )}
+							type="password"
+							className={INPUT_STYLE}
+						/>
+						{(errors.confirmNewPassword != null) && <ErrorText text={errors.confirmNewPassword.message || "Error"} />}
+					</label>
+				</div>
+				<div className="flex justify-between gap-4">
+					<Button theme={Themes.BLUE}
+						type="button"
+						onClick={deleteOpenHandler}
+					> Delete account
+					</Button>
+					<Button theme={Themes.GRADIENT} type="submit">Save</Button>
+				</div>
+
+			</form>
+			<Modal setIsOpen={deleteOpenHandler} isOpen={deleteOpen}>
+				<DeleteProfileModal
+					deleteOpen={deleteOpen}
+					setDeleteOpen={setDeleteOpen}
+					className={" "}
+				/>
+			</Modal>
+		</>
+	);
 };
 
-export default EditProfile;
+export default EditProfileForm;

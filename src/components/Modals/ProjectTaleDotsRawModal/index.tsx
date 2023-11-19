@@ -14,10 +14,6 @@ const ProjectTaleDotsRawModal: FC<Props> = ({ isOpen }) => {
         open
         className={`px-4  max-w-[180px] py-2 bg-primary-dark-gray space-y-1 rounded-lg border-[1px] border-white `}
       >
-        <div className={`flex items-center text-white text-[9px] space-x-2`}>
-          <p className={"cursor-pointer"}>Export</p>
-        </div>
-
         <div className={`text-white text-[9px] flex items-center space-x-2`}>
           <p className={"cursor-pointer"}>Delete</p>
         </div>

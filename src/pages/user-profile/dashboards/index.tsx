@@ -8,17 +8,17 @@ import { Provider } from "react-redux";
 type Props = {};
 
 const Dashboards: FC<Props> = () => {
-  return (
-    <Container className="">
-      <Provider store={store}>
-        <Navbar />
+	return (
+		<Container className="">
+			<Provider store={store}>
+				<Navbar />
 
-        <div className="custom-padding">
-          <UserDashboards />
-        </div>
-      </Provider>
-    </Container>
-  );
+				<div className="custom-padding">
+					<UserDashboards />
+				</div>
+			</Provider>
+		</Container>
+	);
 };
 
 export default Dashboards;

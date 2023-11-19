@@ -3,7 +3,6 @@ export enum Paths {
   AboutUs = "/about-us",
   OtherProjects = "/other-projects",
   UserProfile = "/user-profile",
-  UserMail = "/user-mails",
   NewProject = "/new-project",
   SignUp = "/sign-up",
   SignIn = "/sign-in",

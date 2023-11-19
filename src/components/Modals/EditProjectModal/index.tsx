@@ -1,76 +1,62 @@
-import React, { FC, useEffect } from "react";
+import React, {FC, useEffect} from "react";
+import {CSSTransition} from "react-transition-group";
+import {Project} from "@/types";
+import {useAppDispatch} from "@/redux/app/hooks";
 
-import GradientButton from "@/components/UI/Buttons/GradientButton";
-import { CSSTransition } from "react-transition-group";
-import { Project } from "@/types";
-import { useAppDispatch } from "@/redux/app/hooks";
-
-import { fetchUser } from "@/redux/features/getUserByIdSlice";
-import BlackButton from "@/components/UI/Buttons/BlackButton";
-import { ProjectTypes } from "@/constants/projectTypes";
+import {fetchUser} from "@/redux/features/getUserByIdSlice";
+import {ProjectTypes} from "@/constants/projectTypes";
+import Button, {Themes} from "@/components/UI/Button/Button";
 
 type Props = {
-  isOpen: boolean;
-  setIsOpen: () => void;
   item: Project;
 };
 
 const projectOptions = [
-  ProjectTypes.Penthouse,
-  ProjectTypes.Townhouse,
-  ProjectTypes.Apartment,
+	ProjectTypes.Penthouse,
+	ProjectTypes.Townhouse,
+	ProjectTypes.Apartment,
 ];
 
-const EditProjectModal: FC<Props> = ({ isOpen, setIsOpen, item }) => {
-  const dispatch = useAppDispatch();
+const EditProjectForm: FC<Props> = ({ item }) => {
+	const dispatch = useAppDispatch();
 
-  useEffect(() => {
-    dispatch(fetchUser(item.owner));
-  }, [dispatch, item.owner]);
+	useEffect(() => {
+		dispatch(fetchUser(item.owner));
+	}, [dispatch, item.owner]);
 
-  return (
-    <CSSTransition in={isOpen} timeout={300}>
-      <dialog
-        open
-        className={
-          "max-w-[560px] absolute top-1/4 left-0 p-10 rounded-[24px] shadow-xl shadow-white/30 text-white bg-[#0A0A0A] z-50"
-        }
-      >
-        <div className="flex justify-between items-center mb-10">
-          <h4 className="text-4xl">Edit Project</h4>
-          <button onClick={setIsOpen}>x</button>
-        </div>
-        <div className=" mb-10">
-          <label htmlFor="" className={`uppercase text-[9px] tracking-[2px]`}>
+	return (
+		<form className={""}>
+			<div className="flex justify-between items-center mb-5">
+				<h4 className="text-4xl">Edit Project</h4>
+			</div>
+			<div className=" mb-5">
+				<label htmlFor="" className={"uppercase text-[9px] tracking-[2px]"}>
             Name
-          </label>
-          <input
-            type="text"
-            className={`custom-field`}
-            placeholder={item.name}
-          />
-          <label htmlFor="" className={`uppercase text-[9px] tracking-[2px]`}>
+				</label>
+				<input
+					type="text"
+					className={"custom-field"}
+					placeholder={item.name}
+				/>
+				<label htmlFor="" className={"uppercase text-[9px] tracking-[2px]"}>
             Type
-          </label>
-          <select name="" id="" className={`custom-field`}>
-            {projectOptions.map((item) => {
-              return (
-                <option key={item} value={item}>
-                  {item}
-                </option>
-              );
-            })}
-          </select>
-        </div>
-        <div className="flex justify-end space-x-6">
-          <BlackButton className={`uppercase`}>Delete</BlackButton>
-          <BlackButton className={`uppercase`}>Suspend</BlackButton>
-          <BlackButton className={`uppercase`}>Export</BlackButton>
-          <GradientButton className={`uppercase`}>Save</GradientButton>
-        </div>
-      </dialog>
-    </CSSTransition>
-  );
+				</label>
+				<select name="" id="" className={"custom-field"}>
+					{projectOptions.map((item) => {
+						return (
+							<option key={item} value={item}>
+								{item}
+							</option>
+						);
+					})}
+				</select>
+			</div>
+			<div className="flex justify-end gap-5">
+				<Button theme={Themes.BLACK} className={"uppercase"}>Delete</Button>
+				<Button theme={Themes.GRADIENT} className={"uppercase"}>Save</Button>
+			</div>
+		</form>
+	);
 };
 
-export default EditProjectModal;
+export default EditProjectForm;

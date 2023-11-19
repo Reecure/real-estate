@@ -5,36 +5,37 @@ type Props = {
 };
 
 const ObserverSection: FC<Props> = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const targetRef = useRef<HTMLDivElement>(null);
+	const [isVisible, setIsVisible] = useState(false);
+	const targetRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setIsVisible(entry.isIntersecting);
-      },
-      { rootMargin: "-50px" }
-    );
+	useEffect(() => {
+		const observer = new IntersectionObserver(
+			([entry]) => {
+				setIsVisible(entry.isIntersecting);
+			},
+			{ rootMargin: "-50px" }
+		);
 
-    if (targetRef.current) observer.observe(targetRef.current);
+		if (targetRef.current) observer.observe(targetRef.current);
 
-    return () => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (targetRef.current) observer.unobserve(targetRef.current);
-    };
-  }, []);
+		return () => {
+			// eslint-disable-next-line react-hooks/exhaustive-deps
+			
+			if (targetRef.current) observer.unobserve(targetRef.current);
+		};
+	}, []);
 
-  return (
-    <div
-      ref={targetRef}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transition: "opacity 1s ease-in-out",
-      }}
-    >
-      {children}
-    </div>
-  );
+	return (
+		<div
+			ref={targetRef}
+			style={{
+				opacity: isVisible ? 1 : 0,
+				transition: "opacity 1s ease-in-out",
+			}}
+		>
+			{children}
+		</div>
+	);
 };
 
 export default ObserverSection;
