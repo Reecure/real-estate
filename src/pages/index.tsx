@@ -7,10 +7,11 @@ import Layout from "./layout";
 
 export default function Home() {
 	return (
-		<Layout>
-			<Provider store={store}>
+		<Provider store={store}>
+			<Layout>
 				<Main />
-			</Provider>
-		</Layout>
+			</Layout>
+		</Provider>
+
 	);
 }

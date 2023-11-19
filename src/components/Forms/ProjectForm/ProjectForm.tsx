@@ -1,14 +1,12 @@
 import React, {FC, useEffect} from "react";
-import {CSSTransition} from "react-transition-group";
-import {Project} from "@/types";
 import {useAppDispatch} from "@/redux/app/hooks";
-
 import {fetchUser} from "@/redux/features/getUserByIdSlice";
-import {ProjectTypes} from "@/constants/projectTypes";
 import Button, {Themes} from "@/components/UI/Button/Button";
+import {Project} from "@/types";
+import {ProjectTypes} from "@/constants/projectTypes";
 
 type Props = {
-  item: Project;
+    item: Project;
 };
 
 const projectOptions = [
@@ -17,7 +15,7 @@ const projectOptions = [
 	ProjectTypes.Apartment,
 ];
 
-const EditProjectForm: FC<Props> = ({ item }) => {
+const ProjectForm: FC<Props> = ({ item }) => {
 	const dispatch = useAppDispatch();
 
 	useEffect(() => {
@@ -31,7 +29,7 @@ const EditProjectForm: FC<Props> = ({ item }) => {
 			</div>
 			<div className=" mb-5">
 				<label htmlFor="" className={"uppercase text-[9px] tracking-[2px]"}>
-            Name
+                    Name
 				</label>
 				<input
 					type="text"
@@ -39,7 +37,7 @@ const EditProjectForm: FC<Props> = ({ item }) => {
 					placeholder={item.name}
 				/>
 				<label htmlFor="" className={"uppercase text-[9px] tracking-[2px]"}>
-            Type
+                    Type
 				</label>
 				<select name="" id="" className={"custom-field"}>
 					{projectOptions.map((item) => {
@@ -52,11 +50,11 @@ const EditProjectForm: FC<Props> = ({ item }) => {
 				</select>
 			</div>
 			<div className="flex justify-end gap-5">
-				<Button theme={Themes.BLACK} className={"uppercase"}>Delete</Button>
+				<Button theme={Themes.RED} className={"uppercase"}>Delete</Button>
 				<Button theme={Themes.GRADIENT} className={"uppercase"}>Save</Button>
 			</div>
 		</form>
 	);
 };
 
-export default EditProjectForm;
+export default ProjectForm;

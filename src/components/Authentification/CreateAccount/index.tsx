@@ -1,12 +1,9 @@
-import Image from "next/image";
-
 import React from "react";
-import logo from "../../../../public/logo.png";
-import GradientButton from "@/components/UI/Button/GradientButton";
 import Container from "../../UI/Container";
 import { IField } from "@/types";
 import {useForm} from "react-hook-form";
 import Button, {Themes} from "@/components/UI/Button/Button";
+import ErrorText from "@/components/UI/ErrorText/ErrorText";
 
 const Fields: IField[] = [
 	{
@@ -26,6 +23,12 @@ const Fields: IField[] = [
 		id: "email",
 		type: "email",
 		value: "Email",
+	},
+	{
+		name: "password",
+		id: "password",
+		type: "password",
+		value: "Password",
 	},
 	{
 		name: "phoneNumber",
@@ -122,6 +125,7 @@ const CreateAccount = () => {
 			firstName: "",
 			lastName: "",
 			email: "",
+			password: "",
 			phoneNumber: "",
 			traditional: "",
 			crypto: "",
@@ -138,36 +142,31 @@ const CreateAccount = () => {
 		<Container
 			className={"my-20 text-white max-w-[560px] bg-primary-dark-gray p-5 rounded-2xl"}
 		>
-			<div className={"flex justify-center"}>
-				<Image quality={100} width={163} height={110} src={logo} alt="logo" />
-			</div>
-
 			<h2
 				className={"text-center text-2xl sm:text-4xl py-10 whitespace-nowrap font-semibold"}
 			>
         Create your Account
 			</h2>
-			<form>
+			<form onSubmit={handleSubmit(data => {
+				localStorage.setItem("real-estate-email", data.email);
+				localStorage.setItem("real-estate-password", data.password);
+				alert("register success");
+			})}>
 				<div>
 					{Fields.map((field) => {
 						return (
-							<div key={field.id}>
-								<label
-									className={"uppercase text-[9px] tracking-[2px]"}
-									htmlFor={field.name}
-								>
-									{field.value}
-								</label>
+							<label key={field.id} className={"flex flex-col gap-1"}>
+								{field.value}
 								<input
-									className={"custom-field"}
-									name={field.name}
-									type={field.type}
+									{...register(field.name)}
+									className="custom-field"
 								/>
-							</div>
+								{(errors[field.name] != null) && <ErrorText text={errors[field.name].message || "Error"} />}
+							</label>
 						);
 					})}
-					<div className="flex flex-col items-start space-y-2">
-						<p className={"uppercase text-md tracking-[2px]"}>
+					<div className="flex flex-col items-start gap-2">
+						<p className={"uppercase text-sm tracking-[2px] font-bold"}>
                 i want buy a property
 						</p>
 						{Properties.map((prop) => {
@@ -182,8 +181,8 @@ const CreateAccount = () => {
 							);
 						})}
 					</div>
-					<div className="flex flex-col items-start space-y-2">
-						<p className={"uppercase text-md tracking-[2px]"}>
+					<div className="flex flex-col items-start gap-2">
+						<p className={"uppercase text-sm tracking-[2px] font-bold"}>
                 Do you have an Agent ?
 						</p>
 						{Agent.map((agent) => {
@@ -199,8 +198,8 @@ const CreateAccount = () => {
 						})}
 					</div>
 					<div className="flex flex-col items-start">
-						<div className={"py-4"}>
-							<p className={"uppercase text-md tracking-[2px]"}>
+						<div className={"mb-3"}>
+							<p className={"uppercase text-sm tracking-[2px] font-bold"}>
                   What’s your budget ?
 							</p>
 						</div>
@@ -224,7 +223,7 @@ const CreateAccount = () => {
 						})}
 					</div>
 				</div>
-				<div className={"flex justify-center py-14"}>
+				<div className={"flex justify-center my-5"}>
 					<Button theme={Themes.GRADIENT} className="rounded-[30px] !px-14 py-2">
               SUBMIT
 					</Button>

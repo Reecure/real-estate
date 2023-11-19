@@ -1,6 +1,9 @@
 import {User} from "@/types";
 import React, {FC} from "react";
 import Button, {Themes} from "@/components/UI/Button/Button";
+import {useAppDispatch} from "@/redux/app/hooks";
+import {useRouter} from "next/router";
+import {logout} from "@/redux/features/userAuthSlice";
 
 type Props = {
   userEditModalOpen: boolean;
@@ -13,6 +16,8 @@ const UserCard: FC<Props> = ({
 	setUserEditModalOpen,
 	user,
 }) => {
+	const dispatch = useAppDispatch();
+	const rounter = useRouter();
 	return (
 		<div className="text-white">
 			<div>
@@ -38,6 +43,10 @@ const UserCard: FC<Props> = ({
               Edit
 						</Button>
 						<Button
+							onClick={() => {
+								dispatch(logout());
+								rounter.push("/");
+							}}
 							theme={Themes.RED}
 							className="!px-8">
               Logout

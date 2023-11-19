@@ -9,16 +9,16 @@ import { Provider } from "react-redux";
 type Props = {};
 
 const UserProfilePage: FC<Props> = () => {
-  return (
-    <Container>
-      <Navbar />
-      <main className="py-16">
-        <Provider store={store}>
-          <UserProfile />{" "}
-        </Provider>
-      </main>
-    </Container>
-  );
+	return (
+		<Provider store={store}>
+			<Container>
+				<Navbar />
+				<main className="py-16">
+					<UserProfile />{" "}
+				</main>
+			</Container>
+		</Provider>
+	);
 };
 
 export default UserProfilePage;

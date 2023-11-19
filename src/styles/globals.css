@@ -16,7 +16,7 @@ body {
 }
 
 .custom-field {
-  @apply w-full  py-3 px-2 mb-5 bg-[#0E0E0E] rounded-lg
+  @apply w-full  py-1 px-2 mb-2 bg-[#0E0E0E] rounded-lg
 }
 
 

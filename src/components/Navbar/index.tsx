@@ -10,6 +10,8 @@ import { Logged } from "@/components/Navbar/Logged";
 import { HamburgerMenuOpen } from "@/components/Navbar/HamburgerMenuOpen";
 import { ITab } from "@/types";
 import UserActionsModal from "@/components/Modals/UserActionsModal";
+import {useAppSelector} from "@/redux/app/hooks";
+import {selectAuth} from "@/redux/features/userAuthSlice";
 
 const Tabs: ITab[] = [
 	{
@@ -27,10 +29,12 @@ const Tabs: ITab[] = [
 ];
 
 const Navbar = () => {
-	const [logged, setLogged] = useState(true);
+
 	const [yPosition, setYPosition] = useState(0);
 	const [userMenuOpen, setUserMenuOpen] = useState(false);
 	const [hamburgerMenuOpen, setHamburgerMenuOpen] = useState(false);
+
+	const logged = useAppSelector(selectAuth);
 
 	const handleUserMenuOpen = useCallback(() => {
 		setUserMenuOpen((prev) => !prev);
@@ -109,7 +113,7 @@ const Navbar = () => {
 						: "-translate-y-5 opacity-0 pointer-events-none"
 				}`}
 			>
-				<UserActionsModal />
+				<UserActionsModal setUserMenuOpen={handleUserMenuOpen} />
 			</div>
 		</Container>
 	);

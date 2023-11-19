@@ -1,5 +1,3 @@
-import GradientButton from "@/components/UI/Button/GradientButton";
-import Link from "next/link";
 import React, { FC } from "react";
 import ProjectsHoodNav from "./ProjectsHoodNav";
 import RequestsHoodNav from "./RequestsHoodNav";
@@ -39,12 +37,10 @@ const Hood: FC<Props> = ({ sectionHandler, selectedSection }) => {
 			<div>
 				{selectedSection === 0 ? (
 					<RequestsHoodNav />
-				) : selectedSection === 1 ? (
+				) : selectedSection === 1 && (
 					<>
 						<ProjectsHoodNav />
 					</>
-				) : (
-					<></>
 				)}
 			</div>
 		</div>

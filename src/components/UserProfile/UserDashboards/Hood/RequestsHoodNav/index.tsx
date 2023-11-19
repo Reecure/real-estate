@@ -1,7 +1,6 @@
-import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
+import { useAppDispatch } from "@/redux/app/hooks";
 import {
 	setStatus,
-	selectUserRequests,
 	setTypes,
 } from "@/redux/features/getUserRequestsSlice";
 import React, { useState } from "react";

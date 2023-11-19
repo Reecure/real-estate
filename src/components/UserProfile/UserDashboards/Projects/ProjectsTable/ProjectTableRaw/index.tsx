@@ -1,14 +1,11 @@
 import Image from "next/image";
 import React, {FC, useState} from "react";
-import {BsThreeDotsVertical} from "react-icons/bs";
 import {Project} from "@/types";
-import ProjectTaleDotsRawModal from "@/components/Modals/ProjectTaleDotsRawModal";
-import EditProjectModal from "@/components/Modals/EditProjectModal";
 import Link from "next/link";
 import {Paths} from "@/constants/paths";
 import Button, {Themes} from "@/components/UI/Button/Button";
-import EditProjectForm from "@/components/Modals/EditProjectModal";
 import Modal from "@/components/UI/Modal/Modal";
+import ProjectForm from "@/components/Forms/ProjectForm/ProjectForm";
 
 type Props = {
   className: string;
@@ -16,15 +13,10 @@ type Props = {
 };
 
 const ProjectTableRaw: FC<Props> = ({ className, item }) => {
-	const [threeDotsMenuOpen, setThreeDotsMenuOpen] = useState(false);
 	const [editModalOpen, setEditModalOpen] = useState(false);
 
 	const editHandler = () => {
 		setEditModalOpen((prev) => !prev);
-	};
-
-	const threeDotsHandler = () => {
-		setThreeDotsMenuOpen((prev) => !prev);
 	};
 
 	return (
@@ -60,22 +52,9 @@ const ProjectTableRaw: FC<Props> = ({ className, item }) => {
             Edit
 					</Button>
 				</td>
-				<td className="px-1 min-w-[60px] relative">
-					<BsThreeDotsVertical
-						className={"cursor-pointer"}
-						onClick={threeDotsHandler}
-					/>
-					<div className={"absolute top-1/4 -left-14"}>
-						{threeDotsMenuOpen && (
-							<ProjectTaleDotsRawModal isOpen={threeDotsMenuOpen} />
-						)}
-					</div>
-				</td>
 			</tr>
 			<Modal isOpen={editModalOpen} setIsOpen={editHandler}>
-				<EditProjectForm
-					item={{ ...item }}
-				/>
+				<ProjectForm item={item} />
 			</Modal>
 		</>
 	);

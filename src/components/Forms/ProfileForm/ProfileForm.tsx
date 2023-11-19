@@ -1,20 +1,19 @@
-import {User} from "@/types";
 import React, {FC, useEffect, useState} from "react";
-import {CSSTransition} from "react-transition-group";
-import s from "../ModalsTransition.module.css";
-import DeleteProfileModal from "@/components/Modals/DeleteProfileModal";
+import {User} from "@/types";
 import {useForm} from "react-hook-form";
 import ErrorText from "@/components/UI/ErrorText/ErrorText";
 import Button, {Themes} from "@/components/UI/Button/Button";
 import Modal from "@/components/UI/Modal/Modal";
+import DeleteForm from "@/components/Forms/DeleteForm/DeleteForm";
 
 type Props = {
-  user: User;
+    user: User;
 };
 
 const INPUT_STYLE = "w-full py-3 px-2 bg-[#0E0E0E] rounded-lg";
 
-const EditProfileForm: FC<Props> = ({
+
+const ProfileForm: FC<Props> = ({
 	user,
 }) => {
 	const [deleteOpen, setDeleteOpen] = useState(false);
@@ -58,7 +57,7 @@ const EditProfileForm: FC<Props> = ({
 					</div>
 					<div className="flex flex-col w-full">
 						<label htmlFor="firstName" className="mb-1 text-[12px]">
-                                Firstname
+                            Firstname
 							<input {...register("firstName", {
 								required: {value: true, message: "Firstname is required"}
 							})}
@@ -69,7 +68,7 @@ const EditProfileForm: FC<Props> = ({
 							{(errors.firstName != null) && <ErrorText text={errors.firstName.message || "Error"} />}
 						</label>
 						<label htmlFor="lastName" className="mb-1 text-[12px]">
-                                Lastname
+                            Lastname
 							<input {...register("lastName", {
 								required: {value: true, message: "Lastname is required"}
 							})}
@@ -83,7 +82,7 @@ const EditProfileForm: FC<Props> = ({
 				</div>
 				<div className="mb-10">
 					<label htmlFor="email" className="mb-1 text-[12px]">
-                            Email
+                        Email
 						<input {...register("email", {
 							required: {value: true, message: "Lastname is required"}
 						})}
@@ -94,7 +93,7 @@ const EditProfileForm: FC<Props> = ({
 						{(errors.email != null) && <ErrorText text={errors.email.message || "Error"} />}
 					</label>
 					<label htmlFor="currentPassword" className="mb-1 text-[12px]">
-                            Current Password
+                        Current Password
 						<input {...register("currentPassword", )}
 							type="password"
 							placeholder={"*********"}
@@ -103,7 +102,7 @@ const EditProfileForm: FC<Props> = ({
 						{(errors.currentPassword != null) && <ErrorText text={errors.currentPassword.message || "Error"} />}
 					</label>
 					<label htmlFor="newPassword" className="mb-1 text-[12px]">
-                            New Password
+                        New Password
 						<input {...register("newPassword", )}
 							type="password"
 							className={INPUT_STYLE}
@@ -111,7 +110,7 @@ const EditProfileForm: FC<Props> = ({
 						{(errors.newPassword != null) && <ErrorText text={errors.newPassword.message || "Error"} />}
 					</label>
 					<label htmlFor="confirmNewPassword" className="mb-1 text-[12px]">
-                            Confirm New Password
+                        Confirm New Password
 						<input {...register("confirmNewPassword", )}
 							type="password"
 							className={INPUT_STYLE}
@@ -130,14 +129,12 @@ const EditProfileForm: FC<Props> = ({
 
 			</form>
 			<Modal setIsOpen={deleteOpenHandler} isOpen={deleteOpen}>
-				<DeleteProfileModal
-					deleteOpen={deleteOpen}
-					setDeleteOpen={setDeleteOpen}
-					className={" "}
+				<DeleteForm
+					text={"This action can not be undone. We highly recommend to export your account"}
+					setDeleteOpen={deleteOpenHandler}
 				/>
 			</Modal>
 		</>
 	);
 };
-
-export default EditProfileForm;
+export default ProfileForm;

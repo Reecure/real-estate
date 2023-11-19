@@ -1,12 +1,11 @@
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import { fetchUser, selectUser } from "@/redux/features/getUserByIdSlice";
-import React, { useCallback, useEffect, useState } from "react";
-import EditProfile from "../Modals/EditProfileModal";
+import React, { useEffect, useState } from "react";
 import Container from "../UI/Container";
 import RecentActions from "./RecentActions";
 import UserCard from "./UserCard";
 import Modal from "@/components/UI/Modal/Modal";
-import EditProfileForm from "../Modals/EditProfileModal";
+import ProfileForm from "@/components/Forms/ProfileForm/ProfileForm";
 
 const UserProfile = () => {
 	const [userEditModalOpen, setUserEditModalOpen] = useState(false);
@@ -47,9 +46,7 @@ const UserProfile = () => {
 			</Container>
 
 			<Modal isOpen={userEditModalOpen} setIsOpen={modalOpenHandler} >
-				<EditProfileForm
-					user={user}
-				/>
+				<ProfileForm user={user} />
 			</Modal>
 
 		</div>

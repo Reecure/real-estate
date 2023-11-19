@@ -85,7 +85,6 @@ const ProjectTable = (props: Props) => {
 							<td className="px-1">Size</td>
 							<td className="px-1">Price</td>
 							<td className="px-1">Creation Data</td>
-							<td className="px-1"></td>
 						</tr>
 						{visibleProjects.map((item: Project, i) => {
 							return (

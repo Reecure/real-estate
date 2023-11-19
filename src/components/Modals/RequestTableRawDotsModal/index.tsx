@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { GrClose } from "react-icons/gr";
-import { BsBox2 } from "react-icons/bs";
 import { CSSTransition } from "react-transition-group";
 
 type Props = {
