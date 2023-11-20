@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import { IField } from "@/types";
-import { FieldTemplate } from "@/components/Templates/FieldTemplate";
 import { CSSTransition } from "react-transition-group";
 import s from "./AdditionalDetail.module.css";
 import {useFormContext} from "react-hook-form";

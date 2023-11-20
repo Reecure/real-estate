@@ -158,9 +158,11 @@ const CreateAccount = () => {
 							<label key={field.id} className={"flex flex-col gap-1"}>
 								{field.value}
 								<input
+                                    //@ts-ignore
 									{...register(field.name)}
 									className="custom-field"
 								/>
+                                {/*@ts-ignore*/}
 								{(errors[field.name] != null) && <ErrorText text={errors[field.name].message || "Error"} />}
 							</label>
 						);

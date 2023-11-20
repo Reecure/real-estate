@@ -6,11 +6,12 @@ type Props = {
 };
 
 const Projects: FC<Props> = ({ className }) => {
-  return (
-    <div className={`${className}`}>
-      <ProjectTable />
-    </div>
-  );
+	return (
+		<div className={`${className}`}>
+			<ProjectTable />
+		</div>
+	);
 };
 
 export default Projects;
+ 

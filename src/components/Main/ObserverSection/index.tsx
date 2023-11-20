@@ -19,10 +19,7 @@ const ObserverSection: FC<Props> = ({ children }) => {
 		if (targetRef.current) observer.observe(targetRef.current);
 
 		return () => {
-			// eslint-disable-next-line react-hooks/exhaustive-deps
-			
-			if (targetRef.current) observer.unobserve(targetRef.current);
-		};
+			if (targetRef.current) observer.unobserve(targetRef.current);};
 	}, []);
 
 	return (

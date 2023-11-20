@@ -5,13 +5,11 @@ import { Provider } from "react-redux";
 import Layout from "../layout";
 
 const OtherProjects = () => {
-  return (
-    <Layout>
-      <Provider store={store}>
-        <OtherProjectsPage />
-      </Provider>
-    </Layout>
-  );
+	return (
+		<Layout>
+            <OtherProjectsPage />
+		</Layout>
+	);
 };
 
 export default OtherProjects;

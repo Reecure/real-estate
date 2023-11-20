@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import {Swiper, SwiperProps, SwiperSlide} from "swiper/react";
 
 // Import Swiper styles
 import "swiper/css";
@@ -23,8 +23,7 @@ const SwiperProjectPage: FC<Props> = ({ apart }) => {
 		<>
 			<Swiper
 				spaceBetween={10}
-				navigation={true}
-				thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
+				navigation={true} thumbs={thumbsSwiper ? { swiper: thumbsSwiper } : undefined}
 				modules={[FreeMode, Navigation, Thumbs]}
 				className="max-w-[900px] max-h-[700px] mb-5"
 			>
@@ -48,7 +47,7 @@ const SwiperProjectPage: FC<Props> = ({ apart }) => {
 					})}
 			</Swiper>
 			<Swiper
-				onSwiper={(swiper: any) => {
+				onSwiper={(swiper:any) => {
 					setThumbsSwiper(swiper);
 				}}
 				spaceBetween={10}

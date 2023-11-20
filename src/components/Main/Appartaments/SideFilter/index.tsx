@@ -1,21 +1,15 @@
-import BlueButton from "@/components/UI/Button/BlueButton";
 import { useAppDispatch, useAppSelector } from "@/redux/app/hooks";
 import {
 	selectAllApartment,
 	setAcceptCrypto,
-	setBathrooms,
-	setBedrooms,
-	setFloors,
 	setPrice,
 	setSellingNFT,
-	setSize,
 	setYearBuilt,
 } from "@/redux/features/getAllApartmentsSlice";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import BathroomsFilter from "./BathroomsFilter";
 import BedroomsFilter from "./BedroomsFilter";
 import FloorsFilter from "./FloorsFilter";
-import SelectorForm from "./SelectorForm";
 import SizeFilter from "./SizeFilter";
 
 type Props = {};

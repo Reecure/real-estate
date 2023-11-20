@@ -6,11 +6,11 @@ type Props = {
 };
 
 const Requests: FC<Props> = ({ className }) => {
-  return (
-    <div className={`${className}`}>
-      <RequestsTable />
-    </div>
-  );
+	return (
+		<div className={`${className}`}>
+			<RequestsTable />
+		</div>
+	);
 };
-
+ 
 export default Requests;

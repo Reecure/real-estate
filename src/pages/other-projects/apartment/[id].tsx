@@ -7,15 +7,15 @@ import { store } from "@/redux/app/store";
 import ApartmentPage from "../../../components/ApartmentPage";
 
 const Apartment = () => {
-  return (
-    <Provider store={store}>
-      <Layout>
-        <div className="text-white py-32 custom-padding">
-          <ApartmentPage />
-        </div>
-      </Layout>
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<Layout>
+				<div className="text-white py-32 custom-padding">
+					<ApartmentPage />
+				</div>
+			</Layout>
+		</Provider>
+	);
 };
 
 export default Apartment;
